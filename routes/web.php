@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\FileManagerController;
+use App\Http\Controllers\Admin\ParentCategoryController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UploadController;
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // for components testing purpose
-Route::view('/', 'welcome');
+Route::view('/', 'welcome')->name('user.dashboard');
 
 Route::controller(AuthController::class)
     ->prefix('auth')
@@ -77,5 +78,17 @@ Route::middleware('auth')->group(function () {
             Route::post('update{permission}', 'update')->name('update');
             Route::get('delete/{permission}', 'destroy')->name('delete');
             Route::get('synchronize', 'synchronize')->name('synchronize');
+        });
+
+    Route::controller(ParentCategoryController::class)
+        ->prefix('parent/category')
+        ->name('parent.category.')
+        ->group(function () {
+            Route::get('', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::get('edit/{parentCategory}', 'edit')->name('edit');
+            Route::post('update{parentCategory}', 'update')->name('update');
+            Route::get('delete/{parentCategory}', 'destroy')->name('delete');
         });
 });
