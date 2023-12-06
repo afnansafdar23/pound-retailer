@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\ChildCategoryController;
 use App\Http\Controllers\Admin\FileManagerController;
 use App\Http\Controllers\Admin\ParentCategoryController;
 use App\Http\Controllers\Admin\PermissionController;
@@ -91,5 +92,17 @@ Route::middleware('auth')->group(function () {
             Route::post('update{parentCategory}', 'update')->name('update');
             Route::get('delete/{parentCategory}', 'destroy')->name('delete');
         });
+
+    Route::controller(ChildCategoryController::class)
+        ->prefix('child/category')
+        ->name('child.category.')
+        ->group(function () {
+            Route::get('', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::get('edit/{childCategory}', 'edit')->name('edit');
+            Route::post('update{childCategory}', 'update')->name('update');
+            Route::get('delete/{childCategory}', 'destroy')->name('delete');
+        });
 });
-Route::view('nav','frontend.layout.app');
+Route::view('nav', 'frontend.layout.app');

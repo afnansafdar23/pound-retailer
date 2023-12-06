@@ -195,8 +195,9 @@
                 </div>
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="click"
-                    class="menu-item menu-accordion {{Request::route()->getName()=='parent.category.index'?'hover show':''}}{{Request::route()->getName()=='parent.category.create'?'hover show':''}}{{Request::route()->getName()=='parent.category.edit'?'hover show':''}}">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{Request::route()->getName()=='parent.category.index'?'hover show':''}}{{Request::route()->getName()=='parent.category.create'?'hover show':''}}{{Request::route()->getName()=='parent.category.edit'?'hover show':''}}{{Request::route()->getName()=='child.category.index'?'hover
+                    show':''}}{{Request::route()->getName()=='child.category.create'?'hover
+                    show':''}}{{Request::route()->getName()=='child.category.edit'?'hover show':''}}">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                         <span class="menu-bullet">
@@ -236,7 +237,23 @@
                             <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
-
+                    </div>
+                    <!--end:Menu sub-->
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link {{Request::route()->getName()=='child.category.index'?'active':''}}{{Request::route()->getName()=='child.category.create'?'active':''}}{{Request::route()->getName()=='child.category.edit'?'active':''}}"
+                                href="{{ route('child.category.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Child Categories</span>
+                            </a>
+                            <!--end:Menu link-->
+                        </div>
+                        <!--end:Menu item-->
                     </div>
                     <!--end:Menu sub-->
                 </div>

@@ -40,7 +40,7 @@ class AuthController extends Controller
             $user->assignRole(Role::where('name', 'ordinary')->first());
 
             if ($user) {
-                return redirect()->route('user.index')->withSuccess('You have successfully registered');
+                return redirect()->intended('/admin/dashboard')->withSuccess('You have successfully registered');
             } else {
                 return back()->withError('Something went wrong !');
             }
@@ -69,7 +69,7 @@ class AuthController extends Controller
 
         try {
             if (Auth::attempt($validatedUser)) {
-                return redirect()->route('user.index');
+                return redirect()->intended('/admin/dashboard');
             } else {
                 return back()->withError('Either the email or the password is incorrect');
             }
