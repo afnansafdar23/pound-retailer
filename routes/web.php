@@ -78,4 +78,9 @@ Route::middleware('auth')->group(function () {
             Route::get('delete/{permission}', 'destroy')->name('delete');
             Route::get('synchronize', 'synchronize')->name('synchronize');
         });
+
+
+});
+Route::get('/nav', function () {
+    return view('frontend.layout.app');
 });
