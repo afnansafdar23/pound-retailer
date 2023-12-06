@@ -21,7 +21,7 @@
                             {{ session('error') }}
                         </div>
                     @endif
-                    <form action="{{ route('file.store') }}" method="file" enctype="multipart/form-data">
+                    <form action="{{ route('file.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <input type="text" name="name" id="">
