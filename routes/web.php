@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ChildCategoryController;
 use App\Http\Controllers\Admin\FileManagerController;
 use App\Http\Controllers\Admin\ParentCategoryController;
@@ -116,6 +117,18 @@ Route::middleware('auth')->group(function () {
             Route::get('edit/{subCategory}', 'edit')->name('edit');
             Route::post('update{subCategory}', 'update')->name('update');
             Route::get('delete/{subCategory}', 'destroy')->name('delete');
+        });
+
+    Route::controller(BrandController::class)
+        ->prefix('brand')
+        ->name('brand.')
+        ->group(function () {
+            Route::get('', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::get('edit/{brand}', 'edit')->name('edit');
+            Route::post('update{brand}', 'update')->name('update');
+            Route::get('delete/{brand}', 'destroy')->name('delete');
         });
 });
 Route::view('nav', 'frontend.layout.app');

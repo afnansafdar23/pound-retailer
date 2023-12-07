@@ -55,7 +55,7 @@ class SubCategoryController extends Controller
                 return back()->withError('Something went wrong !');
             }
         } catch (Exception $ex) {
-            return back()->withError($ex->getMessage());
+            return back()->withError('Something went wrong !');
         }
     }
 
@@ -107,7 +107,7 @@ class SubCategoryController extends Controller
                 return redirect()->route('sub.category.index')->withSuccess('Sub Category successfully updated');
             }
         } catch (Exception $ex) {
-            return back()->withError($ex->getMessage());
+            return back()->withError('Something went wrong !');
         }
     }
 
