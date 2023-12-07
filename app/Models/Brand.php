@@ -8,18 +8,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class ParentCategory extends Model implements HasMedia
+class Brand extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia, SoftDeletes;
     protected $fillable = [
         'name',
         'description',
-        'sub_name',
-        'sub_description'
+        'brand_title',
+        'brand_info',
     ];
-
-    public function childCategories()
-    {
-        return $this->hasMany(ChildCategory::class);
-    }
 }
