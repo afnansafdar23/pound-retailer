@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\FileManagerController;
 use App\Http\Controllers\Admin\ParentCategoryController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\PostController;
@@ -103,6 +104,18 @@ Route::middleware('auth')->group(function () {
             Route::get('edit/{childCategory}', 'edit')->name('edit');
             Route::post('update{childCategory}', 'update')->name('update');
             Route::get('delete/{childCategory}', 'destroy')->name('delete');
+        });
+
+    Route::controller(SubCategoryController::class)
+        ->prefix('sub/category')
+        ->name('sub.category.')
+        ->group(function () {
+            Route::get('', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::get('edit/{subCategory}', 'edit')->name('edit');
+            Route::post('update{subCategory}', 'update')->name('update');
+            Route::get('delete/{subCategory}', 'destroy')->name('delete');
         });
 });
 Route::view('nav', 'frontend.layout.app');

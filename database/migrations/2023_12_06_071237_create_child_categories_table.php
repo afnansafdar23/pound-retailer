@@ -13,16 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('child_categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', '155');
-            $table->string('sub_name', '155')->nullable();
-            $table->longText('description');
-            $table->longText('sub_description')->nullable();
-            $table->foreignId('parent_category_id')->constrained('parent_categories');
-            $table->softDeletes();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('child_categories')) {
+            Schema::create('child_categories', function (Blueprint $table) {
+                $table->id();
+                $table->string('name', '155');
+                $table->string('sub_name', '155')->nullable();
+                $table->longText('description');
+                $table->longText('sub_description')->nullable();
+                $table->foreignId('parent_category_id')->constrained('parent_categories');
+                $table->softDeletes();
+                $table->timestamps();
+            });
+        }
     }
 
     /**
