@@ -1,87 +1,87 @@
-@extends('frontend.layout.app')
+<div class="wrapper d-flex align-items-stretch">
 
-@section('customCss')
-<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <nav id="sidebar">
+        <div class="custom-menu"  >
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="{{asset('assets/front end/navbar-css/style.css')}}">
 
-@endsection
-
-@section('navBar')
-<nav id="sidebar">
-    <div class="custom-menu">
-        <button type="button" id="sidebarCollapse" class="btn btn-primary">
-  <i class="fa fa-bars"></i>
-  <span class="sr-only">Toggle Menu</span>
-</button>
-</div>
-    <div class="p-4 pt-5">
-      <h1><a href="index.html" class="logo">Splash</a></h1>
-<ul class="list-unstyled components mb-5">
-  <li class="active">
-    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-    <ul class="collapse list-unstyled" id="homeSubmenu">
-    <li>
-        <a href="#">Home 1</a>
-    </li>
-    <li>
-        <a href="#">Home 2</a>
-    </li>
-    <li>
-        <a href="#">Home 3</a>
-    </li>
-    </ul>
-  </li>
-  <li>
-      <a href="#">About</a>
-  </li>
-  <li>
-  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-  <ul class="collapse list-unstyled" id="pageSubmenu">
-    <li>
-        <a href="#">Page 1</a>
-    </li>
-    <li>
-        <a href="#">Page 2</a>
-    </li>
-    <li>
-        <a href="#">Page 3</a>
-    </li>
-  </ul>
-  </li>
-  <li>
-  <a href="#">Portfolio</a>
-  </li>
-  <li>
-  <a href="#">Contact</a>
-  </li>
-</ul>
-
-<div class="mb-5">
-            <h3 class="h6">Subscribe for newsletter</h3>
-            <form action="#" class="colorlib-subscribe-form">
-    <div class="form-group d-flex">
-        <div class="icon"><span class="icon-paper-plane"></span></div>
-      <input type="text" class="form-control" placeholder="Enter Email Address">
+    <div id="navbar1">
+        <button type="button" id="check-icon" class="btn btn-primary" >
+            <i class="fa fa-bars" style="color: yellow;"></i>
+            <span class="sr-only">Toggle Menu</span>
+          </button>
     </div>
-  </form>
-        </div>
 
-<div class="footer">
-    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-</div>
 
-</div>
+ </div>
+
+        <div class="p-4 pt-5">
+            <div class="row col-12">
+                <h1 align="left" class="col-4"><a href="index.html" class="logo">Splash</a></h1>
+                <p class="col-6"></p>
+                <div align="right" class="col-2">
+                    <input hidden="" class="check-icon btn btn-primary" id="sideBar" name="check-icon" type="checkbox">
+                <label class="icon-menu" for="sideBar">
+                    <div class="bar bar--1 c" style="margin-left:12px; "><svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" id="X"><g fill="none" fill-rule="evenodd" stroke="#D9990B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="colorStroke000000 svgStroke"><path d="M13 1 1 13M1 1l12 12" fill="#d9990b" class="color000000 svgShape"></path></g></svg></div>
+
+                </label>
+
+                </div>
+
+            </div>
+
+
+    <ul class="list-unstyled components mb-5">
+      <li class="active">
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+        <li>
+            <a href="#">Home 1</a>
+        </li>
+        <li>
+            <a href="#">Home 2</a>
+        </li>
+        <li>
+            <a href="#">Home 3</a>
+        </li>
+        </ul>
+      </li>
+      <li>
+          <a href="#">About</a>
+      </li>
+      <li>
+      <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+      <ul class="collapse list-unstyled" id="pageSubmenu">
+        <li>
+            <a href="#">Page 1</a>
+        </li>
+        <li>
+            <a href="#">Page 2</a>
+        </li>
+        <li>
+            <a href="#">Page 3</a>
+        </li>
+      </ul>
+      </li>
+      <li>
+      <a href="#">Portfolio</a>
+      </li>
+      <li>
+      <a href="#">Contact</a>
+      </li>
+    </ul>
+
+    <div class="mb-5">
+
+            </div>
+
+
+
+  </div>
 </nav>
 
-@endsection
-@section('custromJs')
 
-<script src="{{asset('assets/front end/navbar-js/jquery.min.js')}}"></script>
-<script src="{{asset('assets/front end/navbar-js/popper.js')}}"></script>
-<script src="{{asset('assets/front end/navbar-js/main.js')}}"></script>
-
-@endsection
+<!-- Page Content  -->
+<div id="content" >
+<nav id="navbar">
+    <img src="{{asset('assets/front end/navbar-css/logo.png')}}" alt="Logo image">
+</nav>

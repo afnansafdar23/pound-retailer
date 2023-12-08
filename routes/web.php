@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\FileManagerController;
-use App\Http\Controllers\Admin\ParentCategoryController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UploadController;
@@ -22,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // for components testing purpose
-Route::view('/', 'welcome')->name('user.dashboard');
+Route::view('/', 'welcome');
 
 Route::controller(AuthController::class)
     ->prefix('auth')
@@ -80,16 +79,11 @@ Route::middleware('auth')->group(function () {
             Route::get('synchronize', 'synchronize')->name('synchronize');
         });
 
-    Route::controller(ParentCategoryController::class)
-        ->prefix('parent/category')
-        ->name('parent.category.')
-        ->group(function () {
-            Route::get('', 'index')->name('index');
-            Route::get('create', 'create')->name('create');
-            Route::post('store', 'store')->name('store');
-            Route::get('edit/{parentCategory}', 'edit')->name('edit');
-            Route::post('update{parentCategory}', 'update')->name('update');
-            Route::get('delete/{parentCategory}', 'destroy')->name('delete');
-        });
+
 });
-Route::view('nav','frontend.layout.app');
+ Route::get('/nav', function () {
+            return view('frontend.layout.app');
+        });
+        Route::get('/home', function () {
+            return view('frontend.index');
+        });
