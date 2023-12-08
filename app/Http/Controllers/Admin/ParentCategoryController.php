@@ -91,13 +91,20 @@ class ParentCategoryController extends Controller
         try {
             $parentCategory->update($request->validated());
 
-            if ($parentCategory) {
-                return redirect()->route('parent.category.index')->withSuccess('Parent Category successfully Updated');
+            if (isset($request['image']) == null) {
+                $parentCategory->clearMediaCollection('parentCategory.image');
             } else {
-                return back()->withError('Something went wrong !');
+                if (!file_exists(storage_path('tmp/uploads/' . $request['image']))) {
+                    return redirect()->route('parent.category.index')->withSuccess('Parent Category successfully Updated');
+                }
+                $parentCategory->media()->delete();
+                $parentCategory->addMedia(storage_path('tmp/uploads/' . $request['image']))->toMediaCollection('parentCategory.image');
+            }
+            if ($parentCategory) {
+                return redirect()->route('parent.category.index')->withSuccess('Parent Category successfully updated');
             }
         } catch (Exception $ex) {
-            return back()->withError('Something went wrong !');
+            return back()->withError($ex->getMessage());
         }
     }
 
