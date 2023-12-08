@@ -12,6 +12,7 @@
 	};
 	fullHeight();
 
+
 	$('#check-icon').on('click', function () {
       $('#sidebar').toggleClass('active');
       $('#check-icon').css({"display": "none", });
@@ -38,4 +39,6 @@ $('#sideBar').on('click', function () {
 
 });
 
+
 })(jQuery);
+

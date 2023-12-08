@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // for components testing purpose
-Route::view('/', 'welcome')->name('user.dashboard');
+Route::view('/', 'welcome');
 
 Route::controller(AuthController::class)
     ->prefix('auth')
@@ -83,6 +83,8 @@ Route::middleware('auth')->group(function () {
             Route::get('synchronize', 'synchronize')->name('synchronize');
         });
 
+
+
     Route::controller(ParentCategoryController::class)
         ->prefix('parent/category')
         ->name('parent.category.')
@@ -132,3 +134,10 @@ Route::middleware('auth')->group(function () {
         });
 });
 Route::view('nav', 'frontend.layout.app');
+
+Route::get('/nav', function () {
+    return view('frontend.layout.app');
+});
+Route::get('/home', function () {
+    return view('frontend.index');
+});
