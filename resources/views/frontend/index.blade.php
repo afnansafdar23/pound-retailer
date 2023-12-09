@@ -3,11 +3,102 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/accessible-slick-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+
+{{-- grid view Css --}}
 <style>
-    .fa-heart-o:hover {
-  color: #E83316;
-  transform: scale(1.1)
+    .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    grid-auto-flow: dense;
+    gap: 6px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
+
+.grid-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel {
+    grid-row: span 2 / auto;
+    grid-column: span 2 / auto;
+}
+
+.wide-image {
+    grid-column: span 2 / auto;
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .img {
+        grid-row: auto;
+        grid-column: auto;
+    }
+
+    .four-grid-cells,
+    .wide-image {
+        grid-column: auto;
+    }
+}
+
+.img-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+.rounded-3{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+
+.overlay {
+    position: absolute;
+    top: 100%; /* Initially position the overlay at the bottom */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: top 0.5s; /* Transition the top property for animation */
+    background: rgba(255, 255, 0, 0.7); /* Yellow color with 0.7 opacity */
+    color: #000; /* Black text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.img-container:hover .overlay {
+    top: 0; /* Move the overlay to the top on hover */
+}
+
+.img-container:hover .img {
+    filter: brightness(0.7); /* Optional: Darken the image on hover */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.overlay {
+    animation: fadeIn 0.5s ease-in-out; /* Fade-in animation on hover */
+}
+  </style>
+{{-- End grid view Css --}}
+
+<style>
+
 
 .owl-nav {
   top: -50px;
@@ -54,6 +145,7 @@
     font-family: 'Roboto', sans-serif;
     text-align: center;
     transition: all 0.5s;
+    position: relative;
 }
 .product-grid:hover{ box-shadow: 0 5px 18px rgba(0, 0, 0, 0.3); }
 .product-grid .product-image{
@@ -117,6 +209,7 @@
 .product-grid .social li a:hover{ color: #6DA84A; }
 .product-grid .product-rating{
     background: rgba(255,255,255,0.95);
+
 
     padding: 10px;
     opacity: 0;
@@ -182,7 +275,119 @@
 }
 
 
+
 </style>
+{{-- card Csss --}}
+<style>
+    .c12{
+        height: 160px;
+        text-align: center;
+        margin-bottom: 10px;
+
+
+
+
+    }
+    .div1{
+        padding-top: 50px;
+        clip-path: ellipse(100% 66% at 0% 48%);
+
+        height: 160px;
+        margin-left: -12px;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+
+
+
+    }
+    .incard{
+        height: 160px;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+
+    }
+    .incard2{
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+
+    }
+    @media(max-width: 575px){
+
+      .c12{
+        display: grid;
+        grid-template-columns: 1fr  1fr ;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        margin-left:10px;
+        width: 90%;
+
+
+      }
+      .div1{
+        padding-top: 50px;
+        clip-path: ellipse(99% 100% at 0% 52%);
+
+
+        height: 160px;
+        margin-left: -12px;
+
+
+
+    }
+
+
+    }
+    @media(min-width: 768px){
+        .div1{
+        padding-top: 50px;
+        clip-path: ellipse(99% 100% at 0% 52%);
+        width: 50px;
+        height: 160px;
+        margin-left: -12px;
+    }
+    .c12{
+        margin-left: 10px;
+    }
+
+}
+@media(min-width: 991px){
+    .div1{
+        width:auto;
+    }
+    .c12{
+
+          width:25%
+
+    }
+    .card-main{
+        margin-left: -14px;
+    }
+
+}
+@media()
+@media(max-width: 413px){
+    .c12{
+        margin-left: 8px;
+        width: 300px;
+
+    }
+
+}
+@media(max-width: 768px){
+    .c12{
+        margin-left: 10px;
+    }
+}
+
+</style>
+
+{{--End card Csss --}}
+{{-- About Css --}}
+<style>
+
+</style>
+{{-- About end  --}}
+
 
 <script>
 
@@ -190,7 +395,101 @@
 @endsection
 @section('content')
 
-<section id="slider" class="mt-4"  >
+{{-- grid view system  --}}
+<div class="gallery mt-1">
+
+
+    <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg"
+            alt="Shining Stars Image" class="d-block w-100" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg"
+            alt="A cloudy Mountain Image" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg"
+            alt="Shining Stars Image" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    <img class="grid-img"
+        src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg"
+        alt="Shining Stars Image" />
+
+
+
+    <img class="grid-img"
+        src="https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg"
+        alt="A cloudy Mountain Image" />
+
+    <img class="grid-img"
+        src="https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg"
+        alt="A Winter Rainbow Image" />
+
+
+
+    <img class="grid-img"
+        src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg"
+        alt="Shining Stars Image" />
+
+</div>
+
+<div class="gallery mt-2">
+ <div class="img-container">
+    <img class="grid-img" src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg" alt="Shining Stars Image">
+    <div class="overlay">Shining Stars Image</div>
+</div>
+
+<div class="img-container">
+    <img class="grid-img" src="https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg" alt="A cloudy Mountain Image">
+    <div class="overlay">A cloudy Mountain Image</div>
+</div>
+
+<div class="img-container">
+    <img class="grid-img" src="https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg" alt="A Winter Rainbow Image">
+    <div class="overlay">A Winter Rainbow Image</div>
+</div>
+
+<div class="img-container">
+    <img class="grid-img" src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg" alt="Shining Stars Image">
+    <div class="overlay">Shining Stars Image</div>
+</div>
+<div class="img-container">
+    <img class="grid-img" src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg" alt="Shining Stars Image">
+    <div class="overlay">Shining Stars Image</div>
+</div>
+
+<div class="img-container">
+    <img class="grid-img" src="https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg" alt="A cloudy Mountain Image">
+    <div class="overlay">A cloudy Mountain Image</div>
+</div>
+
+<div class="img-container">
+    <img class="grid-img" src="https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg" alt="A Winter Rainbow Image">
+    <div class="overlay">A Winter Rainbow Image</div>
+</div>
+
+<div class="img-container">
+    <img class="grid-img" src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg" alt="Shining Stars Image">
+    <div class="overlay">Shining Stars Image</div>
+</div>
+</div>
+
+{{-- grid View System --}}
+
+<section  class="mt-4"  >
     <div class="container" >
 
       <h2>Latest Products</h2>
@@ -363,6 +662,81 @@
     </div>
 </section>
 {{-- Best --}}
+
+ <!-- statics Card Section -->
+ <section class="d-flex justify-content-around mb-2 mt-2 ">
+ <section class="container-fluid mt-3 pl-2 row card-main">
+     {{-- card 1 --}}
+    <div class="col-md-3 col-sm-6 col-xm-12 row c12">
+        <div class=" bg-danger col-sm-4 incard"><div class="col-sm-12 bg-info div1">card1</div></div>
+
+        <div class="col-sm-8 bg-danger incard2"> this is sdsd  <br>1 card</div>
+    </div>
+    {{-- card 2 --}}
+    <div class="col-md-3 col-sm-6 col-xm-12 row c12">
+        <div class=" bg-danger col-sm-4 incard"><div class="col-sm-12 bg-info div1">card2</div></div>
+
+        <div class="col-sm-8 bg-danger incard2 "> this is  sdasd<br> 2 card</div>
+    </div>
+     {{-- card 3 --}}
+    <div class="col-md-3 col-sm-6 col-xm-12 row c12">
+        <div class=" bg-danger col-sm-4 incard"><div class="col-sm-12 bg-info div1">card3</div></div>
+        <div class="col-sm-8 bg-danger incard2">this is  sdsd<br> 3 card</div>
+    </div>
+     {{-- card 4 --}}
+    <div class="col-md-3 col-sm-6 col-xm-12 row c12">
+        <div class=" bg-danger col-sm-4 incard" ><div class="col-sm-12 bg-info div1">card4</div></div>
+
+        <div class="col-sm-8 bg-danger incard2">this is  sdsd<br>4 card</div>
+    </div>
+ </section>
+</section>
+
+
+   <!-- Setatics Card Section -->
+
+
+   {{-- About Section  --}}
+
+   <section class="container-fluid row  mb-2 rounded-3  p-1 ">
+    <div class="col-md-6 aboutimg col-sm-12 p-4" ><img class="col-12" src="{{asset('assets/front end/image1-2.jpg')}}" alt="" width="400px" height="400px"> </div>
+    <div class="col-md-4 col-sm-12 overflow-hidden" style="margin-left: 15px;" > <span class="fs-1 pt-4 col-12">About us</span>
+    <p class="text-dark fs-5 col-12">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, neque dolorum dicta iste quam ex numquam, illo unde fugit recusandae odio illum eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga ipsum eos cupiditate aliquam facilis, excepturi, quos commodi eligendi provident, molestias error labore sapiente?</p></div>
+
+   </section>
+
+ {{-- End About Section  --}}
+ {{-- Blog Section  --}}
+
+  <section class="row container-fluid  ">
+    <span class=" bolder display-4 mt-2 mb-2">From the blog post</span>
+    <div class="col-md-3 ">
+        <img  class="col-12" src="{{asset('assets/front end/image1-2.jpg')}}" alt="" width="auto" height="auto">
+        <span class="fs-2">this is first blog</span>
+        <p class="text-dark fs-4 wrap overflow-hidden wrap">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum unde fugiat consequatur laborum optio eveniet illo, sed repudiandae eius eum illum eos iure doloribus corporis nostrum voluptas accusamus libero perspiciatis!</p>
+
+    </div>
+    <div class="col-md-3 ">
+        <img class="col-12" src="{{asset('assets/front end/image1-2.jpg')}}" alt="" width="auto" height="auto">
+        <span class="fs-2">this is second blog</span>
+        <p class="text-dark fs-4 wrap overflow-hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum unde fugiat consequatur laborum optio eveniet illo, sed repudiandae eius eum illum eos iure doloribus corporis nostrum voluptas accusamus libero perspiciatis!</p>
+
+    </div>
+    <div class="col-md-3 ">
+        <img class="col-12"  src="{{asset('assets/front end/image1-2.jpg')}}" alt="" width="auto" height="auto">
+        <span class="fs-2">this is third blog</span>
+        <p class="text-dark fs-4 wrap overflow-hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum unde fugiat consequatur laborum optio eveniet illo, sed repudiandae eius eum illum eos iure doloribus corporis nostrum voluptas accusamus libero perspiciatis!</p>
+
+    </div>
+    <div class="col-md-3 ">
+        <img class="col-12"  src="{{asset('assets/front end/image1-2.jpg')}}" alt="" width="auto" height="auto">
+        <span class="fs-2">this is third blog</span>
+        <p class="text-dark fs-4 wrap overflow-hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum unde fugiat consequatur laborum optio eveniet illo, sed repudiandae eius eum illum eos iure doloribus corporis nostrum voluptas accusamus libero perspiciatis!</p>
+
+    </div>
+  </section>
+ {{-- End Blog Section  --}}
+
   @endsection
 @section('custromJs')
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
