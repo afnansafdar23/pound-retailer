@@ -17,4 +17,9 @@ class Brand extends Model implements HasMedia
         'brand_title',
         'brand_info',
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

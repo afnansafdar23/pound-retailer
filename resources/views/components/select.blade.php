@@ -3,11 +3,11 @@
     <select name={{$name}} class="form-select form-select-solid" data-control="select2">
         <option class="class='col-lg-8 col-form-label required fw-bold fs-6"> Select {{$label}} </option>
         @foreach ($key as $value)
-            <option value="{{ $value->id }}">{{ $value->name }}</option>
+        <option value="{{ $value->id }}">{{ $value->name }}</option>
         @endforeach
     </select>
 </div>
 
 @error($error)
-    <div class="error text-danger">{{ $message }}</div>
+<div class="error text-danger">{{ $message }}</div>
 @enderror

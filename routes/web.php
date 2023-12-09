@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ChildCategoryController;
 use App\Http\Controllers\Admin\FileManagerController;
 use App\Http\Controllers\Admin\ParentCategoryController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UploadController;
@@ -51,6 +52,7 @@ Route::middleware('auth')->group(function () {
             Route::get('delete/{user}', 'destroy')->name('delete');
         });
 
+    Route::view('user/dashboard', 'user.dashboard')->name('user.dashboard');
     Route::get('filemanager', [FileManagerController::class, 'index'])->name('file.index');
     Route::post('filemanager/upload', [FileManagerController::class, 'upload'])->name('file.upload');
     Route::post('file/store', [FileManagerController::class, 'store'])->name('file.store');
@@ -131,6 +133,18 @@ Route::middleware('auth')->group(function () {
             Route::get('edit/{brand}', 'edit')->name('edit');
             Route::post('update{brand}', 'update')->name('update');
             Route::get('delete/{brand}', 'destroy')->name('delete');
+        });
+
+    Route::controller(ProductController::class)
+        ->prefix('product')
+        ->name('product.')
+        ->group(function () {
+            Route::get('', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::get('edit/{product}', 'edit')->name('edit');
+            Route::post('update{product}', 'update')->name('update');
+            Route::get('delete/{product}', 'destroy')->name('delete');
         });
 });
 Route::view('nav', 'frontend.layout.app');
