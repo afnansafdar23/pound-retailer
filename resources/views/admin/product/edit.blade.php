@@ -114,7 +114,7 @@
                             </div>
                             <div class="modal-footer mt-5 gap-2">
                                 <button type="submit" class="btn btn-success">
-                                    Edit Parent Category
+                                    Edit Product
                                 </button>
                                 <a class="btn btn-light-danger" href={{ route('product.index') }}> Cancel </a>
                             </div>

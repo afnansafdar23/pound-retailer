@@ -40,7 +40,6 @@ class StoreUserRequest extends FormRequest
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
-            'avatar' => 'required|image|mimes:jpeg,png,jpg',
             'mobile_number' => 'required|numeric',
             'roles' => ''
         ];

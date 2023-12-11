@@ -1,21 +1,21 @@
 <x-layout.master>
     <x-slot name="header">
-        <x-layout.header/>
+        <x-layout.header />
     </x-slot>
     <x-slot name="left_side_nav">
-        <x-layout.left_side_nav/>
+        <x-layout.left_side_nav />
     </x-slot>
     <x-slot name="content">
         <!--begin::Main-->
         <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
-            <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">        
+            <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="p-5">
                     @if (Session::has('error'))
-                        <div class="alert alert-danger">{{ Session::get('error') }}</div>
+                    <div class="alert alert-danger">{{ Session::get('error') }}</div>
                     @endif
                     @if (Session::has('success'))
-                        <div class="alert alert-success">{{ Session::get('success') }}</div>
+                    <div class="alert alert-success">{{ Session::get('success') }}</div>
                     @endif
                     <div class="card mb-5 mb-xl-8" style="user-select: auto;">
                         <!--begin::Header-->
@@ -32,16 +32,34 @@
                                 <!--begin::Label-->
                                 <!--end::Label-->
                                 <div class="row">
-                                    <x-cento-dash-input type="text" name="name" label="Name" placeholder="Name"  :message="$errors->first('name')"/>
-                                    <x-cento-dash-input type="email" name="email" label="Email" placeholder="Email"  :message="$errors->first('email')"/>
-                                    <x-cento-dash-input type="password" name="password" label="Password" placeholder="Password"  :message="$errors->first('password')"/>
-                                    <x-cento-dash-input type="multi-select" name="roles[]" label="Roles" :options="$roles"  :message="$errors->first('roles')"/>
-                                    <x-cento-dash-input type="file" name="avatar" label="Avatar" :message="$errors->first('avatar')"/>
-                                    <x-cento-dash-input type="number" name="mobile_number" label="Mobile" placeholder="Mobile" :message="$errors->first('mobile_number')"/>
+                                    <div class="col-12">
+                                        <label class="col-lg-8 col-form-label required fw-bold fs-6">Image</label>
+                                        @include('admin.media.dropdown')
+                                    </div>
+                                    <div class="col-6">
+                                        <x-cento-dash-input type="text" name="name" label="Name" placeholder="Name"
+                                            :message="$errors->first('name')" />
+                                    </div>
+                                    <div class="col-6">
+                                        <x-cento-dash-input type="email" name="email" label="Email" placeholder="Email"
+                                            :message="$errors->first('email')" />
+                                    </div>
+                                    <div class="col-6">
+                                        <x-cento-dash-input type="password" name="password" label="Password"
+                                            placeholder="Password" :message="$errors->first('password')" />
+                                    </div>
+                                    <div class="col-6">
+                                        <x-cento-dash-input type="multi-select" name="roles[]" label="Roles"
+                                            :options="$roles" :message="$errors->first('roles')" />
+                                    </div>
+                                    <div class="col-6">
+                                        <x-cento-dash-input type="number" name="mobile_number" label="Mobile"
+                                            placeholder="Mobile" :message="$errors->first('mobile_number')" />
+                                    </div>
                                 </div>
                             </div>
-                            <div class="modal-footer gap-2">
-                                <x-cento-dash-input type="submit" label="Add User"/>
+                            <div class="modal-footer mt-5 gap-2">
+                                <x-cento-dash-input type="submit" label="Add User" />
                                 <a class="btn btn-light-danger" href={{ route('user.index') }}> Cancel </a>
                             </div>
                             <!--end::Table container-->
@@ -54,6 +72,6 @@
         <!--end:::Main-->
     </x-slot>
     <x-slot name="footer">
-        <x-layout.footer/>
+        <x-layout.footer />
     </x-slot>
 </x-layout.master>

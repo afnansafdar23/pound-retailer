@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
-use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
@@ -28,11 +27,11 @@ class UserDataTable extends DataTable
                     return $role->name;
                 })->implode(',');
             })
-            ->addColumn('avatar', function (User $user) {
-                return '<img src="' . asset($user["avatar"]). '" class="image-input-wrapper rounded-circle w-50px h-50px" alt="alt text">';
+            ->addColumn('image', function (User $user) {
+                return '<img src="' . asset($user->getFirstMediaUrl('user.image')) . '" class="image-input-wrapper rounded-circle w-50px h-50px" alt="alt text">';
             })
             ->addColumn('action', 'admin.users.datatables_actions')
-            ->rawColumns(['avatar','edit','delete','action'])
+            ->rawColumns(['image', 'edit', 'delete', 'action'])
             ->setRowId('id');
     }
 
@@ -44,7 +43,7 @@ class UserDataTable extends DataTable
      */
     public function query(User $model): QueryBuilder
     {
-        return $model->with('roles')->newQuery()->select('id', 'name', 'email','avatar');
+        return $model->with('roles')->newQuery()->select('id', 'name', 'email');
     }
 
     /**
@@ -75,15 +74,14 @@ class UserDataTable extends DataTable
     {
         $columns = [
             Column::make('id'),
+            Column::make('image'),
             Column::make('name'),
             Column::make('email'),
-            Column::make('avatar'),
             Column::make('roles'),
         ];
 
-        if(Auth::user()->can('user.edit') || Auth::user()->can('user.delete'))
-        {
-            $columns = array_merge($columns,[Column::make('action')]);
+        if (Auth::user()->can('user.edit') || Auth::user()->can('user.delete')) {
+            $columns = array_merge($columns, [Column::make('action')]);
         }
 
         return $columns;
