@@ -1,5 +1,6 @@
         <!-- Footer -->
-        <footer class="footer_area section_padding_130_0 w-100">
+
+        <footer class="footer_area section_padding_130_0 w-100 pt-2 bg-dark text-light">
             <div class="container">
               <div class="row">
                 <!-- Single Widget-->
@@ -21,16 +22,16 @@
                 <div class="col-12 col-sm-6 col-lg">
                   <div class="single-footer-widget section_padding_0_130">
                     <!-- Widget Title-->
-                    <h5 class="widget-title">About</h5>
+
                     <!-- Footer Menu-->
                     <div  class="footer_menu">
 
-                      <ul >
-
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Corporate Sale</a></li>
-                        <li><a href="#">Terms &amp; Policy</a></li>
-                        <li><a href="#">Community</a></li>
+                      <ul class="list-unstyled">
+                        <h5 class="widget-title">About</h5>
+                        <li ><a  class="text-light"href="#">About Us</a></li>
+                        <li ><a  class="text-light"href="#">Corporate Sale</a></li>
+                        <li ><a  class="text-light"href="#">Terms &amp; Policy</a></li>
+                        <li > <a class="text-light" href="#">Community</a></li>
                       </ul>
                     </div>
                   </div>
@@ -42,13 +43,13 @@
 
                     <!-- Footer Menu-->
                     <div class="footer_menu">
-                      <ul>
+                      <ul  class="list-unstyled">
                         <h5 class="widget-title">Support</h5>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Term &amp; Conditions</a></li>
-                        <li><a href="#">Help &amp; Support</a></li>
+                        <li  ><a class="text-light" href="#">Help</a></li>
+                        <li ><a  class="text-light"href="#">Support</a></li>
+                        <li ><a  class="text-light"href="#">Privacy Policy</a></li>
+                        <li ><a  class="text-light"href="#">Term &amp; Conditions</a></li>
+                        <li ><a  class="text-light"href="#">Help &amp; Support</a></li>
                       </ul>
                     </div>
                   </div>
@@ -60,17 +61,17 @@
 
                     <!-- Footer Menu-->
                     <div class="footer_menu">
-                      <ul>
+                      <ul class="list-unstyled">
                         <h5 class="widget-title">Contact</h5>
-                        <li><a href="#">Call Centre</a></li>
-                        <li><a href="#">Email Us</a></li>
-                        <li><a href="#">Term &amp; Conditions</a></li>
-                        <li><a href="#">Help Center</a></li>
+                        <li ><a  class="text-light"href="#">Call Centre</a></li>
+                        <li  ><a class="text-light" href="#">Email Us</a></li>
+                        <li ><a  class="text-light"href="#">Term &amp; Conditions</a></li>
+                        <li ><a  class="text-light"href="#">Help Center</a></li>
                       </ul>
                     </div>
                   </div>
                 </div>
               </div>
-              <hr>
+
             </div>
           </footer>
