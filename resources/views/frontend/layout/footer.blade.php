@@ -22,12 +22,12 @@
                 <div class="col-12 col-sm-6 col-lg">
                   <div class="single-footer-widget section_padding_0_130">
                     <!-- Widget Title-->
-                    <h5 class="widget-title">About</h5>
+
                     <!-- Footer Menu-->
                     <div  class="footer_menu">
 
-                      <ul >
-
+                      <ul class="list-unstyled">
+                        <h5 class="widget-title">About</h5>
                         <li ><a  class="text-light"href="#">About Us</a></li>
                         <li ><a  class="text-light"href="#">Corporate Sale</a></li>
                         <li ><a  class="text-light"href="#">Terms &amp; Policy</a></li>
@@ -43,7 +43,7 @@
 
                     <!-- Footer Menu-->
                     <div class="footer_menu">
-                      <ul>
+                      <ul  class="list-unstyled">
                         <h5 class="widget-title">Support</h5>
                         <li  ><a class="text-light" href="#">Help</a></li>
                         <li ><a  class="text-light"href="#">Support</a></li>
@@ -61,7 +61,7 @@
 
                     <!-- Footer Menu-->
                     <div class="footer_menu">
-                      <ul>
+                      <ul class="list-unstyled">
                         <h5 class="widget-title">Contact</h5>
                         <li ><a  class="text-light"href="#">Call Centre</a></li>
                         <li  ><a class="text-light" href="#">Email Us</a></li>

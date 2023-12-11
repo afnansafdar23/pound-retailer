@@ -402,15 +402,15 @@
     <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg"
+            <img src="{{asset('assets/front end/home-image/1 (5).png')}}"
             alt="Shining Stars Image" class="d-block w-100" alt="">
           </div>
           <div class="carousel-item">
-            <img src="https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg"
+            <img src="{{asset('assets/front end/home-image/2 (5).png')}}"
             alt="A cloudy Mountain Image" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg"
+            <img src="{{asset('assets/front end/home-image/3 (5).png')}}"
             alt="Shining Stars Image" class="d-block w-100" alt="...">
           </div>
         </div>
@@ -425,64 +425,64 @@
       </div>
 
     <img class="grid-img"
-        src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg"
+        src="{{asset('assets/front end/home-image/4 (4).png')}}"
         alt="Shining Stars Image" />
 
 
 
     <img class="grid-img"
-        src="https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg"
+        src="{{asset('assets/front end/home-image/5 (4).png')}}"
         alt="A cloudy Mountain Image" />
 
     <img class="grid-img"
-        src="https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg"
+        src="{{asset('assets/front end/home-image/6 (4).png')}}"
         alt="A Winter Rainbow Image" />
 
 
 
     <img class="grid-img"
-        src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg"
+        src="{{asset('assets/front end/home-image/7 (3).png')}}"
         alt="Shining Stars Image" />
 
 </div>
 
 <div class="gallery mt-2">
  <div class="img-container">
-    <img class="grid-img" src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg" alt="Shining Stars Image">
+    <img class="grid-img" src="{{asset('assets/front end/home-image/8 (2).png')}}" alt="Shining Stars Image">
     <div class="overlay">Shining Stars Image</div>
 </div>
 
 <div class="img-container">
-    <img class="grid-img" src="https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg" alt="A cloudy Mountain Image">
+    <img class="grid-img" src="{{asset('assets/front end/home-image/9 (2).png')}}" alt="A cloudy Mountain Image">
     <div class="overlay">A cloudy Mountain Image</div>
 </div>
 
 <div class="img-container">
-    <img class="grid-img" src="https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg" alt="A Winter Rainbow Image">
+    <img class="grid-img" src="{{asset('assets/front end/home-image/10 (2).png')}}" alt="A Winter Rainbow Image">
     <div class="overlay">A Winter Rainbow Image</div>
 </div>
 
 <div class="img-container">
-    <img class="grid-img" src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg" alt="Shining Stars Image">
+    <img class="grid-img" src="{{asset('assets/front end/home-image/11 (2).png')}}" alt="Shining Stars Image">
     <div class="overlay">Shining Stars Image</div>
 </div>
 <div class="img-container">
-    <img class="grid-img" src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg" alt="Shining Stars Image">
+    <img class="grid-img" src="{{asset('assets/front end/home-image/12 (2).png')}}" alt="Shining Stars Image">
     <div class="overlay">Shining Stars Image</div>
 </div>
 
 <div class="img-container">
-    <img class="grid-img" src="https://images.pexels.com/photos/5409751/pexels-photo-5409751.jpeg" alt="A cloudy Mountain Image">
+    <img class="grid-img" src="{{asset('assets/front end/home-image/13 (2).png')}}" alt="A cloudy Mountain Image">
     <div class="overlay">A cloudy Mountain Image</div>
 </div>
 
 <div class="img-container">
-    <img class="grid-img" src="https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg" alt="A Winter Rainbow Image">
+    <img class="grid-img" src="{{asset('assets/front end/home-image/14.png')}}" alt="A Winter Rainbow Image">
     <div class="overlay">A Winter Rainbow Image</div>
 </div>
 
 <div class="img-container">
-    <img class="grid-img" src="https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg" alt="Shining Stars Image">
+    <img class="grid-img" src="{{asset('assets/front end/home-image/5 (4).png')}}" alt="Shining Stars Image">
     <div class="overlay">Shining Stars Image</div>
 </div>
 </div>
@@ -709,7 +709,8 @@
  {{-- Blog Section  --}}
 
   <section class="row container-fluid  ">
-    <span class=" bolder display-4 mt-2 mb-2">From the blog post</span>
+    <span class=" bolder display-3 mt-2 mb-4">From the blog post</span>
+    <br>
     <div class="col-md-3 ">
         <img  class="col-12" src="{{asset('assets/front end/image1-2.jpg')}}" alt="" width="auto" height="auto">
         <span class="fs-2">this is first blog</span>
