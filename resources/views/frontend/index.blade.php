@@ -13,7 +13,7 @@
     grid-auto-rows: auto;
     grid-auto-flow: dense;
     gap: 6px;
-    margin-left: 15px;
+    margin-left: px;
     margin-right: 15px;
 }
 
@@ -432,7 +432,7 @@
 
     <img class="grid-img"
         src="{{asset('assets/front end/home-image/5 (4).png')}}"
-        alt="A cloudy Mountain Image" />
+        alt="A cloudy Mountain Image"/>
 
     <img class="grid-img"
         src="{{asset('assets/front end/home-image/6 (4).png')}}"
@@ -442,7 +442,7 @@
 
     <img class="grid-img"
         src="{{asset('assets/front end/home-image/7 (3).png')}}"
-        alt="Shining Stars Image" />
+        alt="Shining Stars Image"/>
 
 </div>
 
