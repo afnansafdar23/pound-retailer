@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        $users = User::all();
+        $users = User::paginate();
 
         return view('admin.dashboard.index')->with(['users' => $users]);
     }

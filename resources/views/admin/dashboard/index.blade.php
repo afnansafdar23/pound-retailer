@@ -765,8 +765,8 @@
                         </h3>
                         <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top"
                             data-bs-trigger="hover" title="" data-bs-original-title="Click to add a user">
-                            <a href="#" class="btn btn-sm btn-light btn-active-primary" data-bs-toggle="modal"
-                                data-bs-target="#kt_modal_invite_friends">
+                            <a href="{{route('user.create')}}" class="btn btn-sm btn-light btn-active-primary"
+                                data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                 <span class="svg-icon svg-icon-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -826,7 +826,7 @@
                                                 class="text-muted fw-bold text-muted d-block fs-7">{{$user['email']}}</span>
                                         </td>
                                         <td class="text-dark">@foreach($user->roles as $role)
-                                            <span class="text-muted fs-7 fw-bold me-2">{{$role['name']}}</span>
+                                            <span class="fs-7 fw-bold me-2">{{$role['name']}}</span>
                                             @if(!$loop->last), @endif
                                             @endforeach
 
