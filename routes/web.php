@@ -167,6 +167,6 @@ Route::get('/nav', function () {
 Route::get('/home', function () {
     return view('frontend.index');
 });
-Route::get('/brands', function () {
-    return view('frontend.brands');
+Route::get('/product', function () {
+    return view('frontend.productDetail');
 });
