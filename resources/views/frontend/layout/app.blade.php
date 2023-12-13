@@ -50,19 +50,10 @@
 
     <!-- Modernizer JS
 	============================================ -->
-
-
-
     <link rel="stylesheet" href="  {{asset('assets/front end/navbar/css/bootstrap.min.css')}} ">
-
-
-
     <!-- Bootstrap CSS -->
-
-
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
-
 
     <title>Poundkingdom</title>
     @yield('customCss')
@@ -70,30 +61,16 @@
 
 <body>
 
-    @include('frontend.layout.navbar')
-    <div class="demo-content-area pb-90 pt-90">
-
-
+    @include('frontend.layout.navbar',['parentCategories'=>$parentCategories,'childCategories'=>$childCategories])
+    <div class="demo-content-area py-90">
 
         @yield('content')
 
-
     </div>
 
 
     @include('frontend.layout.footer')
-    </div>
-
-    </div>
-    @include('frontend.layout.footer')
-    </div>
-
-    </div>
     {{-- Footer Section --}}
-
-
-
-
     @yield('custromJs')
 
     <script src="{{asset('assets/front end/navbar/js/vendor/jquery-1.12.4.min.js')}}"></script>

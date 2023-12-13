@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Frontend\DefaultController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -164,9 +165,14 @@ Route::view('nav', 'frontend.layout.app');
 Route::get('/nav', function () {
     return view('frontend.layout.app');
 });
-Route::get('/home', function () {
-    return view('frontend.index');
-});
+
 Route::get('/product', function () {
     return view('frontend.productDetail');
 });
+
+Route::controller(DefaultController::class)
+    ->prefix('')
+    ->name('web.')
+    ->group(function () {
+        Route::get('', 'home')->name('index');
+    });
