@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\ChildCategory;
 use App\Models\ParentCategory;
 use Illuminate\Http\Request;
@@ -19,8 +20,9 @@ class DefaultController extends Controller
     {
         $parentCategories = ParentCategory::all();
         $childCategories = ChildCategory::all();
+        $blogs = Blog::paginate(4);
 
-        return view('frontend.index')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
+        return view('frontend.index')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
     }
 
     /**

@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\DefaultController;
 use App\Http\Controllers\PostController;
+use App\Http\Middleware\Permissions;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,16 +31,35 @@ use Illuminate\Support\Facades\Route;
 
 // for components testing purpose
 
-Route::controller(AuthController::class)
-    ->prefix('auth')
-    ->name('auth.')
-    ->group(function () {
-        Route::get('login',  'loginView')->name('login');
-        Route::post('login-user', 'userLogin')->name('login.user');
-        Route::get('register',  'registerView')->name('register');
-        Route::post('check-register', 'checkRegister')->name('check.register');
-        Route::get('logout', 'logout')->name('logout');
+
+Route::withoutMiddleware([Permissions::class])->group(function () {
+
+    Route::controller(AuthController::class)
+        ->prefix('auth')
+        ->name('auth.')
+        ->group(function () {
+            Route::get('login',  'loginView')->name('login');
+            Route::post('login-user', 'userLogin')->name('login.user');
+            Route::get('register',  'registerView')->name('register');
+            Route::post('check-register', 'checkRegister')->name('check.register');
+            Route::get('logout', 'logout')->name('logout');
+        });
+
+    Route::view('nav', 'frontend.layout.app');
+
+
+    Route::get('/product', function () {
+        return view('frontend.productDetail');
     });
+
+    Route::controller(DefaultController::class)
+        ->prefix('')
+        ->name('web.')
+        ->group(function () {
+            Route::get('', 'home')->name('index');
+        });
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::controller(UserController::class)
@@ -160,19 +180,3 @@ Route::middleware('auth')->group(function () {
             Route::get('delete/{blog}', 'destroy')->name('delete');
         });
 });
-Route::view('nav', 'frontend.layout.app');
-
-Route::get('/nav', function () {
-    return view('frontend.layout.app');
-});
-
-Route::get('/product', function () {
-    return view('frontend.productDetail');
-});
-
-Route::controller(DefaultController::class)
-    ->prefix('')
-    ->name('web.')
-    ->group(function () {
-        Route::get('', 'home')->name('index');
-    });

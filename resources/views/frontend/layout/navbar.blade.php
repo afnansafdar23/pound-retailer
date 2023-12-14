@@ -76,10 +76,13 @@
                 @foreach ($parentCategories as $parentCategory)
                 <li class="{{Request::route()->getName()=='parent.category.index'?'active':''}}"><a
                         href="{{route('parent.category.index')}}">{{$parentCategory['name']}}</a>
+                    @if ($parentCategory->childCategories)
                     <ul>
-                        <li><a href="index.html">Home version one</a></li>
-
+                        @foreach ($parentCategory->childCategories as $childCategory)
+                        <li><a href="index.html">{{$childCategory['name']}}</a></li>
+                        @endforeach
                     </ul>
+                    @endif
                 </li>
                 @endforeach
                 <li><a href="contact.html">contact</a></li>
