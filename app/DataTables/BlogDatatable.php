@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\User;
+use App\Models\Blog;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
@@ -11,7 +11,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
 
-class UserDataTable extends DataTable
+class BlogDatatable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -22,15 +22,10 @@ class UserDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('roles', function (User $user) {
-                return $user->roles->map(function ($role) {
-                    return $role->name;
-                })->implode(',');
+            ->addColumn('action', 'admin.blog.datatables_actions')
+            ->addColumn('image', function (Blog $blog) {
+                return '<img src="' . asset($blog->getFirstMediaUrl('blog.image')) . '" class="image-input-wrapper rounded-circle w-50px h-50px" alt="alt text">';
             })
-            ->addColumn('image', function (User $user) {
-                return '<img src="' . asset($user->getFirstMediaUrl('user.image')) . '" class="image-input-wrapper rounded-circle w-50px h-50px" alt="alt text">';
-            })
-            ->addColumn('action', 'admin.users.datatables_actions')
             ->rawColumns(['image', 'edit', 'delete', 'action'])
             ->setRowId('id');
     }
@@ -41,9 +36,9 @@ class UserDataTable extends DataTable
      * @param \App\Models\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model): QueryBuilder
+    public function query(Blog $model): QueryBuilder
     {
-        return $model->with('roles')->newQuery()->select('id', 'name', 'email');
+        return $model->newQuery()->select('id', 'title');
     }
 
     /**
@@ -54,7 +49,7 @@ class UserDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('user-table')
+            ->setTableId('blog-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             //->dom('Bfrtip')
@@ -75,12 +70,10 @@ class UserDataTable extends DataTable
         $columns = [
             Column::make('id'),
             Column::make('image'),
-            Column::make('name'),
-            Column::make('email'),
-            Column::make('roles'),
+            Column::make('title'),
         ];
 
-        if (Auth::user()->can('user.edit') || Auth::user()->can('user.delete')) {
+        if (Auth::user()->can('blog.edit') || Auth::user()->can('blog.delete')) {
             $columns = array_merge($columns, [Column::make('action')]);
         }
 
@@ -94,6 +87,6 @@ class UserDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'User_' . date('YmdHis');
+        return 'Blog_' . date('YmdHis');
     }
 }

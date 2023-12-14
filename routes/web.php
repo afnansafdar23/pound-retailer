@@ -1,16 +1,21 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ChildCategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FileManagerController;
 use App\Http\Controllers\Admin\ParentCategoryController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Frontend\DefaultController;
 use App\Http\Controllers\PostController;
+use App\Http\Middleware\Permissions;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,25 +30,43 @@ use Illuminate\Support\Facades\Route;
 */
 
 // for components testing purpose
-Route::view('/', 'welcome');
 
-Route::controller(AuthController::class)
-    ->prefix('auth')
-    ->name('auth.')
-    ->group(function () {
-        Route::get('login',  'loginView')->name('login');
-        Route::post('login-user', 'userLogin')->name('login.user');
-        Route::get('register',  'registerView')->name('register');
-        Route::post('check-register', 'checkRegister')->name('check.register');
-        Route::get('logout', 'logout')->name('logout');
+
+Route::withoutMiddleware([Permissions::class])->group(function () {
+
+    Route::controller(AuthController::class)
+        ->prefix('auth')
+        ->name('auth.')
+        ->group(function () {
+            Route::get('login',  'loginView')->name('login');
+            Route::post('login-user', 'userLogin')->name('login.user');
+            Route::get('register',  'registerView')->name('register');
+            Route::post('check-register', 'checkRegister')->name('check.register');
+            Route::get('logout', 'logout')->name('logout');
+        });
+
+    Route::view('nav', 'frontend.layout.app');
+
+
+    Route::get('/product', function () {
+        return view('frontend.productDetail');
     });
+
+    Route::controller(DefaultController::class)
+        ->prefix('')
+        ->name('web.')
+        ->group(function () {
+            Route::get('', 'home')->name('index');
+        });
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::controller(UserController::class)
         ->prefix('user')
         ->name('user.')
         ->group(function () {
-            Route::get('index', 'index')->name('index');
+            Route::get('', 'index')->name('index');
             Route::get('create', 'create')->name('create');
             Route::post('store', 'store')->name('store');
             Route::get('edit/{user}', 'edit')->name('edit');
@@ -51,6 +74,8 @@ Route::middleware('auth')->group(function () {
             Route::get('delete/{user}', 'destroy')->name('delete');
         });
 
+    Route::get('admin/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+    Route::view('user/dashboard', 'user.dashboard')->name('user.dashboard');
     Route::get('filemanager', [FileManagerController::class, 'index'])->name('file.index');
     Route::post('filemanager/upload', [FileManagerController::class, 'upload'])->name('file.upload');
     Route::post('file/store', [FileManagerController::class, 'store'])->name('file.store');
@@ -62,7 +87,7 @@ Route::middleware('auth')->group(function () {
         ->prefix('role')
         ->name('role.')
         ->group(function () {
-            Route::get('index', 'index')->name('index');
+            Route::get('', 'index')->name('index');
             Route::get('create', 'create')->name('create');
             Route::post('store', 'store')->name('store');
             Route::get('edit/{role}', 'edit')->name('edit');
@@ -74,7 +99,7 @@ Route::middleware('auth')->group(function () {
         ->prefix('permission')
         ->name('permission.')
         ->group(function () {
-            Route::get('index', 'index')->name('index');
+            Route::get('', 'index')->name('index');
             Route::get('create', 'create')->name('create');
             Route::post('store', 'store')->name('store');
             Route::get('edit/{permission}', 'edit')->name('edit');
@@ -82,8 +107,6 @@ Route::middleware('auth')->group(function () {
             Route::get('delete/{permission}', 'destroy')->name('delete');
             Route::get('synchronize', 'synchronize')->name('synchronize');
         });
-
-
 
     Route::controller(ParentCategoryController::class)
         ->prefix('parent/category')
@@ -132,15 +155,28 @@ Route::middleware('auth')->group(function () {
             Route::post('update{brand}', 'update')->name('update');
             Route::get('delete/{brand}', 'destroy')->name('delete');
         });
-});
-Route::view('nav', 'frontend.layout.app');
 
-Route::get('/nav', function () {
-    return view('frontend.layout.app');
-});
-Route::get('/home', function () {
-    return view('frontend.index');
-});
-Route::get('/product', function () {
-    return view('frontend.productDetail');
+    Route::controller(ProductController::class)
+        ->prefix('product')
+        ->name('product.')
+        ->group(function () {
+            Route::get('', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::get('edit/{product}', 'edit')->name('edit');
+            Route::post('update{product}', 'update')->name('update');
+            Route::get('delete/{product}', 'destroy')->name('delete');
+        });
+
+    Route::controller(BlogController::class)
+        ->prefix('blog')
+        ->name('blog.')
+        ->group(function () {
+            Route::get('', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::post('store', 'store')->name('store');
+            Route::get('edit/{blog}', 'edit')->name('edit');
+            Route::post('update{blog}', 'update')->name('update');
+            Route::get('delete/{blog}', 'destroy')->name('delete');
+        });
 });

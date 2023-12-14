@@ -8,18 +8,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Brand extends Model implements HasMedia
+class Blog extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia, SoftDeletes;
     protected $fillable = [
-        'name',
+        'title',
         'description',
-        'brand_title',
-        'brand_info',
+        'second_title',
+        'second_description',
+        'third_title',
+        'third_description',
+        'forth_title',
+        'forth_description',
+        'fifth_title',
+        'fifth_description'
     ];
-
-    public function products()
-    {
-        return $this->hasMany(Product::class);
-    }
 }
