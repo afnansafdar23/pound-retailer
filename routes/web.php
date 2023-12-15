@@ -38,9 +38,9 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
         ->prefix('auth')
         ->name('auth.')
         ->group(function () {
-            Route::get('login',  'loginView')->name('login');
+            Route::get('login', 'loginView')->name('login');
             Route::post('login-user', 'userLogin')->name('login.user');
-            Route::get('register',  'registerView')->name('register');
+            Route::get('register', 'registerView')->name('register');
             Route::post('check-register', 'checkRegister')->name('check.register');
             Route::get('logout', 'logout')->name('logout');
         });
@@ -51,9 +51,8 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
     Route::get('/product', function () {
         return view('frontend.productDetail');
     });
-    Route::get('/prod-by-cat', function () {
-        return view('frontend.prodbycat');
-    });
+
+
 
 
     Route::controller(DefaultController::class)
@@ -61,6 +60,7 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
         ->name('web.')
         ->group(function () {
             Route::get('', 'home')->name('index');
+            Route::get('/prod-by-cat', 'prodByCat')->name('prodByCat');
             Route::get('brands', 'brands')->name('prod.by.brands');
         });
 });
