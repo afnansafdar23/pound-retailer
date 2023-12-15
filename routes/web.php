@@ -60,7 +60,7 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
         ->name('web.')
         ->group(function () {
             Route::get('', 'home')->name('index');
-            Route::get('/prod-by-cat', 'prodByCat')->name('prodByCat');
+            Route::get('/prod-by-cat/{parentCategory}', 'prodByCat')->name('prodByCat');
             Route::get('brands', 'brands')->name('prod.by.brands');
         });
 });

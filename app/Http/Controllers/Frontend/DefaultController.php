@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\ChildCategory;
 use App\Models\ParentCategory;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -51,13 +52,21 @@ class DefaultController extends Controller
                 'brands' => $brands
             ]);
     }
-    public function prodByCat(): View
+    public function prodByCat(ParentCategory $parentCategory): View
     {
         $parentCategories = ParentCategory::all();
         $childCategories = ChildCategory::all();
-        $blogs = Blog::paginate(4);
+        $childByParentCat = ChildCategory::where('parent_category_id', $parentCategory->id)->get();
+        $products = Product::whereIn('child_category_id', $childByParentCat->pluck('id'))->get();
 
-        return view('frontend.prodbycat')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
+        return view('frontend.prodbycat')
+            ->with([
+                'parentCategories' => $parentCategories,
+                'parentCategory' => $parentCategory,
+                'childCategories' => $childCategories,
+                'childByParentCat' => $childByParentCat,
+                'products' => $products
+            ]);
     }
     /**
      * Display a listing of the resource.
