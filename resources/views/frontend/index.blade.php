@@ -349,10 +349,14 @@
         padding-top: 50px;
         clip-path: ellipse(100% 66% at 0% 48%);
 
-        height: 160px;
-        margin-left: -12px;
-        border-bottom-left-radius: 10px;
-        border-top-left-radius: 10px;
+        .div1 {
+            padding-top: 50px;
+            clip-path: ellipse(100% 66% at 0% 48%);
+
+            height: 160px;
+            margin-left: -12px;
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
 
 
 
@@ -412,7 +416,7 @@
             margin-left: 10px;
         }
 
-    }
+            .c12 {
 
     @media(min-width: 991px) {
         .div1 {
@@ -492,7 +496,7 @@
 
     <img class="grid-img" src="{{asset('assets/front end/home-image/7 (3).png')}}" alt="Shining Stars Image" />
 
-</div>
+    </div>
 
 <div class="gallery row mt-2">
     @foreach ($parentCategories as $parentCategory)
@@ -504,7 +508,7 @@
     @endforeach
 </div>
 
-{{-- grid View System --}}
+    {{-- grid View System --}}
 
 <section class="mt-4">
     <div class="container">
