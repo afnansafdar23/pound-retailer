@@ -499,7 +499,9 @@
     <div class="img-container p-0">
         <img class="grid-img" src="{{$parentCategory->getFirstMediaUrl('parentCategory.image')}}"
             alt="{{$parentCategory['name']}}">
-        <div class="overlay">{{$parentCategory['name']}}</div>
+        <div class="overlay">
+            <h3>{{$parentCategory['name']}}</h3>
+        </div>
     </div>
     @endforeach
 </div>
@@ -508,7 +510,6 @@
 
 <section class="mt-4">
     <div class="container">
-
         <h2>Latest Products</h2>
         <div>
             <div class="owl-carousel owl-theam owl-carousel1">
@@ -746,7 +747,9 @@
     </div>
 </section>
 <section class="container mb-5">
+    @if (isset($blogs))
     <h1 class="text-center my-4">Our Blogs</h1>
+    @endif
     <div class="row text-center justify-content-center">
         @foreach ($blogs as $blog)
         <div class="col-md-3 bg-light rounded-2 py-3">
