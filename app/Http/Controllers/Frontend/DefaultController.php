@@ -24,7 +24,14 @@ class DefaultController extends Controller
 
         return view('frontend.index')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
     }
+    public function prodByCat(): View
+    {
+        $parentCategories = ParentCategory::all();
+        $childCategories = ChildCategory::all();
+        $blogs = Blog::paginate(4);
 
+        return view('frontend.prodbycat')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
+    }
     /**
      * Display a listing of the resource.
      *

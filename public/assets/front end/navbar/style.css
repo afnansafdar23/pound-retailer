@@ -72,7 +72,7 @@ h6 {
 
 p {
     --bs-text-opacity: 1;
-    color: #6c757d!important;
+    color: #6c757d !important;
 }
 
 p:last-child {
@@ -1034,7 +1034,6 @@ textarea:-ms-input-placeholder {
 .header-area {
     background-color: #fff;
     left: 0;
-    position: absolute;
     right: 0;
     top: 0;
     z-index: 9999999;
