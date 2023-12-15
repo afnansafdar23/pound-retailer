@@ -360,94 +360,94 @@
 
 
 
-    }
-
-    .incard {
-        height: 160px;
-        border-bottom-left-radius: 10px;
-        border-top-left-radius: 10px;
-
-    }
-
-    .incard2 {
-        border-bottom-right-radius: 10px;
-        border-top-right-radius: 10px;
-
-    }
-
-    @media(max-width: 575px) {
-
-        .c12 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            margin-left: 10px;
-            width: 90%;
-
-
         }
 
-        .div1 {
-            padding-top: 50px;
-            clip-path: ellipse(99% 100% at 0% 52%);
-
-
+        .incard {
             height: 160px;
-            margin-left: -12px;
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
 
+        }
+
+        .incard2 {
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+
+        }
+
+        @media(max-width: 575px) {
+
+            .c12 {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                margin-top: 40px;
+                margin-bottom: 20px;
+                margin-left: 10px;
+                width: 90%;
+
+
+            }
+
+            .div1 {
+                padding-top: 50px;
+                clip-path: ellipse(99% 100% at 0% 52%);
+
+
+                height: 160px;
+                margin-left: -12px;
+
+
+
+            }
 
 
         }
 
+        @media(min-width: 768px) {
+            .div1 {
+                padding-top: 50px;
+                clip-path: ellipse(99% 100% at 0% 52%);
+                width: 50px;
+                height: 160px;
+                margin-left: -12px;
+            }
 
-    }
-
-    @media(min-width: 768px) {
-        .div1 {
-            padding-top: 50px;
-            clip-path: ellipse(99% 100% at 0% 52%);
-            width: 50px;
-            height: 160px;
-            margin-left: -12px;
-        }
-
-        .c12 {
-            margin-left: 10px;
-        }
+            .c12 {
+                margin-left: 10px;
+            }
 
             .c12 {
 
-    @media(min-width: 991px) {
-        .div1 {
-            width: auto;
-        }
+                @media(min-width: 991px) {
+                    .div1 {
+                        width: auto;
+                    }
 
-        .c12 {
+                    .c12 {
 
-            width: 25%
-        }
+                        width: 25%
+                    }
 
-        .card-main {
-            margin-left: -14px;
-        }
+                    .card-main {
+                        margin-left: -14px;
+                    }
 
-    }
+                }
 
-    @media() @media(max-width: 413px) {
-        .c12 {
-            margin-left: 8px;
-            width: 300px;
+                @media() @media(max-width: 413px) {
+                    .c12 {
+                        margin-left: 8px;
+                        width: 300px;
 
-        }
+                    }
 
-    }
+                }
 
-    @media(max-width: 768px) {
-        .c12 {
-            margin-left: 10px;
-        }
-    }
+                @media(max-width: 768px) {
+                    .c12 {
+                        margin-left: 10px;
+                    }
+                }
 </style>
 
 @endsection
@@ -496,7 +496,7 @@
 
     <img class="grid-img" src="{{asset('assets/front end/home-image/7 (3).png')}}" alt="Shining Stars Image" />
 
-    </div>
+</div>
 
 <div class="gallery row mt-2">
     @foreach ($parentCategories as $parentCategory)
@@ -510,7 +510,7 @@
     @endforeach
 </div>
 
-    {{-- grid View System --}}
+{{-- grid View System --}}
 
 <section class="mt-4">
     <div class="container">
@@ -645,53 +645,25 @@
         </div>
     </div>
 </section>
-
-
 {{-- Brand Section --}}
-
 <section id="slider" class="">
     <div class="container">
-
         <h2>Our Brands</h2>
         <div>
             <div class="owl-carousel owl-theam owl-carousel2">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://bestjquery.com/tutorial/product-grid/demo57/images/img-6.jpg" class="card-img-top"
-                        alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up
-                            the bulk of
-                            the card's content.</p>
+                @foreach ($brands as $brand)
+                <div class="card rounded">
+                    <div class="card-image m-2">
+                        <img class="img-fluid" src="{{$brand->getFirstMediaUrl('brand.image')}}"
+                            alt="{{$brand['name']}}" />
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="ad-title m-auto">
+                            <h5>{{$brand['name']}}</h5>
+                        </div>
                     </div>
                 </div>
-                <!-- Start Card -->
-                <div class="card" style="width: 18rem;">
-                    <img src="https://bestjquery.com/tutorial/product-grid/demo57/images/img-6.jpg" class="card-img-top"
-                        alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-
-                <!-- Start Card -->
-                <div class="card" style="width: 18rem;">
-                    <img src="https://bestjquery.com/tutorial/product-grid/demo57/images/img-6.jpg" class="card-img-top"
-                        alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-                <!-- Start Card -->
-                <div class="card" style="width: 18rem;">
-                    <img src="https://bestjquery.com/tutorial/product-grid/demo57/images/img-6.jpg" class="card-img-top"
-                        alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -790,7 +762,7 @@
              items:3
         },
         1000:{
-            items:3.84
+            items:4
         }
     }
 });

@@ -51,9 +51,6 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
     Route::get('/product', function () {
         return view('frontend.productDetail');
     });
-    Route::get('/brands', function () {
-        return view('frontend.allbrands');
-    });
     Route::get('/prod-by-cat', function () {
         return view('frontend.prodbycat');
     });
@@ -64,6 +61,7 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
         ->name('web.')
         ->group(function () {
             Route::get('', 'home')->name('index');
+            Route::get('brands', 'brands')->name('prod.by.brands');
         });
 });
 
