@@ -23,4 +23,9 @@ class SubCategory extends Model implements HasMedia
     {
         return $this->belongsTo(ChildCategory::class, 'child_category_id');
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

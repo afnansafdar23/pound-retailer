@@ -46174,6 +46174,9 @@ label.rating-label:hover ~ .rating-label > i {
         display: none !important;
     }
 }
+.content{
+        width: 99% !important;
+}
 .bg-white {
     --kt-bg-rgb-color: var(--kt-white-bg-rgb);
     background-color: #000 !important;

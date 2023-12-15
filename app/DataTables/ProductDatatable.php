@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\User;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
@@ -11,7 +11,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
 
-class UserDataTable extends DataTable
+class ProductDatatable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -22,15 +22,19 @@ class UserDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('roles', function (User $user) {
-                return $user->roles->map(function ($role) {
-                    return $role->name;
-                })->implode(',');
+            ->addColumn('action', 'admin.product.datatables_actions')
+            ->addColumn('child_category_id', function (Product $product) {
+                return $product->childCategory->name;
+            })->addColumn('availability', function (Product $product) {
+                if ($product->availability == 'on') {
+                    return 'Yes';
+                } else {
+                    return 'No';
+                }
             })
-            ->addColumn('image', function (User $user) {
-                return '<img src="' . asset($user->getFirstMediaUrl('user.image')) . '" class="image-input-wrapper rounded-circle w-50px h-50px" alt="alt text">';
+            ->addColumn('image', function (Product $product) {
+                return '<img src="' . asset($product->getFirstMediaUrl('product.image')) . '" class="image-input-wrapper rounded-circle w-50px h-50px" alt="alt text">';
             })
-            ->addColumn('action', 'admin.users.datatables_actions')
             ->rawColumns(['image', 'edit', 'delete', 'action'])
             ->setRowId('id');
     }
@@ -41,9 +45,9 @@ class UserDataTable extends DataTable
      * @param \App\Models\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model): QueryBuilder
+    public function query(Product $model): QueryBuilder
     {
-        return $model->with('roles')->newQuery()->select('id', 'name', 'email');
+        return $model->newQuery()->select('id', 'name', 'price', 'availability', 'child_category_id', 'sku');
     }
 
     /**
@@ -54,7 +58,7 @@ class UserDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('user-table')
+            ->setTableId('product-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             //->dom('Bfrtip')
@@ -76,11 +80,13 @@ class UserDataTable extends DataTable
             Column::make('id'),
             Column::make('image'),
             Column::make('name'),
-            Column::make('email'),
-            Column::make('roles'),
+            Column::make('price'),
+            Column::make('availability'),
+            Column::make('child_category_id')->title('Child Category'),
+            Column::make('sku'),
         ];
 
-        if (Auth::user()->can('user.edit') || Auth::user()->can('user.delete')) {
+        if (Auth::user()->can('product.edit') || Auth::user()->can('product.delete')) {
             $columns = array_merge($columns, [Column::make('action')]);
         }
 
@@ -94,6 +100,6 @@ class UserDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'User_' . date('YmdHis');
+        return 'Product_' . date('YmdHis');
     }
 }

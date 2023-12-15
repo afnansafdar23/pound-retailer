@@ -21,7 +21,7 @@ class UserController extends Controller
      */
     public function index(UserDataTable $userDataTable)
     {
-        return $userDataTable->render('admin.users.index',[$userDataTable]);
+        return $userDataTable->render('admin.users.index', [$userDataTable]);
     }
 
     /**
@@ -44,27 +44,13 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest  $request): RedirectResponse
     {
-        $imageName = time() . '.' . $request->avatar->extension();
-
         try {
-            $avatar = 'images/user_images/' . $imageName;
-            $user = User::create($request->safe()->except('avatar'), ['avatar' => $avatar]);
-
-            if ($request->has('roles')) {
-                $roles = Role::whereIn('id', $request->roles)->get();
-                foreach ($roles as $role) {
-                    $user->assignRole($role);
-                }
+            $user = User::create($request->validated());
+            if (isset($request->image)) {
+                $user->addMedia(storage_path('tmp/uploads/' . $request->image))->toMediaCollection('user.image');
             }
-
-            try {
-                $request->avatar->move(public_path('images/user_images'), $imageName);
-            } catch (Exception $ex) {
-                return back()->withError('Picture uploadation failed, please try again');
-            }
-
-            if ($user->save()) {
-                return redirect()->route('user.index');
+            if ($user) {
+                return redirect()->route('user.index')->withSuccess('User successfully created');
             } else {
                 return back()->withError('Something went wrong !');
             }
@@ -108,35 +94,20 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
-        $validatedUser = $request->validated();
-
-        if (isset($validatedUser['avatar'])) {
-            try {
-                $imageName = time() . '.' . $request->avatar->extension();
-                $user->update(['avatar' => 'images/user_images/' . $imageName]);
-                $request->avatar->move(public_path('images/user_images'), $imageName);
-            } catch (Exception $ex) {
-                return back()->withError('Picture uploadation failed, please try again');
-            }
-        }
-
         try {
-            $user->update([
-                'name' => $validatedUser['name'],
-                'mobile_number' => $validatedUser['mobile_number']
-            ]);
+            $user->update($request->validated());
 
-            if ($request->has('roles')) {
-                $roles = Role::whereIn('id', $request->roles)->get();
-                $user->syncRoles($roles);
+            if (isset($request['image']) == null) {
+                $user->clearMediaCollection('user.image');
             } else {
-                $user->syncRoles();
+                if (!file_exists(storage_path('tmp/uploads/' . $request['image']))) {
+                    return redirect()->route('user.index')->withSuccess('User successfully Updated');
+                }
+                $user->media()->delete();
+                $user->addMedia(storage_path('tmp/uploads/' . $request['image']))->toMediaCollection('user.image');
             }
-
-            if ($user->save()) {
-                return redirect()->route('user.index');
-            } else {
-                return back()->withError('Something went wrong !');
+            if ($user) {
+                return redirect()->route('user.index')->withSuccess('User successfully updated');
             }
         } catch (Exception $ex) {
             return back()->withError('Something went wrong !');
@@ -160,5 +131,4 @@ class UserController extends Controller
             return back()->withError('User not deleted');
         }
     }
-
 }
