@@ -51,6 +51,13 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
     Route::get('/product', function () {
         return view('frontend.productDetail');
     });
+    Route::get('/brands', function () {
+        return view('frontend.allbrands');
+    });
+    Route::get('/prod-by-cat', function () {
+        return view('frontend.prodbycat');
+    });
+
 
     Route::controller(DefaultController::class)
         ->prefix('')
