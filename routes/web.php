@@ -31,9 +31,9 @@ Route::controller(AuthController::class)
     ->prefix('auth')
     ->name('auth.')
     ->group(function () {
-        Route::get('login',  'loginView')->name('login');
+        Route::get('login', 'loginView')->name('login');
         Route::post('login-user', 'userLogin')->name('login.user');
-        Route::get('register',  'registerView')->name('register');
+        Route::get('register', 'registerView')->name('register');
         Route::post('check-register', 'checkRegister')->name('check.register');
         Route::get('logout', 'logout')->name('logout');
     });
@@ -143,4 +143,10 @@ Route::get('/home', function () {
 });
 Route::get('/product', function () {
     return view('frontend.productDetail');
+});
+Route::get('/brands', function () {
+    return view('frontend.allbrands');
+});
+Route::get('/prod-by-cat', function () {
+    return view('frontend.prodbycat');
 });
