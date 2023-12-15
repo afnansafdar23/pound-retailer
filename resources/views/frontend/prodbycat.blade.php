@@ -1,16 +1,16 @@
 @extends('frontend.layout.app')
 @section('customCss')
-    <style>
-        #more {
-            display: none;
-        }
+<style>
+    #more {
+        display: none;
+    }
 
-        .rounded-circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto;
-            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    .rounded-circle {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 0 auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .2);
 
 
         }
@@ -151,35 +151,34 @@
         }
     </style>
 
-    {{-- card styling --}}
+{{-- card styling --}}
 @endsection
 
 {{-- read more section --}}
 @section('content')
-    <div class="container-fluid mt-3 mb-5">
-        <div class="row">
-            <div class="col-12">
-                <h1>Retailer Brands</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum,
-                    nisi lorem egestas vitae scel
-                </p>
-                <span id="dots"></span>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12" id="more">
-                            <h2>heading</h2>
-                            <p>erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor
-                                vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed
-                                ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis.
-                                Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum.
-                                Sed dapibus pulvinar nibh tempor porta.</span></p>
-                        </div>
+<div class="container-fluid mt-3 mb-5">
+    <div class="row">
+        <div class="col-12">
+            <h1>Retailer Brands</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum,
+                nisi lorem egestas vitae scel
+            </p>
+            <span id="dots"></span>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12" id="more">
+                        <h2>heading</h2>
+                        <p>erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor
+                            vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed
+                            ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis.
+                            Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum.
+                            Sed dapibus pulvinar nibh tempor porta.</span></p>
                     </div>
-
-                    <button onclick="myFunction()" id="myBtn">Read more</button>
                 </div>
 
+                <button onclick="myFunction()" id="myBtn">Read more</button>
             </div>
+
         </div>
     </div>
 
@@ -244,8 +243,8 @@
 @endsection
 
 @section('custromJs')
-    <script>
-        function myFunction() {
+<script>
+    function myFunction() {
             var dots = document.getElementById("dots");
             var moreText = document.getElementById("more");
             var btnText = document.getElementById("myBtn");
@@ -260,5 +259,5 @@
                 moreText.style.display = "inline";
             }
         }
-    </script>
+</script>
 @endsection

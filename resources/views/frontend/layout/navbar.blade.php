@@ -79,7 +79,7 @@
                     @if ($parentCategory->childCategories)
                     <ul>
                         @foreach ($parentCategory->childCategories as $childCategory)
-                        <li><a href="index.html">{{$childCategory['name']}}</a></li>
+                        <li><a href="#">{{$childCategory['name']}}</a></li>
                         @endforeach
                     </ul>
                     @endif
