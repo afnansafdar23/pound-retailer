@@ -52,6 +52,25 @@ class DefaultController extends Controller
                 'brands' => $brands
             ]);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function productDetails(Product $product): View
+    {
+        $parentCategories = ParentCategory::all();
+        $relatedProducts = Product::paginate(4);
+
+        return view('frontend.productDetail')
+            ->with([
+                'parentCategories' => $parentCategories,
+                'product' => $product,
+                'relatedProducts' => $relatedProducts
+            ]);
+    }
+
     public function prodByCat(ParentCategory $parentCategory): View
     {
         $parentCategories = ParentCategory::all();

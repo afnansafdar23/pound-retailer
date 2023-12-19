@@ -208,11 +208,11 @@
                             <h3>{{$product['name']}}</h3>
                         </div>
                         <div class="price_rating">
-                            <div class="d-flex gap-1">
-                                <h3>{{$product['discounted_price']}}</h3>
-                                <div class="d-block">
-                                    <del class="text-danger">{{$product['price']}}</del>
-                                    <span class="text-success">{{number_format((($product['price'] -
+                            <div class="d-flex gap-1 align-items-center">
+                                <h3 class="m-auto">{{$product['discounted_price']}}$</h3>
+                                <div class="d-grid">
+                                    <del class="text-danger text-small">{{$product['price']}} $</del>
+                                    <span class="text-success text-small">{{number_format((($product['price'] -
                                         $product['discounted_price']) /
                                         $product['price']) *
                                         100)}} % OFF</span>
@@ -223,7 +223,7 @@
                                     @if ($product['availability']=='on')
                                     <span class="badge bg-success"><i class="fa-solid fa-check"></i> In Stock</span>
                                     @else
-                                    <span class="badge bg-danger"><i class="fa-solid fa-cross"></i> Out of Stock</span>
+                                    <span class="badge bg-danger"><i class="fa-solid fa-xmark"></i> Out of Stock</span>
                                     @endif
                                 <p>
                             </div>

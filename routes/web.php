@@ -48,11 +48,6 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
     Route::view('nav', 'frontend.layout.app');
 
 
-    Route::get('/product', function () {
-        return view('frontend.productDetail');
-    });
-
-
 
 
     Route::controller(DefaultController::class)
@@ -62,6 +57,7 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('', 'home')->name('index');
             Route::get('/prod-by-cat/{parentCategory}', 'prodByCat')->name('prodByCat');
             Route::get('brands', 'brands')->name('prod.by.brands');
+            Route::get('product/detail/{product}', 'productDetails')->name('prod.detail');
         });
 });
 
