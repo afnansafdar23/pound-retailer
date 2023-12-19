@@ -59,6 +59,29 @@ class DefaultController extends Controller
 
         return view('frontend.prodbycat')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
     }
+
+    // blog function
+    public function blog(): View
+    {
+        $parentCategories = ParentCategory::all();
+        $childCategories = ChildCategory::all();
+        $blogs = Blog::paginate(4);
+
+        return view('frontend.blog')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
+    }
+
+
+    // end blog function
+
+    // all blog functions
+    public function allblog(): View
+    {
+        $parentCategories = ParentCategory::all();
+        $childCategories = ChildCategory::all();
+        $blogs = Blog::paginate(4);
+
+        return view('frontend.allblog')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
+    }
     /**
      * Display a listing of the resource.
      *

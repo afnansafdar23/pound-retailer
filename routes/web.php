@@ -62,6 +62,8 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('', 'home')->name('index');
             Route::get('/prod-by-cat', 'prodByCat')->name('prodByCat');
             Route::get('brands', 'brands')->name('prod.by.brands');
+            Route::get('/blog', 'blog')->name('blog');
+            Route::get('/all-blog', 'allblog')->name('allblog');
         });
 });
 
@@ -174,7 +176,7 @@ Route::middleware('auth')->group(function () {
         });
 
     Route::controller(BlogController::class)
-        ->prefix('blog')
+        ->prefix('admin/blog')
         ->name('blog.')
         ->group(function () {
             Route::get('', 'index')->name('index');
