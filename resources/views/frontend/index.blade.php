@@ -483,19 +483,10 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
     <img class="grid-img" src="{{asset('assets/front end/home-image/4 (4).png')}}" alt="Shining Stars Image" />
-
-
-
     <img class="grid-img" src="{{asset('assets/front end/home-image/5 (4).png')}}" alt="A cloudy Mountain Image" />
-
     <img class="grid-img" src="{{asset('assets/front end/home-image/6 (4).png')}}" alt="A Winter Rainbow Image" />
-
-
-
     <img class="grid-img" src="{{asset('assets/front end/home-image/7 (3).png')}}" alt="Shining Stars Image" />
-
 </div>
 
 <div class="gallery row mt-2">
