@@ -61,26 +61,35 @@ class DefaultController extends Controller
         return view('frontend.prodbycat')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
     }
 
-    // blog function
-    public function blog(): View
+    public function singleBlog(Blog $blog): View
     {
         $parentCategories = ParentCategory::all();
-        $childCategories = ChildCategory::all();
-        $blogs = Blog::paginate(4);
-
-        return view('frontend.blog')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
+        return view('frontend.blog')
+            ->with([
+                'parentCategories' => $parentCategories,
+                'blog' => $blog
+            ]);
     }
 
-
-    // end blog function
-
-    // all blog functions
-    public function allblog(): View
+    public function allBlogs(): View
     {
         $parentCategories = ParentCategory::all();
-        $childCategories = ChildCategory::all();
-        $blogs = Blog::paginate(4);
+        $blogs = Blog::paginate(10);
 
-        return view('frontend.allblog')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
+        return view('frontend.allblog')
+            ->with([
+                'parentCategories' => $parentCategories,
+                'blogs' => $blogs
+            ]);
+    }
+
+    public function prodByBrands(Brand $brand): View
+    {
+        $prodByBrands = $brand->products();
+        return view('frontend.prodbybrands')
+            ->with([
+                'brand' => $brand,
+                'prodByBrands' => $prodByBrands,
+            ]);
     }
 }
