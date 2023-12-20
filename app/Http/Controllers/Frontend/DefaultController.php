@@ -52,48 +52,35 @@ class DefaultController extends Controller
                 'brands' => $brands
             ]);
     }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function productDetails(Product $product): View
-    {
-        $parentCategories = ParentCategory::all();
-        $relatedProducts = Product::paginate(4);
-
-        return view('frontend.productDetail')
-            ->with([
-                'parentCategories' => $parentCategories,
-                'product' => $product,
-                'relatedProducts' => $relatedProducts
-            ]);
-    }
-
-    public function prodByCat(ParentCategory $parentCategory): View
+    public function prodByCat(): View
     {
         $parentCategories = ParentCategory::all();
         $childCategories = ChildCategory::all();
-        $childByParentCat = ChildCategory::where('parent_category_id', $parentCategory->id)->get();
-        $products = Product::whereIn('child_category_id', $childByParentCat->pluck('id'))->get();
+        $blogs = Blog::paginate(4);
 
-        return view('frontend.prodbycat')
-            ->with([
-                'parentCategories' => $parentCategories,
-                'parentCategory' => $parentCategory,
-                'childCategories' => $childCategories,
-                'childByParentCat' => $childByParentCat,
-                'products' => $products
-            ]);
+        return view('frontend.prodbycat')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    // blog function
+    public function blog(): View
     {
-        //
+        $parentCategories = ParentCategory::all();
+        $childCategories = ChildCategory::all();
+        $blogs = Blog::paginate(4);
+
+        return view('frontend.blog')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
+    }
+
+
+    // end blog function
+
+    // all blog functions
+    public function allblog(): View
+    {
+        $parentCategories = ParentCategory::all();
+        $childCategories = ChildCategory::all();
+        $blogs = Blog::paginate(4);
+
+        return view('frontend.allblog')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
     }
 }
