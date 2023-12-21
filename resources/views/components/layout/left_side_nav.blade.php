@@ -44,7 +44,7 @@
                 <!--begin:Menu item-->
                 <div class="menu-item menu-accordion">
                     <!--begin:Menu link-->
-                    <a href="{{route('user.dashboard')}}" class="menu-link">
+                    <a href="{{route('user.index')}}" class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
                             <span class="svg-icon svg-icon-2">
