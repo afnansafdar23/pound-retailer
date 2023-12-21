@@ -65,7 +65,7 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('/about-us', 'about')->name('about');
             Route::get('/faqs', 'faq')->name('faq');
             Route::get('/privacy-policy', 'privacy')->name('privacy');
-            Route::get('/terms-condition', 'terms')->name('terms');
+            Route::get('/terms-condition', 'term')->name('term');
             Route::get('product/detail/{product}', 'productDetails')->name('prod.detail');
         });
 });

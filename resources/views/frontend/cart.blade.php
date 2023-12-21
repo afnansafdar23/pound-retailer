@@ -1,16 +1,6 @@
 @extends('frontend.layout.app')
 @section('customCss')
     <style>
-        body {
-
-            min-height: 100vh;
-            vertical-align: middle;
-            display: flex;
-
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
         .title {
             margin-bottom: 5vh;
         }

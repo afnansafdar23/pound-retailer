@@ -145,7 +145,7 @@ class DefaultController extends Controller
         $childCategories = ChildCategory::all();
 
 
-        return view('frontend.term')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
+        return view('frontend.terms')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
     }
 
     // privacy and policy

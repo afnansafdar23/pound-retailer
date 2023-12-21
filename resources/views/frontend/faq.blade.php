@@ -41,6 +41,11 @@
 @section('content')
     <div class="container mt-5">
         <div class="row">
+            <div class="col-12 text-center">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-6">
                 <div class="accordion" id="accordionExampleLeft">
                     <div class="accordion-item">
@@ -95,4 +100,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+
+@section('custromJs')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 @endsection
