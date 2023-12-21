@@ -20,7 +20,6 @@ class UserAdminSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => '123456',
-            'avatar' => 'admin.jpg',
             'mobile_number' => '090078601'
         ]);
 

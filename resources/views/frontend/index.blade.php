@@ -507,132 +507,53 @@
     <div class="container">
         <h2>Latest Products</h2>
         <div>
-            <div class="owl-carousel owl-theam owl-carousel1">
-                <div class="col-md-12 col-sm-12 mb-2 ">
-                    <div class="product-grid">
-                        <div class="product-image">
-                            <a href="#" class="image">
-                                <img class="pic-1" style="height: 40vh"
-                                    src="https://bestjquery.com/tutorial/product-grid/demo57/images/img-6.jpg">
-
-                            </a>
-                            <span class="product-sale-label">sale!</span>
-                            <ul class="social">
-                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                <li><a href="#" data-tip="Add to wishlist"><i class="fa fa-heart"></i></a></li>
+            {{-- <div class="owl-carousel owl-theam owl-carousel1"> --}}
+             @forelse ($products as $product)
+                 <div class="col-6 col-lg-3">
+                    <div class="card">
+                        <div class="imgBx">
+                            <img src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
+                            <ul class="action">
+                                <li><i class="fa-solid fa-heart"></i>
+                                    <span>add to whishlist</span>
+                                </li>
+                                <li><i class="fa-solid fa-eye"></i>
+                                    <span>view detail</span>
+                                </li>
                             </ul>
-                            <div class="product-rating">
-                                <ul class="rating">
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                </ul>
-                                <a class="add-to-cart" href="#"> ADD TO CART </a>
+                        </div>
+                        <div class="content">
+                            <div class="productname text-center">
+                                <h3>{{$product['name']}}</h3>
+                            </div>
+                            <div class="price_rating">
+                                <div class="d-flex gap-1 align-items-center">
+                                    <h3 class="m-auto">{{$product['discounted_price']}}$</h3>
+                                    <div class="d-grid">
+                                        <del class="text-danger text-small">{{$product['price']}} $</del>
+                                        <span class="text-success text-small">{{number_format((($product['price'] -
+                                            $product['discounted_price']) /
+                                            $product['price']) *
+                                            100)}} % OFF</span>
+                                    </div>
+                                </div>
+                                <div class="ratings">
+                                    <p>
+                                        @if ($product['availability']=='on')
+                                        <span class="badge bg-success"><i class="fa-solid fa-check"></i> In Stock</span>
+                                        @else
+                                        <span class="badge bg-danger"><i class="fa-solid fa-xmark"></i> Out of Stock</span>
+                                        @endif
+                                    <p>
+                                </div>
                             </div>
                         </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Men's Shirt</a></h3>
-                            <div class="price"><span>$28.00</span>$20.00</div>
-                        </div>
                     </div>
-                </div>
-                <!-- Start Card -->
-                <div class="col-md-12 col-sm-12 mb-2 ">
-                    <div class="product-grid">
-                        <div class="product-image">
-                            <a href="#" class="image">
-                                <img class="pic-1" style="height: 40vh"
-                                    src="https://bestjquery.com/tutorial/product-grid/demo57/images/img-6.jpg">
-
-                            </a>
-                            <span class="product-sale-label">sale!</span>
-                            <ul class="social">
-                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                <li><a href="#" data-tip="Add to wishlist"><i class="fa fa-heart"></i></a></li>
-                            </ul>
-                            <div class="product-rating">
-                                <ul class="rating">
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                </ul>
-                                <a class="add-to-cart" href="#"> ADD TO CART </a>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Men's Shirt</a></h3>
-                            <div class="price"><span>$28.00</span>$20.00</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Start Card -->
-                <div class="col-md-12 col-sm-12 mb-2 ">
-                    <div class="product-grid">
-                        <div class="product-image">
-                            <a href="#" class="image">
-                                <img class="pic-1" style="height: 40vh"
-                                    src="https://bestjquery.com/tutorial/product-grid/demo57/images/img-6.jpg">
-
-                            </a>
-                            <span class="product-sale-label">sale!</span>
-                            <ul class="social">
-                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                <li><a href="#" data-tip="Add to wishlist"><i class="fa fa-heart"></i></a></li>
-                            </ul>
-                            <div class="product-rating">
-                                <ul class="rating">
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                </ul>
-                                <a class="add-to-cart" href="#"> ADD TO CART </a>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Men's Shirt</a></h3>
-                            <div class="price"><span>$28.00</span>$20.00</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Start Card -->
-                <div class="col-md-12 col-sm-12 mb-2 ">
-                    <div class="product-grid">
-                        <div class="product-image">
-                            <a href="#" class="image">
-                                <img class="pic-1" style="height: 40vh"
-                                    src="https://bestjquery.com/tutorial/product-grid/demo57/images/img-6.jpg">
-
-                            </a>
-                            <span class="product-sale-label">sale!</span>
-                            <ul class="social">
-                                <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                <li><a href="#" data-tip="Add to wishlist"><i class="fa fa-heart"></i></a></li>
-                            </ul>
-                            <div class="product-rating">
-                                <ul class="rating">
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="fas fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                    <li class="far fa-star"></li>
-                                </ul>
-                                <a class="add-to-cart" href="#"> ADD TO CART </a>
-                            </div>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="#">Men's Shirt</a></h3>
-                            <div class="price"><span>$28.00</span>$20.00</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                 </div>
+             @empty
+             <h2 class="text-center">No Products Found</h2>
+             @endforelse
+            {{-- </div> --}}
         </div>
     </div>
 </section>
@@ -642,7 +563,7 @@
         <h2>Our Brands</h2>
         <div>
             <div class="owl-carousel owl-theam owl-carousel2">
-                @foreach ($brands as $brand)
+                @forelse($brands as $brand)
                 <div class="card rounded">
                     <div class="card-image m-2">
                         <img class="img-fluid" src="{{$brand->getFirstMediaUrl('brand.image')}}"
@@ -654,7 +575,9 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+                @empty
+                <h4 class="text-center">No brands Found</h4>
+                @endforelse
             </div>
         </div>
     </div>
@@ -718,14 +641,16 @@
     <h1 class="text-center my-4">Our Blogs</h1>
     @endif
     <div class="row text-center justify-content-center">
-        @foreach ($blogs as $blog)
+        @forelse ($blogs as $blog)
         <div class="col-md-3 bg-light rounded-2 py-3">
             <img class="rounded-2" src="{{$blog->getFirstMediaUrl('blog.image')}}" alt="">
             <h3 class="text-center mt-2">{{$blog['title']}}</h3>
             <hr>
             <p class="overflow-hidden wrap">{{$blog['description']}}</p>
         </div>
-        @endforeach
+        @empty
+        <h4 class="text-center">No Blogs Found</h4>
+        @endforelse
     </div>
 </section>
 {{-- End Blog Section --}}

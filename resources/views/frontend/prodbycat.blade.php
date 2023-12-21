@@ -189,7 +189,7 @@
     <!-- product section -->
     <div class="container container_pro">
         <div class="row justify-content-center">
-            @foreach ($products as $product)
+            @foreach ($products->childCategory as $product)
             <div class="col-lg-3">
                 <div class="card">
                     <div class="imgBx">

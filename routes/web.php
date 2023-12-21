@@ -47,9 +47,6 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
 
     Route::view('nav', 'frontend.layout.app');
 
-
-
-
     Route::controller(DefaultController::class)
         ->prefix('')
         ->name('web.')
@@ -57,8 +54,6 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('', 'home')->name('index');
             Route::get('/prod-by-cat/{parentCategory}', 'prodByCat')->name('prodByCat');
             Route::get('brands', 'brands')->name('prod.by.brands');
-            Route::get('/blog', 'blog')->name('blog');
-            Route::get('/all-blog', 'allblog')->name('allblog');
             Route::get('/cart', 'cart')->name('cart');
             Route::get('/checkout', 'checkout')->name('checkout');
             Route::get('/contact-us', 'contact')->name('contact');
@@ -66,6 +61,9 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('/faqs', 'faq')->name('faq');
             Route::get('/privacy-policy', 'privacy')->name('privacy');
             Route::get('/terms-condition', 'term')->name('term');
+            Route::get('/prod-by-brands/{brand}', 'prodByBrands')->name('prodByBrands');
+            Route::get('/single/blog/{blog}', 'singleBlog')->name('blog');
+            Route::get('/all-blog', 'allBlogs')->name('allblog');
             Route::get('product/detail/{product}', 'productDetails')->name('prod.detail');
         });
 });
