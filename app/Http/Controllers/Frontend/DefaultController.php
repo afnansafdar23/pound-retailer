@@ -24,13 +24,15 @@ class DefaultController extends Controller
         $childCategories = ChildCategory::all();
         $blogs = Blog::paginate(4);
         $brands = Brand::all();
+        $products = Product::all();
 
         return view('frontend.index')
             ->with([
                 'parentCategories' => $parentCategories,
                 'childCategories' => $childCategories,
                 'blogs' => $blogs,
-                'brands' => $brands
+                'brands' => $brands,
+                'products' => $products,
             ]);
     }
 
