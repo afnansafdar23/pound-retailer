@@ -75,15 +75,20 @@
             <ul>
                 @foreach ($parentCategories as $parentCategory)
                 <li class="{{Request::route()->getName()=='parent.category.index'?'active':''}}"><a
-                        href="{{route('parent.category.index')}}">{{$parentCategory['name']}}</a>
+                        href="{{route('parent.category.index')}}">{{ Illuminate\Support\Str::limit(strip_tags($parentCategory['name']), 25, '...') }}</a>
                     @if ($parentCategory->childCategories)
                     <ul>
                         @foreach ($parentCategory->childCategories as $childCategory)
-                        <li><a href="#">{{$childCategory['name']}}</a></li>
-                        @endforeach
+                        <li>
+                            <a href="#">{{ Illuminate\Support\Str::limit(strip_tags($childCategory['name']), 25, '...') }}</a>
+                        </li>
+                            @foreach ($childCategory->subCategories as $subCategory)
+                        <li>
+                            <a href="#">{{ Illuminate\Support\Str::limit(strip_tags($subCategory['name']), 25, '...') }}</a>
+                        </li>
+                            @endforeach
                     </ul>
-                    @endif
-                </li>
+                        @endif
                 @endforeach
                 <li><a href="contact.html">contact</a></li>
             </ul>

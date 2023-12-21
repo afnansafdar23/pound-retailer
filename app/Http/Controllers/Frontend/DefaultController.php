@@ -54,13 +54,39 @@ class DefaultController extends Controller
                 'brands' => $brands
             ]);
     }
-    public function prodByCat(): View
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function prodDetail(Product $product): View
     {
         $parentCategories = ParentCategory::all();
-        $childCategories = ChildCategory::all();
-        $blogs = Blog::paginate(4);
+        $brand = $product->brand();
 
-        return view('frontend.prodbycat')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories, 'blogs' => $blogs]);
+        return view('frontend.allbrands')
+            ->with([
+                'parentCategories' => $parentCategories,
+                'product' => $product,
+                'brand' => $brand
+            ]);
+    }
+
+    public function prodByCat(ParentCategory $parentCategory): View
+    {
+        $parentCategories = ParentCategory::all();
+        $childByParentCat = ChildCategory::all();
+
+        return view('frontend.prodbycat')->with(['parentCategories' => $parentCategories, 'childByParentCat' => $childByParentCat, 'parentCategory' => $parentCategory,]);
+    }
+
+    public function prodByChildCat(ChildCategory $childCategory): View
+    {
+        $parentCategories = ParentCategory::all();
+        $subByChildCat = $childCategory->subCategories()->get();
+
+        return view('frontend.prodbychildcat')->with(['parentCategories' => $parentCategories, 'subByChildCat' => $subByChildCat, 'childCategory' => $childCategory,]);
     }
 
     public function singleBlog(Blog $blog): View

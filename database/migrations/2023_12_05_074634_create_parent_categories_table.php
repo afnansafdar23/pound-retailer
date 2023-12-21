@@ -16,9 +16,9 @@ return new class extends Migration
         if (!Schema::hasTable('parent_categories')) {
             Schema::create('parent_categories', function (Blueprint $table) {
                 $table->id();
-                $table->string('name', 155);
+                $table->string('name', 40);
                 $table->longText('description');
-                $table->string('sub_name', 155)->nullable();
+                $table->string('sub_name', 40)->nullable();
                 $table->longText('sub_description')->nullable();
                 $table->softDeletes();
                 $table->timestamps();

@@ -32,7 +32,7 @@
             <!--begin::Navbar-->
             <div class="app-navbar flex-shrink-0">
                 <!--begin::Search-->
-                <div class="app-navbar-item align-items-stretch ms-1 ms-lg-3">
+                {{-- <div class="app-navbar-item align-items-stretch ms-1 ms-lg-3">
                     <!--begin::Search-->
                     <div id="kt_header_search" class="header-search d-flex align-items-stretch"
                         data-kt-search-keypress="true" data-kt-search-min-length="2" data-kt-search-enter="enter"
@@ -932,7 +932,7 @@
                         <!--end::Menu-->
                     </div>
                     <!--end::Search-->
-                </div>
+                </div> --}}
                 <!--end::Search-->
                 <!--begin::Theme mode-->
                 <div class="app-navbar-item ms-1 ms-lg-3">

@@ -16,7 +16,7 @@ return new class extends Migration
         if (!Schema::hasTable('products')) {
             Schema::create('products', function (Blueprint $table) {
                 $table->id();
-                $table->string('name', 60);
+                $table->string('name', 40);
                 $table->string('sku', 20);
                 $table->longText('description');
                 $table->longText('features');
@@ -29,7 +29,7 @@ return new class extends Migration
                 $table->integer('product_weight')->nullable();
                 $table->integer('product_height')->nullable();
                 $table->integer('product_width')->nullable();
-                $table->integer('availability')->default(1);
+                $table->string('availability')->default('on');
                 $table->softDeletes();
                 $table->timestamps();
             });

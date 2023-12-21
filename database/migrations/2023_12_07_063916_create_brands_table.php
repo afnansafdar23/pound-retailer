@@ -16,9 +16,9 @@ return new class extends Migration
         if (!Schema::hasTable('brands')) {
             Schema::create('brands', function (Blueprint $table) {
                 $table->id();
-                $table->string('name', 200);
+                $table->string('name', 40);
                 $table->longText('description');
-                $table->string('brand_title')->nullable();
+                $table->string('brand_title', 90)->nullable();
                 $table->longText('brand_info')->nullable();
                 $table->softDeletes();
                 $table->timestamps();
