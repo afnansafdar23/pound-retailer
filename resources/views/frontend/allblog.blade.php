@@ -22,7 +22,7 @@
                                 <div class="blog-content-wrapper">
                                     <h3>
                                         <a href="#" class="h3">
-                                            {{$blog['title']}}
+                                            {{ str_limit(strip_tags($blog['title']), 30, '...') }}
                                         </a>
                                     </h3>
                                     <p class="blog-text">

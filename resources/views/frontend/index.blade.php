@@ -339,16 +339,11 @@
         height: 160px;
         text-align: center;
         margin-bottom: 10px;
-
-
-
-
     }
-
     .div1 {
         padding-top: 50px;
         clip-path: ellipse(100% 66% at 0% 48%);
-
+    }
         .div1 {
             padding-top: 50px;
             clip-path: ellipse(100% 66% at 0% 48%);
@@ -357,9 +352,6 @@
             margin-left: -12px;
             border-bottom-left-radius: 10px;
             border-top-left-radius: 10px;
-
-
-
         }
 
         .incard {
@@ -376,7 +368,6 @@
         }
 
         @media(max-width: 575px) {
-
             .c12 {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -387,7 +378,6 @@
 
 
             }
-
             .div1 {
                 padding-top: 50px;
                 clip-path: ellipse(99% 100% at 0% 52%);
@@ -399,8 +389,6 @@
 
 
             }
-
-
         }
 
         @media(min-width: 768px) {
@@ -415,8 +403,6 @@
             .c12 {
                 margin-left: 10px;
             }
-
-            .c12 {
 
                 @media(min-width: 991px) {
                     .div1 {
@@ -448,6 +434,7 @@
                         margin-left: 10px;
                     }
                 }
+            }
 </style>
 
 @endsection
@@ -495,7 +482,7 @@
         <img class="grid-img" src="{{$parentCategory->getFirstMediaUrl('parentCategory.image')}}"
             alt="{{$parentCategory['name']}}">
         <div class="overlay">
-            <h3>{{$parentCategory['name']}}</h3>
+            <h3>{{ Illuminate\Support\Str::limit(strip_tags($parentCategory['name']), 25, '...') }}</h3>
         </div>
     </div>
     @endforeach
@@ -518,7 +505,7 @@
                                     <span>add to whishlist</span>
                                 </li>
                                 <li><i class="fa-solid fa-eye"></i>
-                                    <span>view detail</span>
+                                    <a href="{{route('web.prod.detail',$product['id'])}}">view detail</a>
                                 </li>
                             </ul>
                         </div>
@@ -644,9 +631,9 @@
         @forelse ($blogs as $blog)
         <div class="col-md-3 bg-light rounded-2 py-3">
             <img class="rounded-2" src="{{$blog->getFirstMediaUrl('blog.image')}}" alt="">
-            <h3 class="text-center mt-2">{{$blog['title']}}</h3>
+            <h3 class="text-center mt-2">{{ Illuminate\Support\Str::limit(strip_tags($blog['title']), 25, '...') }}</h3>
             <hr>
-            <p class="overflow-hidden wrap">{{$blog['description']}}</p>
+            <p class="overflow-hidden wrap">{{ Illuminate\Support\Str::limit(strip_tags($blog['description']), 40, '...') }}</p>
         </div>
         @empty
         <h4 class="text-center">No Blogs Found</h4>
@@ -704,7 +691,7 @@ $('.owl-carousel2').owlCarousel({
         }
     }
 });
-  });
+});
 </script>
 
 @endsection

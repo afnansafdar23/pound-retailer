@@ -24,8 +24,8 @@
                             <span class="card-label fw-bold fs-3 mb-1" style="user-select: auto;">All Blogs</span>
                         </h3>
                         <div class="d-grid gap-2 align-items-center py-1 d-flex">
-                            @can('parent.category.create')
-                            <a href="{{ route('parent.category.create') }}" class="btn btn-sm btn-primary">Add New
+                            @can('blog.create')
+                            <a href="{{ route('blog.create') }}" class="btn btn-sm btn-primary">Add New
                                 Blog</a>
                             @endcan
                         </div>

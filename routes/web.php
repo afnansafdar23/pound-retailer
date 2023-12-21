@@ -53,11 +53,12 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
         ->group(function () {
             Route::get('', 'home')->name('index');
             Route::get('/prod-by-cat/{parentCategory}', 'prodByCat')->name('prodByCat');
+            Route::get('/prod-by-child-cat/{childCategory}', 'prodByChildCat')->name('prodByChildCat');
             Route::get('brands', 'brands')->name('prod.by.brands');
             Route::get('/prod-by-brands/{brand}', 'prodByBrands')->name('prodByBrands');
             Route::get('/single/blog/{blog}', 'singleBlog')->name('blog');
             Route::get('/all-blog', 'allBlogs')->name('allblog');
-            Route::get('product/detail/{product}', 'productDetails')->name('prod.detail');
+            Route::get('product/detail/{product}', 'prodDetail')->name('prod.detail');
         });
 });
 
