@@ -54,6 +54,13 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('', 'home')->name('index');
             Route::get('/prod-by-cat/{parentCategory}', 'prodByCat')->name('prodByCat');
             Route::get('brands', 'brands')->name('prod.by.brands');
+            Route::get('/cart', 'cart')->name('cart');
+            Route::get('/checkout', 'checkout')->name('checkout');
+            Route::get('/contact-us', 'contact')->name('contact');
+            Route::get('/about-us', 'about')->name('about');
+            Route::get('/faqs', 'faq')->name('faq');
+            Route::get('/privacy-policy', 'privacy')->name('privacy');
+            Route::get('/terms-condition', 'term')->name('term');
             Route::get('/prod-by-brands/{brand}', 'prodByBrands')->name('prodByBrands');
             Route::get('/single/blog/{blog}', 'singleBlog')->name('blog');
             Route::get('/all-blog', 'allBlogs')->name('allblog');
