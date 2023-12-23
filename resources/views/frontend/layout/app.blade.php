@@ -67,7 +67,7 @@
         </div>
         <!-- Header Center 3 -->
         <div class="header-center header-center-3 text-center">
-            <a href="index.html" class="logo"><img src="img/logo.webp" alt="logo"></a>
+            <a href="index.html" class="logo"><img src="web.png" alt="logo"></a>
         </div>
         <!-- Header Right 1 -->
         <div class="header-right header-right-1">
