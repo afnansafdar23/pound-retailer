@@ -46,9 +46,7 @@
     </header>
 
     <main>
-
         <article>
-
             <img src="{{ $blog->getFirstMediaUrl('blog.image')}}" alt="Blog Post Image" class="img-fluid">
             <p>{{$blog['description']}}</p>
             <h3>{{$blog['second_title']}}</h3>
@@ -64,6 +62,5 @@
             <p>{{$blog['fifth_description']}}</p>
             <br>
         </article>
-        <!-- Add more articles as needed -->
     </main>
 @endsection

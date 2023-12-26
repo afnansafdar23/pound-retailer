@@ -46,9 +46,6 @@
         }
     </style>
 @endsection
-
-
-
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -60,9 +57,7 @@
     <div class="container">
         <div class="bg-light">
             <div class="row">
-
                 <div class="col-lg-8 col-md-12 p-5 bg-white rounded-3">
-
                     <form class="row mb-3">
                         <div class="col-md-6 p-3">
                             <input required placeholder="first name" type="text" name="" id="" />

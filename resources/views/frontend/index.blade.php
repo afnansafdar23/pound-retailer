@@ -4,9 +4,6 @@
 <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/accessible-slick-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-
-
-{{-- grid view Css --}}
 <style>
     .gallery {
         display: grid;
@@ -108,8 +105,6 @@
         /* Fade-in animation on hover */
     }
 </style>
-{{-- End grid view Css --}}
-
 <style>
     .owl-nav {
         top: -50px;
@@ -333,7 +328,6 @@
         }
     }
 </style>
-{{-- card Csss --}}
 <style>
     .c12 {
         height: 160px;
@@ -436,14 +430,9 @@
                 }
             }
 </style>
-
 @endsection
 @section('content')
-
-{{-- grid view system --}}
 <div class="gallery mt-1">
-
-
     <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -630,8 +619,8 @@
     <div class="row text-center justify-content-center">
         @forelse ($blogs as $blog)
         <div class="col-md-3 bg-light rounded-2 py-3">
-            <a href="{{route('web.blog',$blog['id'])}}"><img class="rounded-2" src="{{$blog->getFirstMediaUrl('blog.image')}}" alt=""></a>
-            <h3 class="text-center mt-2"><a href="{{route('web.blog',$blog['id'])}}">{{ Illuminate\Support\Str::limit(strip_tags($blog['title']), 25, '...') }}</a></h3>
+            <a href="{{route('web.blog',Str::slug($blog->title))}}"><img class="rounded-2" src="{{$blog->getFirstMediaUrl('blog.image')}}" alt=""></a>
+            <h3 class="text-center mt-2"><a href="{{route('web.blog',Str::slug($blog->name))}}">{{ Illuminate\Support\Str::limit(strip_tags($blog['title']), 25, '...') }}</a></h3>
             <hr>
             <p class="overflow-hidden wrap">{{ Illuminate\Support\Str::limit(strip_tags($blog['description']), 40, '...') }}</p>
         </div>

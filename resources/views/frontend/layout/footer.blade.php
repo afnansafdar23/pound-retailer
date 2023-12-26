@@ -17,13 +17,14 @@
 				</div>
 			</div>
 			<div class="footer-account col-lg-2 col-md-6 col-12">
-				<h4>accounts</h4>
+				<h4>Pages</h4>
 				<ul>
-					<li><a href="#">My Account</a></li>
-					<li><a href="#">My Wishlist</a></li>
-					<li><a href="#">My Cart</a></li>
-					<li><a href="#">Sign In</a></li>
-					<li><a href="#">Check out</a></li>
+					<li><a href="{{route('web.prod.by.brands')}}">products by category</a></li>
+					<li><a href="{{route('web.cart')}}">cart</a></li>
+					<li><a href="{{route('web.checkout')}}">checkout</a></li>
+					<li><a href="{{route('web.contact')}}">contact us</a></li>
+					<li><a href="{{route('web.faq')}}">FAQ</a></li>
+					<li><a href="{{route('web.privacy')}}">Privacy policy</a></li>
 				</ul>
 			</div>
 			<div class="footer-shipping col-lg-2 col-md-6 col-12">

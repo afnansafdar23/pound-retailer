@@ -15,6 +15,11 @@
                     <div class="blog-card-group">
                        @forelse($blogs as $blog)
                            <div class="blog-card">
+                            @php
+                            $averageReadingSpeed = 225; // Adjust this value based on your estimation
+                            $wordCount = str_word_count(strip_tags($blog['content']));
+                            $readingTime = max(1, ceil($wordCount / $averageReadingSpeed));
+                            @endphp
                                 <div class="blog-card-banner">
                                     <img src="{{$blog->getFirstMediaUrl('blog.image')}}" alt="{{$blog['title']}}" width="250"
                                         class="blog-banner-img">
@@ -22,11 +27,11 @@
                                 <div class="blog-content-wrapper">
                                     <h3>
                                         <a href="#" class="h3">
-                                            {{ str_limit(strip_tags($blog['title']), 30, '...') }}
+                                            {{ \Illuminate\Support\Str::limit(strip_tags($blog['title']), 30, '...') }}
                                         </a>
                                     </h3>
                                     <p class="blog-text">
-                                        {{ str_limit(strip_tags($blog['description']), 100, '...') }}
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($blog['description']), 100, '...') }}
                                     </p>
                                     <div class="wrapper-flex">
                                         <div class="wrapper">
@@ -34,7 +39,7 @@
                                                 <time datetime="d-m-y">{{$blog->updated_at->format('d-m-y')}}</time>
                                                 <span class="separator"></span>
                                                 <ion-icon name="time-outline"></ion-icon>
-                                                <time datetime="PT3M">3 min</time>
+                                                <time datetime="PT3M">{{ $readingTime }} minute{{ $readingTime > 1 ? 's' : '' }}</time>
                                             </p>
                                         </div>
                                     </div>
@@ -45,21 +50,7 @@
                             @endforelse
                     </div>
                 </div>
-
-
-
-
-
-                <!--
-                  - ASIDE
-                -->
-
                 <div class="aside">
-
-
-
-
-
                     <div class="contact">
 
                         <h2 class="h2">Let's Talk</h2>

@@ -88,13 +88,12 @@
                         </li>
                             @endforeach
                     </ul>
-                        @endif
+                    @endif
+                </li>
                 @endforeach
                 <li><a href="contact.html">contact</a></li>
             </ul>
         </nav>
-
     </div>
     <!-- Mobile Menu Wrapper 1 -->
-
 </div>
