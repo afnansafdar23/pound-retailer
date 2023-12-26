@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="{{{asset('assets/front end/zoom-efect/xzoom.css')}}}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{asset('assets/front end/zoom-efect/xzoom.min.js')}}"></script>
-
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script async src="//jsfiddle.net/8ECh6/embed/"></script>
     <link rel="stylesheet" href="{{asset('assets/front end/navbar-css/style.css')}}">
@@ -130,7 +128,7 @@
             </div>
         </div>
         <!-- Sidebar Menu Wrapper -->
-        <div class="sidebar-menu-wrapper  ">
+        <div class="sidebar-menu-wrapper z-index-3">
             <button class="menu-close"><i class="zmdi zmdi-close-circle"></i></button>
             <!-- treeview start -->
             <nav id="sidebar-menu" class="sidebar-menu">

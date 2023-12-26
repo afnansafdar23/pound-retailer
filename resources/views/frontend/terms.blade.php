@@ -5,12 +5,12 @@
         <h1 class="mt-4 mb-4">Terms and Conditions</h1>
 
         <p>
-            Welcome to [Your Retailer Name]! These terms and conditions outline the rules and regulations for the use of
-            [website URL].
+            Welcome to Pound Kingdom! These terms and conditions outline the rules and regulations for the use of
+            poundkingdom.co.uk.
         </p>
 
         <p>
-            By accessing this website, we assume you accept these terms and conditions. Do not continue to use [website URL]
+            By accessing this website, we assume you accept these terms and conditions. Do not continue to use poundkingdom.co.uk
             if you do not agree to take all of the terms and conditions stated on this page.
         </p>
 
