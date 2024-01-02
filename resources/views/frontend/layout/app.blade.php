@@ -42,10 +42,6 @@
     <link rel="stylesheet" href="{{asset('assets/front end/navbar/style.css')}}">
     <!-- Responsive CSS
 	============================================ -->
-
-
-
-
     <!-- Modernizer JS
 	============================================ -->
     <link rel="stylesheet" href="  {{asset('assets/front end/navbar/css/bootstrap.min.css')}} ">
