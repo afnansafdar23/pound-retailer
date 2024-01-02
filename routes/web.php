@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ParentCategoryController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\UserController;
@@ -28,8 +29,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// for components testing purpose
 
 
 Route::withoutMiddleware([Permissions::class])->group(function () {
@@ -91,6 +90,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/file/get-image/{id}', [FileManagerController::class, 'getImage']);
     Route::delete('filemanager/{file}', [FileManagerController::class, 'delete'])->name('filemanager.delete');
 
+    Route::controller(SettingController::class)
+        ->prefix('admin/setting')
+        ->name('setting.')
+        ->group(function () {
+            Route::get('', 'index')->name('index');
+            Route::get('store', 'storeUpdateSetting')->name('store');
+        });
 
     Route::controller(RoleController::class)
         ->prefix('role')
