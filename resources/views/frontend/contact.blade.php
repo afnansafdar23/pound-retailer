@@ -1,50 +1,6 @@
 @extends('frontend.layout.app')
 @section('customCss')
-    <style>
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        textarea {
-            border: none;
-            border-bottom: 2px solid rgb(128, 126, 126);
-            background: transparent;
-            outline: none;
-            width: 100%;
-            text-transform: capitalize;
-            padding: 1rem 0.4rem;
-        }
-
-        .aside {
-            background-image: linear-gradient(to left bottom,
-                    #051937,
-                    #002350,
-                    #002d69,
-                    #003684,
-                    #01409f);
-            animation: animateClr 5s infinite cubic-bezier(0.62, 0.28, 0.23, 0.99);
-            background-size: 400%;
-        }
-
-        @keyframes animateClr {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        ion-icon:not([name="logo-codepen"]) {
-            border: 1px solid currentColor;
-            border-radius: 20%;
-            padding: 1rem;
-        }
-    </style>
+<link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -60,19 +16,19 @@
                 <div class="col-lg-8 col-md-12 p-5 bg-white rounded-3">
                     <form class="row mb-3">
                         <div class="col-md-6 p-3">
-                            <input required placeholder="first name" type="text" name="" id="" />
+                            <input class="contact-input" required placeholder="first name" type="text" name="" id="" />
                         </div>
                         <div class="col-md-6 p-3">
-                            <input required placeholder="last name" type="text" name="" id="" />
+                            <input class="contact-input" required placeholder="last name" type="text" name="" id="" />
                         </div>
                         <div class="col-md-6 p-3">
-                            <input required placeholder="E-mail" type="email" name="" id="" />
+                            <input class="contact-input" required placeholder="E-mail" type="email" name="" id="" />
                         </div>
                         <div class="col-md-6 p-3">
-                            <input required placeholder="phone" type="tel" name="" id="" />
+                            <input class="contact-input" required placeholder="phone" type="tel" name="" id="" />
                         </div>
                         <div class="col-md">
-                            <textarea required name="" placeholder="write your message" id="" cols="30" rows="1"></textarea>
+                            <textarea class="contact-input" required name="" placeholder="write your message" id="" cols="30" rows="1"></textarea>
                         </div>
                         <div class="text-end mt-4">
                             <input class="btn px-4 py-3 btn-outline-dark" type="submit" value="Send Message" />
@@ -83,7 +39,7 @@
                     <div class="mb-5">
                         <h1 class="h3">Contact Information</h1>
                         <p class="opacity-50">
-                            <small>
+                            <small class="text-white">
                                 Fill out the from and we will get back to you whitin 24 hours
                             </small>
                         </p>
@@ -116,7 +72,7 @@
             </div>
         </div>
     </div>
-    <div class="container mt-4">
+    <div class="container mt-4 mb-4">
         <div class="row">
             <div class="col-12">
                 <iframe

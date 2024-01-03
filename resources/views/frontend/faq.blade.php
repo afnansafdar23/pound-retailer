@@ -1,45 +1,15 @@
 @extends('frontend.layout.app')
 @section('customCss')
+<link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
     <style>
         body {
             background-color: #f8f9fa;
         }
-
-        .accordion-item {
-            margin-bottom: 10px;
-        }
-
-        .accordion-item .card {
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-        }
-
-        .accordion-item .card-header {
-            background-color: #a88532;
-            color: #fff;
-            border-radius: 8px;
-        }
-
-        .accordion-item .card-header:hover {
-            background-color: #0056b3;
-        }
-
-        .accordion-item .btn-link {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .accordion-item .card-body {
-            border-top: 1px solid #dee2e6;
-            border-radius: 0 0 8px 8px;
-        }
     </style>
 @endsection
 
-
-
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-12 text-center">
                 <h2>Frequently Asked Questions</h2>

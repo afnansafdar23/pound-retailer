@@ -1,8 +1,5 @@
 @extends('frontend.layout.app')
 
-
-
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -121,7 +118,7 @@
                                 </ul>
                             </li>
                         </ul>
-                        <p><strong>Contact Us</strong </div>
+                        <p><strong>Contact Us</strong> </div>
             </div>
         </div>
     @endsection

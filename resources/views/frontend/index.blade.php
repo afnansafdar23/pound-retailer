@@ -4,7 +4,7 @@
 <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/accessible-slick-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-<link rel="stylesheet" href="{{asset('assets/front end/css/style.css')}}">
+<link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
 @endsection
 @section('content')
 <div class="gallery mt-1">
