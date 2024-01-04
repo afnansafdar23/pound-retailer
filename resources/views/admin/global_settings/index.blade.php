@@ -8,7 +8,7 @@
     <x-slot name="content">
         <!--begin::Main-->
         <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
-            <form action="{{ route('parent.category.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('setting.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="p-5">
                     @if (Session::has('error'))
@@ -21,8 +21,7 @@
                         <!--begin::Header-->
                         <div class="card-header border-0 pt-5" style="user-select: auto;">
                             <h3 class="card-title align-items-start flex-column" style="user-select: auto;">
-                                <span class="card-label fw-bold fs-3 mb-1" style="user-select: auto;">Add Parent
-                                    Category</span>
+                                <span class="card-label fw-bold fs-3 mb-1" style="user-select: auto;">Global Setting</span>
                             </h3>
                         </div>
                         <!--end::Header-->
@@ -35,34 +34,46 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <label class="col-lg-8 col-form-label required fw-bold fs-6">Favicon</label>
-                                        @include('admin.media.dropdown',['dropzone_name'=>'app_logo'])
+                                        @include('admin.media.dropdown',['dropzone_name'=>'favicon'])
                                     </div>
                                     <div class="col-6">
                                         <label class="col-lg-8 col-form-label required fw-bold fs-6">Site Logo</label>
-                                        @include('admin.media.dropdown')
+                                        @include('admin.media.dropdown',['dropzone_name','site_logo'])
                                     </div>
                                     <div class="col-6">
-                                        <x-cento-dash-input type="text" name="site_name" label="Site Name" placeholder="Name"
+                                        <x-cento-dash-input type="text" name="site_name" label="Site Name" placeholder="Name" value="{{$setting['site_name']}}"
                                             :message="$errors->first('name')" />
                                     </div>
                                     <div class="col-6">
-                                        <x-cento-dash-input type="text" name="sub_name" label="Sub Name"
-                                            placeholder="Sub Name" :message="$errors->first('sub_name')" />
+                                        <x-cento-dash-input type="url" name="facebook_link" label="Facebook URL" value="{{$setting['facebook_link']}}"
+                                            placeholder="Facebook URL" :message="$errors->first('facebook_link')" />
                                     </div>
                                     <div class="col-6">
-                                        <x-textarea type='text' name="description" label="Description" class="col-12"
-                                            placeholder="Enter Description" :message="$errors->first('description')" />
+                                        <x-cento-dash-input type="url" name="instagram_link" label="Instagram URL" value="{{$setting['instagram_link']}}"
+                                            placeholder="Instagram URL" :message="$errors->first('instagram_link')" />
                                     </div>
                                     <div class="col-6">
-                                        <x-textarea type='text' name="sub_description" label="Sub Description"
-                                            class="col-12" placeholder="Enter Description"
-                                            :message="$errors->first('sub_description')" />
+                                        <x-cento-dash-input type="url" name="twitter_link" label="Twitter URL" value="{{$setting['twitter_link']}}"
+                                            placeholder="Twitter URL" :message="$errors->first('twitter_link')" />
+                                    </div>
+                                    <div class="col-12">
+                                        <x-textarea type='text' name="short_description" label="Short Description" class="col-12" value="{{$setting['short_description']}}"
+                                            placeholder="Enter Short Description" :message="$errors->first('short Description')" />
+                                    </div>
+                                    <div class="col-6">
+                                        <x-cento-dash-input type="email" name="email" label="Admin Mail" placeholder="Enter Your Email"value="{{$setting['email']}}"
+                                            :message="$errors->first('email')" />
+                                    </div>
+                                    <div class="col-2 my-4">
+                                        <label class="form-check form-switch form-check-custom form-check-solid">
+                                            <input class="form-check-input" type="checkbox" name="fixed_header" />
+                                            <span class="form-check-label fw-semibold text-muted">Fixed Header</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer mt-5 gap-2">
-                                <x-cento-dash-input type="submit" label="Add Parent Category" />
-                                <a class="btn btn-danger" href={{ route('parent.category.index') }}> Cancel </a>
+                                <x-cento-dash-input type="submit" label="Submit changes" />
                             </div>
                             <!--end::Table container-->
                         </div>

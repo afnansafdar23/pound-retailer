@@ -12,8 +12,7 @@ class Setting extends Model implements HasMedia
     use HasFactory, InteractsWithMedia;
     protected $fillable = [
         'site_name',
-        'meta_title',
-        'meta_description',
+        'short_description',
         'color1',
         'color2',
         'color3',

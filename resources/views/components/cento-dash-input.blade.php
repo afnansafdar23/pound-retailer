@@ -1,9 +1,9 @@
-@if (in_array($type,['text','email','password','number']))
+@if (in_array($type,['text','email','password','number','url','email']))
 
 <!--begin::Col-->
 <div class="col-lg-12 fv-row fv-plugins-icon-container">
     <label class="col-lg-8 col-form-label fw-bold fs-6">{{ $label }}</label>
-    <input type="{{ $type }}" name="{{ $name }}" placeholder="{{ $placeholder }}" value="{{ $value }}"
+    <input type="{{ $type }}" name="{{ $name }}" placeholder="{{ $placeholder }}" value="{{ $value ?? '' }}"
         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">
     <div class="fv-plugins-message-container invalid-feedback"></div>
 </div>
@@ -14,7 +14,7 @@
 
 <div class="col-sm-3 my-4">
     <label class="form-check form-switch form-check-custom form-check-solid">
-        <input class="form-check-input" type="{{ $type }}" name="{{ $name }}" value="{{ $value }}" />
+        <input class="form-check-input" type="{{ $type }}" name="{{ $name }}" value="{{ $value ?? '' }}" />
         <span class="form-check-label fw-semibold text-muted">{{ $label }}</span>
     </label>
     <div class="error text-danger col-sm-3">{{ $message }}</div>
