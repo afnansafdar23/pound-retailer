@@ -4,15 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Setting\StoreUpdateSettingRequest;
+use App\Models\Setting;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
-    public function index()
+    public function index(Setting $setting)
     {
-        return view('admin.global_settings.index');
+        return view('admin.global_settings.index')->with(['setting' => $setting]);
     }
 
     /**
