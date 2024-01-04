@@ -535,3 +535,21 @@ ion-icon:not([name="logo-codepen"]) {
     border-radius: 0 0 8px 8px;
 }
 /* END:: FAQ Page */
+
+/* START:: Product Details */
+    @media(min-width:767px) {
+        .display-none {
+            display: none;
+        }
+    }
+
+    .icon-hover:hover {
+        border-color: #3b71ca !important;
+        background-color: white !important;
+        color: #3b71ca !important;
+    }
+
+    .icon-hover:hover i {
+        color: #3b71ca !important;
+    }
+/* END:: Product Details */

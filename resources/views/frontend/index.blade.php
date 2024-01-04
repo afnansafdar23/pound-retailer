@@ -12,15 +12,15 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{{asset('assets/front end/home-image/1 (5).png')}}" alt="Shining Stars Image"
-                    class="d-block w-100" alt="">
+                    class="d-block w-100" alt="Home1" style='height:100vh'>
             </div>
             <div class="carousel-item">
                 <img src="{{asset('assets/front end/home-image/2 (5).png')}}" alt="A cloudy Mountain Image"
-                    class="d-block w-100" alt="...">
+                    class="d-block w-100" alt="home2" style='height:100vh'>
             </div>
             <div class="carousel-item">
                 <img src="{{asset('assets/front end/home-image/3 (5).png')}}" alt="Shining Stars Image"
-                    class="d-block w-100" alt="...">
+                    class="d-block w-100" alt="home3" style='height:100vh'>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"

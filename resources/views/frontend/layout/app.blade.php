@@ -50,6 +50,30 @@
     <link rel="stylesheet" href="css/style.css">
 
     <title>Poundkingdom</title>
+    <style>
+        :root{
+            --black: black;
+        }
+
+        .logo{
+            width: 80px;
+        }
+
+        .acc-menu-dropdown li a{
+            color: var(--black);
+            padding: 0 10px;
+        }
+
+        .mini-cart{
+            color: var(--black);
+            padding: 10px;
+        }
+
+        .mini-cart a{
+            color: var(--black) !important;
+        }
+
+    </style>
     @yield('customCss')
 </head>
 
@@ -61,7 +85,7 @@
         </div>
         <!-- Header Center 3 -->
         <div class="header-center header-center-3 text-center">
-            <a href="index.html" class="logo"><img src="web.png" alt="logo"></a>
+            <a href="index.html" class="logo"><img src="{{asset('assets/media/logos/site_logo.jpg')}}" alt="logo"></a>
         </div>
         <!-- Header Right 1 -->
         <div class="header-right header-right-1">

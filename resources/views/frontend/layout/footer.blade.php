@@ -60,14 +60,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="copyright text-center text-md-start col-md-6 col-12">
-				<p>Copyright &copy; 2021 <a href="https://hastech.company/" target="_blank">Hastech</a>. All Right Reserved.</p>
+				<p>Copyright &copy; 2021 <a href="#" target="_blank">Pound Kingdom</a>. All Right Reserved.</p>
 			</div>
 			<div class="payment-method text-center text-md-end col-md-6 col-12">
-				<img src="img/payment/1.webp" alt="payment">
-				<img src="img/payment/2.webp" alt="payment">
-				<img src="img/payment/3.webp" alt="payment">
-				<img src="img/payment/4.webp" alt="payment">
-				<img src="img/payment/5.webp" alt="payment">
+				<img src="{{ asset('assets/media/svg/payment-methods/visa.svg') }}" alt="payment">
+				<img src="{{ asset('assets/media/svg/payment-methods/americanexpress.svg') }}" alt="payment">
+				<img src="{{ asset('assets/media/svg/payment-methods/mastercard.svg') }}" alt="payment">
+				<img src="{{ asset('assets/media/svg/payment-methods/paypal.svg') }}" alt="payment">
 			</div>
 		</div>
 	</div>
