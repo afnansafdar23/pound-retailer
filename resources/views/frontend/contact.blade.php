@@ -5,12 +5,12 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
-                Banner
+            <div class="col-12 contact-banner">
+                <h1>Pound Kingdom</h1>
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container mt-3">
         <div class="bg-light">
             <div class="row">
                 <div class="col-lg-8 col-md-12 p-5 bg-white rounded-3">
@@ -82,4 +82,9 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('custromJs')
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 @endsection

@@ -50,6 +50,10 @@
     <link rel="stylesheet" href="css/style.css">
 
     <title>Poundkingdom</title>
+    <!-- 
+        we can not move this css style to already made css file because
+        it can effect the other files with seperate css 
+    -->
     <style>
         :root{
             --black: black;
@@ -106,7 +110,7 @@
                             class="zmdi zmdi-shopping-cart"></i><span class="cart-number">2</span></span></a>
                 <div class="mini-cart dropdown-menu right">
                     <div class="mini-cart-product fix">
-                        <a href="#" class="image"><img src="img/mini-cart/1.webp" alt=""></a>
+                        <a href="#" class="image"><img src="{{ asset('assets/media/products/1.png') }}" alt="Product"></a>
                         <div class="content fix">
                             <a href="#" class="title">wooden furniture</a>
                             <p>Color: Black</p>
@@ -115,7 +119,7 @@
                         </div>
                     </div>
                     <div class="mini-cart-product fix">
-                        <a href="#" class="image"><img src="img/mini-cart/2.webp" alt=""></a>
+                        <a href="#" class="image"><img src="{{ asset('assets/media/products/2.png') }}" alt="Product"></a>
                         <div class="content fix">
                             <a href="#" class="title">wooden furniture</a>
                             <p>Color: Black</p>
@@ -124,7 +128,7 @@
                         </div>
                     </div>
                     <div class="mini-cart-product fix">
-                        <a href="#" class="image"><img src="img/mini-cart/3.webp" alt=""></a>
+                        <a href="#" class="image"><img src="{{ asset('assets/media/products/3.png') }}" alt="Product"></a>
                         <div class="content fix">
                             <a href="#" class="title">wooden furniture</a>
                             <p>Color: Black</p>
