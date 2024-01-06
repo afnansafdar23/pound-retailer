@@ -141,52 +141,89 @@
         {{-- card 1 --}}
         <div class="col-md-3 col-sm-6 col-xm-12 row c12">
             <div class=" bg-danger col-sm-4 incard">
-                <div class="col-sm-12 bg-info div1">card1</div>
+                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/1.gif')}}" alt="product"></div>
             </div>
 
-            <div class="col-sm-8 bg-danger incard2"> this is sdsd <br>1 card</div>
+            <div class="col-sm-8 bg-danger incard2">
+                <!-- Product Description -->
+                <div>
+                    <h4>Product Name</h4>
+                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <!-- Product Description -->
+            </div>
         </div>
         {{-- card 2 --}}
         <div class="col-md-3 col-sm-6 col-xm-12 row c12">
             <div class=" bg-danger col-sm-4 incard">
-                <div class="col-sm-12 bg-info div1">card2</div>
+                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/2.gif')}}" alt="product"></div>
             </div>
 
-            <div class="col-sm-8 bg-danger incard2 "> this is sdasd<br> 2 card</div>
+            <div class="col-sm-8 bg-danger incard2 ">
+                <!-- Product Description -->
+                <div>
+                    <h4>Product Name</h4>
+                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <!-- Product Description -->
+            </div>
         </div>
         {{-- card 3 --}}
         <div class="col-md-3 col-sm-6 col-xm-12 row c12">
             <div class=" bg-danger col-sm-4 incard">
-                <div class="col-sm-12 bg-info div1">card3</div>
+                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/3.gif')}}" alt="product"></div>
             </div>
-            <div class="col-sm-8 bg-danger incard2">this is sdsd<br> 3 card</div>
+            <div class="col-sm-8 bg-danger incard2">
+                <!-- Product Description -->
+                <div>
+                    <h4>Product Name</h4>
+                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <!-- Product Description -->
+            </div>
         </div>
         {{-- card 4 --}}
         <div class="col-md-3 col-sm-6 col-xm-12 row c12">
             <div class=" bg-danger col-sm-4 incard">
-                <div class="col-sm-12 bg-info div1">card4</div>
+                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/24.gif')}}" alt="product"></div>
             </div>
 
-            <div class="col-sm-8 bg-danger incard2">this is sdsd<br>4 card</div>
+            <div class="col-sm-8 bg-danger incard2">
+                <!-- Product Description -->
+                <div>
+                    <h4>Product Name</h4>
+                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <!-- Product Description -->
+            </div>
         </div>
     </section>
 </section>
-<section class="container gap-5 d-flex my-2 p-4 justify-content-center">
-    <div class="col-md-6">
-        <img class="col-12 rounded-2" src="{{asset('assets/front end/image1-2.jpg')}}" alt="">
-    </div>
-    <div class="col-md-6 overflow-hidden">
-        <h2>About us</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis provident impedit quis pariatur
+
+<!-- START:: About Responsive -->
+<section class="container home-about">
+    <div class="row">
+        <!-- Image -->
+        <div class="col-lg-6"><img class="rounded-2 img-fluid" src="{{asset('assets/front end/image1-2.jpg')}}" alt="about-image"></div>
+        <!-- Text -->
+        <div class="col-lg-6 overflow-hidden">
+         <h2 class="text-center">About Us</h2>
+         <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis provident impedit quis pariatur
             doloremque at corporis maiores hic exercitationem ut? Expedita sapiente mollitia, qui perspiciatis quas illo
             ducimus numquam non est rerum, repellat inventore minus! Culpa quisquam iure veniam laudantium dicta omnis,
             obcaecati impedit ipsam asperiores qui, nobis nihil! Iusto deserunt possimus itaque impedit tempora
             explicabo eveniet est? Hic dolore iste fugit, architecto quasi tempore quaerat ex nesciunt ad, quibusdam rem
             qui, dignissimos eos! Quae, explicabo, provident sunt repellendus pariatur rem iste vel, asperiores placeat
             suscipit possimus. Alias officia, hic pariatur assumenda, atque deserunt iure accusamus laudantium ab,
-            explicabo iusto!</p>
+            explicabo iusto!
+        </p>
+        </div>
+        <!-- END -->
     </div>
 </section>
+<!-- END:: About Responsive -->
+
 <section class="container mb-5">
     @if (isset($blogs))
     <h1 class="text-center my-4">Our Blogs</h1>
