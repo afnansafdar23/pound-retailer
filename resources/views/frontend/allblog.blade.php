@@ -3,10 +3,37 @@
     <link rel="stylesheet" href="{{ asset('assets/front end/allblogcss/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        .contact-banner{
+        background-image: url('/assets/media/stock/1600x800/img-2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        font-weight: 700;
+        height: 52vh;
+        }
+        .contact-banner h1{
+            color: #ffb207;
+            text-shadow: 2px 2px #051937;
+        }
+    </style>
 @endsection
 @section('content')
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 contact-banner">
+                <h1>Pound Kingdom</h1>
+            </div>
+        </div>
+    </div>
+
     <main>
         <div class="main">
             <div class="container">
