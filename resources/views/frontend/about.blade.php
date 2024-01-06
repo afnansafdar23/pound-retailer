@@ -7,7 +7,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 contact-banner">
-                <h1>Pound Kingdom</h1>
+                <h1>About Us</h1>
+                <h5 class="text-white"><a href="{{Route('web.index')}}">Home</a> > About</h5>
             </div>
         </div>
     </div>

@@ -169,7 +169,7 @@
                         @endif
                     </li>
                     @endforeach
-                    <li><a href="contact.html">contact</a></li>
+                    <li><a href="{{Route('web.contact')}}">contact</a></li>
                 </ul>
             </nav>
 
@@ -189,17 +189,13 @@
     @yield('custromJs')
 
     <script src="{{asset('assets/front end/navbar/js/vendor/jquery-1.12.4.min.js')}}"></script>
-    <!-- Bootstrap JS
-============================================ -->
+    <!-- Bootstrap JS ============================================ -->
     <script src="{{asset('assets/front end/navbar/js/bootstrap.bundle.min.js')}}"></script>
-    <!-- Plugins JS
-============================================ -->
+    <!-- Plugins JS ============================================ -->
     <script src="{{asset('assets/front end/navbar/js/plugins.js')}}"></script>
-    <!-- Particles Active JS
-============================================ -->
+    <!-- Particles Active JS ============================================ -->
     <script src="js/app.js {{asset('assets/front end/navbar/js/app.js')}}"></script>
-    <!-- Main JS
-============================================ -->
+    <!-- Main JS ============================================ -->
     <script src="{{asset('assets/front end/navbar/js/main.js')}}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"

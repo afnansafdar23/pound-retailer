@@ -484,21 +484,23 @@ article img {
 
 /* Start:: Contact page */
 .contact-banner{
-    background-image: url('/assets/media/stock/1600x800/img-2.jpg');
+    background-image: url('/assets/media/stock/1600x800/img-4.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     
     font-weight: 700;
     height: 52vh;
 }
-.contact-banner h1{
+.contact-banner h1, .contact-banner a{
     color: var(--bgColor);
     text-shadow: 2px 2px var(--gradientBlue1);
 }
+
 .contact-input{
     border: none;
     border-bottom: 2px solid rgb(128, 126, 126);

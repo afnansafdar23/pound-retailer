@@ -8,7 +8,7 @@
         <div class='window'>
             <div class='order-info'>
                 <div class='order-info-content'>
-                    <h2>Order Summary</h2>
+                    <h2>Your Order Summary</h2>
                     <div class='line'></div>
                     <table class='order-table'>
                         <tbody>
@@ -37,7 +37,7 @@
                                         class='full-width'></img>
                                 </td>
                                 <td>
-                                    <br> <span class='thin'>Fjällräven</span>
+                                    <br> <span class='thin'>Fjallraven</span>
                                     <br>Vintage Backpack<br> <span class='thin small'> Color: Olive, Size: 20L</span>
                                 </td>
                             </tr>
