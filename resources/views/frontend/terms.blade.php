@@ -1,7 +1,7 @@
 @extends('frontend.layout.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mb-5">
         <h1 class="mt-4 mb-4">Terms and Conditions</h1>
 
         <p>

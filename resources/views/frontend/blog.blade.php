@@ -1,42 +1,12 @@
 @extends('frontend.layout.app')
 @section('customCss')
+    <link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        header {
-
-            color: black;
-            text-align: center;
-            padding: 20px;
-        }
-
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        article {
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        p {
-            line-height: 1.6;
-            color: #666;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
         }
     </style>
 @endsection

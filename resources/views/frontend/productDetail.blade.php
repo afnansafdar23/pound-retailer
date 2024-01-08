@@ -6,24 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css"
     integrity="sha512-hj9rznBPdFg9A4fACbJcp4ttzdinMDtPrtZ3gBD11DiY3O1xJfn0r1U5so/J0zwfGOzq9teIaH5rFmjFAFw8SA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-<style>
-    @media(min-width:767px) {
-        .display-none {
-            display: none;
-        }
-    }
-
-    .icon-hover:hover {
-        border-color: #3b71ca !important;
-        background-color: white !important;
-        color: #3b71ca !important;
-    }
-
-    .icon-hover:hover i {
-        color: #3b71ca !important;
-    }
-</style>
-
+    <link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
 @endsection
 @section('content')
 <!-- content -->
