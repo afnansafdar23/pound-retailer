@@ -1,5 +1,6 @@
 @extends('frontend.layout.app')
 @section('customCss')
+<link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
 <style>
     #more {
         display: none;
@@ -7,10 +8,20 @@
 </style>
 @endsection
 @section('content')
+    
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 contact-banner">
+            <h1>Brands</h1>
+            <h5 class="text-white"><a href="{{Route('web.index')}}">Home</a> > Brands</h5>
+        </div>
+    </div>
+</div>
+
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-12">
-            <h1>Retailer Brands</h1>
+            <h2>Retailer Brands</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum,
                 nisi lorem egestas vitae scel
             </p>
