@@ -64,12 +64,14 @@ class DefaultController extends Controller
     {
         $parentCategories = ParentCategory::all();
         $brand = $product->brand();
+        $relatedProducts=Product::latest()->paginate(3);
 
-        return view('frontend.allbrands')
+        return view('frontend.productDetail')
             ->with([
                 'parentCategories' => $parentCategories,
                 'product' => $product,
-                'brand' => $brand
+                'brand' => $brand,
+                'relatedProducts'=>$relatedProducts
             ]);
     }
 

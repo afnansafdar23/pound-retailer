@@ -5,6 +5,7 @@
     href="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/accessible-slick-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 <link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
+<link rel="stylesheet" href="{{asset('assets/front assets/front end/css/owl.carousel.min.css')}}">
 @endsection
 @section('content')
 <div class="gallery mt-1">
@@ -52,63 +53,67 @@
     @endforeach
 </div>
 
-{{-- grid View System --}}
+<!-- START:: Card Slider -->
+<section class="mt-4 container">
+    <div class = "title pt-3">
+        <h2 class = "position-relative ms-4">Latest Products</h2>
+    </div>
+  <div class="owl-carousel container">
 
-<section class="mt-4">
-    <div class="container">
-        <h2>Latest Products</h2>
-        <div>
-            {{-- <div class="owl-carousel owl-theam owl-carousel1"> --}}
-             @forelse ($products as $product)
-                 <div class="col-6 col-lg-3">
-                    <div class="card">
-                        <div class="imgBx">
-                            <img src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
-                            <ul class="action">
-                                <li><i class="fa-solid fa-heart"></i>
-                                    <span>add to whishlist</span>
-                                </li>
-                                <li><i class="fa-solid fa-eye"></i>
-                                    <a href="{{route('web.prod.detail',$product['id'])}}">view detail</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="content">
-                            <div class="productname text-center">
-                                <h3>{{$product['name']}}</h3>
-                            </div>
-                            <div class="price_rating">
-                                <div class="d-flex gap-1 align-items-center">
-                                    <h3 class="m-auto">{{$product['discounted_price']}}$</h3>
-                                    <div class="d-grid">
-                                        <del class="text-danger text-small">{{$product['price']}} $</del>
-                                        <span class="text-success text-small">{{number_format((($product['price'] -
-                                            $product['discounted_price']) /
-                                            $product['price']) *
-                                            100)}} % OFF</span>
-                                    </div>
-                                </div>
-                                <div class="ratings">
-                                    <p>
-                                        @if ($product['availability']=='on')
-                                        <span class="badge bg-success"><i class="fa-solid fa-check"></i> In Stock</span>
-                                        @else
-                                        <span class="badge bg-danger"><i class="fa-solid fa-xmark"></i> Out of Stock</span>
-                                        @endif
-                                    <p>
-                                </div>
-                            </div>
+    @forelse ($products as $product)
+    <div class="item">
+        <!-- card -->
+        <div class="card">
+            <div class="imgBx">
+                <img src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
+                <ul class="action mt-2 text-center">
+                    <li>
+                        <i class="fa-solid fa-heart"></i>
+                        <span>add to whishlist</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-eye"></i>
+                        <a href="{{route('web.prod.detail',$product['id'])}}">view detail</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content p-2">
+                <div class="productname text-center">
+                    <h3>{{$product['name']}}</h3>
+                </div>
+                <div class="price_rating">
+                    <div class="d-flex align-items-center">
+                        <h3 class="m-auto">{{$product['discounted_price']}}$</h3>
+                        <div class="d-grid">
+                            <del class="text-danger text-small">{{$product['price']}} $</del>
+                            <span class="text-success text-small">{{number_format((($product['price'] -
+                                $product['discounted_price']) /
+                                $product['price']) *
+                                100)}} % OFF</span>
                         </div>
                     </div>
-                 </div>
-             @empty
-             <h2 class="text-center">No Products Found</h2>
-             @endforelse
-            {{-- </div> --}}
+                    <div class="ratings d-flex justify-content-center">
+                        <p>
+                            @if ($product['availability']=='on')
+                            <span class="badge bg-success"><i class="fa-solid fa-check"></i> In Stock</span>
+                            @else
+                            <span class="badge bg-danger"><i class="fa-solid fa-xmark"></i> Out of Stock</span>
+                            @endif
+                        <p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+        <!-- card -->
+      </div>
+    @empty
+    <h2 class="text-center">No Products Found</h2>
+    @endforelse
+      <!-- End -->
+  </div>
 </section>
-{{-- Brand Section --}}
+  <!-- END:: Card Slider -->
+
 <section id="slider" class="">
     <div class="container">
         <h2>Our Brands</h2>
@@ -246,8 +251,32 @@
 @section('custromJs')
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.js"></script>
+<script src="{{asset('assets/front end/css/owl.carousel.min.js')}}"></script>
 <script>
-    $(document).ready(function(){
+
+$(document).ready(function() {
+    $(".owl-carousel").owlCarousel({
+      autoPlay: 1000,
+      items : 6,
+      nav: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        425: {
+          items: 1
+        },
+        768: {
+          items: 3
+        },
+        1024: {
+          items: 4
+        }
+      }
+    });
+    });
+
+$(document).ready(function(){
    $('.owl-carousel1').owlCarousel({
     loop:true,
     margin:10,

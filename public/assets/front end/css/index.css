@@ -2,7 +2,7 @@
     --bgColor: #ffb207;
     --photoGridPrice: #707070;
     --photoGridGreen: #6DA84A;
-    --gradientBlue1: #051937; 
+    --gradientBlue1: #051937;
     --gradientBlue2: #002350;
     --gradientBlue3: #002d69;
     --gradientBlue4: #003684;
@@ -76,7 +76,7 @@
     /* Transition the top property for animation */
     background: rgba(255, 255, 0, 0.7);
     /* Yellow color with 0.7 opacity */
-    color: #000;
+    color: #fff;
     /* Black text color */
     display: flex;
     justify-content: center;
@@ -86,6 +86,10 @@
 .img-container:hover .overlay {
     top: 0;
     /* Move the overlay to the top on hover */
+}
+
+.overlay h3{
+    color: #fff;
 }
 
 .img-container:hover .img {
@@ -393,9 +397,9 @@
         height: 160px;
         margin-left: -12px;
     } */
-    
+
     .incard2 p{
-        font-size: 3vh;
+        font-size: 20px;
     }
 
     .home-about, .home-about h2{
@@ -492,7 +496,7 @@ article img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
     font-weight: 700;
     height: 52vh;
 }
@@ -621,3 +625,13 @@ ion-icon:not([name="logo-codepen"]) {
     color: #4ad1e5;
 }
 /* END:: Counter */
+.productname{
+    margin-top: -15px;
+}
+.productname h3, .price_rating h3{
+    font-size: 22px !important;
+}
+
+.item, .owl-carousel2{
+    margin: 2px;
+  }
