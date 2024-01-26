@@ -114,10 +114,12 @@ class DefaultController extends Controller
     public function prodByBrands(Brand $brand): View
     {
         $prodByBrands = $brand->products();
+        $parentCategories= ParentCategory::all();
         return view('frontend.prodbybrands')
             ->with([
                 'brand' => $brand,
                 'prodByBrands' => $prodByBrands,
+                'parentCategories'=>$parentCategories
             ]);
     }
 

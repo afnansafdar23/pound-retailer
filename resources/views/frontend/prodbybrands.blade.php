@@ -6,7 +6,7 @@
 @section('content')
 <div class="container container_pro">
     <div class="row justify-content-center">
-@forelse ($productByBrands as $productByBrand)
+@forelse ($prodByBrands as $productByBrand)
     <div class="col-lg-3">
         <div class="card">
             <div class="imgBx">

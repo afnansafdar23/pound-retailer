@@ -38,6 +38,7 @@ class BrandDatatable extends DataTable
      */
     public function query(Brand $model): QueryBuilder
     {
+       
         return $model->newQuery()->select('id', 'name', 'brand_title');
     }
 

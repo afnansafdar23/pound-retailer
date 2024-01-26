@@ -82,7 +82,7 @@
 </head>
 
 <body>
-    <div class="header-area sticky header-area-1  clearfix">
+    <div class="header-area sticky header-area-1 clearfix">
         <!-- Header Left 1 -->
         <div class="header-left header-left-1 scroll  d-sm-block">
             <button class="sidebar-menu-toggle float-left"><i class="zmdi zmdi-menu"></i></button>
