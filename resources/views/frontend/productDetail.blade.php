@@ -214,3 +214,6 @@
     </div>
 </section>
 @endsection
+@section('custromJs')
+
+@endsection

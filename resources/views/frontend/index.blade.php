@@ -235,9 +235,10 @@
     @endif
     <div class="row text-center justify-content-center">
         @forelse ($blogs as $blog)
-        <div class="col-md-3 bg-light rounded-2 py-3">
-            <a href="{{route('web.blog',Str::slug($blog->title))}}"><img class="rounded-2" src="{{$blog->getFirstMediaUrl('blog.image')}}" alt=""></a>
-            <h3 class="text-center mt-2"><a href="{{route('web.blog',Str::slug($blog->name))}}">{{ Illuminate\Support\Str::limit(strip_tags($blog['title']), 25, '...') }}</a></h3>
+        <div class="col-md-3 bg-light rounded-2 py-3 shadow-sm" style="margin: 0 10px">
+            <a href="{{route('web.blog',$blog->id)}}"><img class="rounded-2" src="{{$blog->getFirstMediaUrl('blog.image')}}" alt=""></a>
+            <h3 class="text-center mt-2"><a href="{{ route('web.blog', $blog->id) }}">{{ Illuminate\Support\Str::limit(strip_tags($blog['title']), 25, '...') }}</a></h3>
+
             <hr>
             <p class="overflow-hidden wrap">{{ Illuminate\Support\Str::limit(strip_tags($blog['description']), 40, '...') }}</p>
         </div>
