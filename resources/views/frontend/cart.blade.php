@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-    <div class="card mb-5">
+    <div class="card mt-5 mb-5">
         <div class="row">
             <div class="col-md-8 cart">
                 <div class="title">
@@ -17,7 +17,7 @@
                 </div>
                 <div class="row border-bottom">
                     <div class="row main align-items-center">
-                        <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
+                        <div class="col-2"><img class="img-fluid" src="{{asset('assets/media/stock/ecommerce/1.gif')}}"></div>
                         <div class="col">
                             <div class="row text-muted">product name</div>
                             <div class="row">price</div>
@@ -28,12 +28,12 @@
                             <a href="#" id="counter" class="border">1</a>
                             <a href="#" onclick="increment()">+</a>
                         </div>
-                        <div class="col">&euro; 44.00 <span><i class="fa-solid fa-xmark  close"></i></span></div>
+                        <div class="col">&euro; 44.00 <span><i class="fa-solid fa-xmark close"></i></span></div>
                     </div>
                 </div>
 
 
-                <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span>
+                <div class="back-to-shop"><a href="{{Route('web.prod.by.brands')}}">&leftarrow; <span class="text-muted">Back to shop</span></a>
                 </div>
             </div>
             <div class="col-md-4 summary">

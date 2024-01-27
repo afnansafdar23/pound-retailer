@@ -32,7 +32,7 @@
 				<ul>
 					<li><a href="#">New Products</a></li>
 					<li><a href="#">Top Sellers</a></li>
-					<li><a href="#">Manufactirers</a></li>
+					<li><a href="#">Manufacturers</a></li>
 					<li><a href="#">Suppliers</a></li>
 					<li><a href="#">Specials</a></li>
 				</ul>

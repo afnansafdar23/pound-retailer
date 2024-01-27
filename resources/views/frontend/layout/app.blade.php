@@ -50,9 +50,9 @@
     <link rel="stylesheet" href="css/style.css">
 
     <title>Poundkingdom</title>
-    <!-- 
+    <!--
         we can not move this css style to already made css file because
-        it can effect the other files with seperate css 
+        it can effect the other files with seperate css
     -->
     <style>
         :root{
