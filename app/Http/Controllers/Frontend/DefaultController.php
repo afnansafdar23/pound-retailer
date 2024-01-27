@@ -22,7 +22,7 @@ class DefaultController extends Controller
     {
         $parentCategories = ParentCategory::all();
         $childCategories = ChildCategory::all();
-        $blogs = Blog::paginate(4);
+        $blogs = Blog::all();
         $brands = Brand::all();
         $products = Product::all();
 

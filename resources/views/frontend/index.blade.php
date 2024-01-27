@@ -117,10 +117,9 @@
 <section id="slider" class="">
     <div class="container">
         <h2>Our Brands</h2>
-        <div>
             <div class="owl-carousel owl-theam owl-carousel2">
                 @forelse($brands as $brand)
-                <div class="card rounded">
+                <div class="card rounded" style="margin: 0 5px">
                     <div class="card-image m-2">
                         <img class="img-fluid" src="{{$brand->getFirstMediaUrl('brand.image')}}"
                             alt="{{$brand['name']}}" />
@@ -135,7 +134,6 @@
                 <h4 class="text-center">No brands Found</h4>
                 @endforelse
             </div>
-        </div>
     </div>
 </section>
 {{-- Best --}}
@@ -233,15 +231,14 @@
     @if (isset($blogs))
     <h1 class="text-center my-4">Our Blogs</h1>
     @endif
-    <div class="row text-center justify-content-center">
+    <div class="owl-carousel container">
         @forelse ($blogs as $blog)
-        <div class="col-md-3 bg-light rounded-2 py-3 shadow-sm" style="margin: 0 10px">
-            <a href="{{route('web.blog',$blog->id)}}"><img class="rounded-2" src="{{$blog->getFirstMediaUrl('blog.image')}}" alt=""></a>
-            <h3 class="text-center mt-2"><a href="{{ route('web.blog', $blog->id) }}">{{ Illuminate\Support\Str::limit(strip_tags($blog['title']), 25, '...') }}</a></h3>
-
-            <hr>
-            <p class="overflow-hidden wrap">{{ Illuminate\Support\Str::limit(strip_tags($blog['description']), 40, '...') }}</p>
-        </div>
+            <div class="bg-light rounded-2 p-3 shadow" style="margin: 0 10px;">
+                <a href="{{route('web.blog',$blog->id)}}"><img class="rounded-2" src="{{$blog->getFirstMediaUrl('blog.image')}}" alt=""></a>
+                <h3 class="text-center mt-2 "><a href="{{ route('web.blog', $blog->id) }}">{{ Illuminate\Support\Str::limit(strip_tags($blog['title']), 25, '...') }}</a></h3>
+                <hr>
+                <p class="overflow-hidden wrap">{{ Illuminate\Support\Str::limit(strip_tags($blog['description']), 40, '...') }}</p>
+            </div>
         @empty
         <h4 class="text-center">No Blogs Found</h4>
         @endforelse

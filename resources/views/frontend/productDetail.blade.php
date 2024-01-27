@@ -15,10 +15,10 @@
         <div class="row gx-5">
             <aside class="col-lg-6">
                 <div class="border rounded-4 mb-3 d-flex justify-content-center">
-                    <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="#">
+                    <div data-fslightbox="mygalley" class="rounded-4" data-type="image">
                         <img style="height: 80vh; margin: auto;" class="rounded-4 fit"
                             src="{{$product->getFirstMediaUrl('product.image')}}" />
-                    </a>
+                    </div>
                 </div>
             </aside>
             <main class="col-lg-6">
@@ -85,15 +85,11 @@
                         <div class="col-md-4 col-6 mb-3">
                             <label class="mb-2 d-block">Quantity</label>
                             <div class="input-group mb-3" style="width: 170px;">
-                                <button class="btn btn-white border border-secondary px-3" type="button"
-                                    id="button-addon1" data-mdb-ripple-color="dark">
+                                <button class="btn btn-white border border-secondary px-3" type="button" id="decrementButton" data-mdb-ripple-color="dark">
                                     <i class="fas fa-minus"></i>
                                 </button>
-                                <input type="text" class="form-control text-center border border-secondary"
-                                    placeholder="14" aria-label="Example text with button addon"
-                                    aria-describedby="button-addon1" />
-                                <button class="btn btn-white border border-secondary px-3" type="button"
-                                    id="button-addon2" data-mdb-ripple-color="dark">
+                                <input style="margin-right: 5px;" type="number" class="form-control text-center border border-secondary" value="1" aria-label="Example text with button addon" aria-describedby="button-addon1" id="quantityInput" inputmode="numeric"/>
+                                <button class="btn btn-white border border-secondary px-3" type="button" id="incrementButton" data-mdb-ripple-color="dark">
                                     <i class="fas fa-plus"></i>
                                 </button>
                             </div>
@@ -215,5 +211,38 @@
 </section>
 @endsection
 @section('custromJs')
+<script>
+    // Wait for the document to fully load
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get elements
+        const decrementButton = document.getElementById('decrementButton');
+        const incrementButton = document.getElementById('incrementButton');
+        const quantityInput = document.getElementById('quantityInput');
 
+        // Add click event listeners
+        decrementButton.addEventListener('click', () => {
+            decrementQuantity();
+        });
+
+        incrementButton.addEventListener('click', () => {
+            incrementQuantity();
+        });
+
+        // Function to decrement quantity
+        function decrementQuantity() {
+            let currentQuantity = parseInt(quantityInput.value, 10);
+            if (!isNaN(currentQuantity) && currentQuantity > 0) {
+                quantityInput.value = currentQuantity - 1;
+            }
+        }
+
+        // Function to increment quantity
+        function incrementQuantity() {
+            let currentQuantity = parseInt(quantityInput.value, 10);
+            if (!isNaN(currentQuantity)) {
+                quantityInput.value = currentQuantity + 1;
+            }
+        }
+    });
+</script>
 @endsection

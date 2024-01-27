@@ -635,3 +635,10 @@ ion-icon:not([name="logo-codepen"]) {
 .item, .owl-carousel2{
     margin: 2px;
   }
+
+/* Remove the up and down arrows in Chrome, Safari, and Edge */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
