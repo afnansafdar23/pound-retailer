@@ -229,11 +229,11 @@
 
 <section class="container mb-5">
     @if (isset($blogs))
-    <h1 class="text-center my-4">Our Blogs</h1>
+    <h2 class="my-2">Our Blogs</h2>
     @endif
-    <div class="owl-carousel container">
+    <div class="owl-carousel container py-4">
         @forelse ($blogs as $blog)
-            <div class="bg-light rounded-2 p-3 shadow" style="margin: 0 10px;">
+            <div class="bg-light rounded-2 p-3 shadow-sm blog-cards" style="margin: 0 10px;">
                 <a href="{{route('web.blog',$blog->id)}}"><img class="rounded-2" src="{{$blog->getFirstMediaUrl('blog.image')}}" alt=""></a>
                 <h3 class="text-center mt-2 "><a href="{{ route('web.blog', $blog->id) }}">{{ Illuminate\Support\Str::limit(strip_tags($blog['title']), 25, '...') }}</a></h3>
                 <hr>
