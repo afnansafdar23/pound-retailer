@@ -36,12 +36,12 @@
     </div>
 </div>
 
-<div class="container-fluid mb-3">
-    <div class="row justify-content-center gy-3">
+<div class="container mb-3">
+    <div class="row justify-content-center">
         @foreach ($brands as $brand)
-        <div class="col-md-2 col-6">
+        <div class="col-md-4 mt-3">
             <div class="card rounded">
-                <div class="card-image m-2">
+                <div class="card-image">
                     <img class="img-fluid" src="{{$brand->getFirstMediaUrl('brand.image')}}" alt="{{$brand['name']}}" />
                 </div>
                 <div class="card-body text-center">
