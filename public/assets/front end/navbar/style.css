@@ -1532,6 +1532,7 @@ textarea:-ms-input-placeholder {
 
 .mini-cart-checkout a:hover {
     background-color: #000;
+    color: #fff !important;
 }
 
 /* Header Search */
@@ -4101,7 +4102,6 @@ textarea:-ms-input-placeholder {
 
 .blog-content-wrapper {
     background-color: #fff;
-    border: 1px solid #e7e7e7;
     padding: 25px 30px;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;

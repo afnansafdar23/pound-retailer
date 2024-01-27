@@ -15,14 +15,17 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        
+
         font-weight: 700;
         height: 52vh;
         }
-        
+
         .blog-banner h1, .blog-banner a{
             color: #ffb207;
             text-shadow: 2px 2px #051937;
+        }
+        img{
+            cursor: pointer;
         }
     </style>
 @endsection
@@ -51,12 +54,14 @@
                             $readingTime = max(1, ceil($wordCount / $averageReadingSpeed));
                             @endphp
                                 <div class="blog-card-banner">
-                                    <img src="{{$blog->getFirstMediaUrl('blog.image')}}" alt="{{$blog['title']}}" width="250"
+                                    <a href="{{ route('web.blog', $blog->id) }}">
+                                        <img src="{{$blog->getFirstMediaUrl('blog.image')}}" alt="{{$blog['title']}}" width="250"
                                         class="blog-banner-img">
+                                    </a>
                                 </div>
                                 <div class="blog-content-wrapper">
                                     <h3>
-                                        <a href="#" class="h3">
+                                        <a href="{{ route('web.blog', $blog->id) }}" class="h3">
                                             {{ \Illuminate\Support\Str::limit(strip_tags($blog['title']), 30, '...') }}
                                         </a>
                                     </h3>
@@ -115,15 +120,9 @@
                             </ul>
 
                         </div>
-
                     </div>
-
-
-
                 </div>
-
             </div>
-
         </div>
 
     </main>
