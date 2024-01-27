@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-    <div class='container mb-5'>
+    <div class='container mt-5 mb-5'>
         <div class='window'>
             <div class='order-info'>
                 <div class='order-info-content'>
@@ -13,7 +13,7 @@
                     <table class='order-table'>
                         <tbody>
                             <tr>
-                                <td><img src='' class='full-width'></img>
+                                <td>
                                 </td>
                                 <td>
                                     <br> <span class='thin'>Product</span>
