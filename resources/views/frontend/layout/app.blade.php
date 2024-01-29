@@ -218,7 +218,7 @@
 
                 // Add scroll event listener
             window.addEventListener('scroll', function () {
-                if (window.scrollY > 0) {
+                if (window.scrollY > 120) {
                     // If scrolled, hide the search box
                     searchDropdown.classList.remove('show');
                     searchToggle.setAttribute('aria-expanded', 'false');

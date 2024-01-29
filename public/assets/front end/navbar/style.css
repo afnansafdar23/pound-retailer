@@ -1590,7 +1590,7 @@ textarea:-ms-input-placeholder {
 }
 
 .search-dropdown.show {
-    margin-top: 0;
+    margin: 0 auto;
     opacity: 1;
     visibility: visible;
     z-index: 999;
