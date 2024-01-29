@@ -211,6 +211,21 @@
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            const searchDropdown = document.querySelector('.search-dropdown');
+            const searchToggle = document.querySelector('.search-toggle');
+
+                // Add scroll event listener
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 0) {
+                    // If scrolled, hide the search box
+                    searchDropdown.classList.remove('show');
+                    searchToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
 
 </body>
 
