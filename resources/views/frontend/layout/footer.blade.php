@@ -16,7 +16,7 @@
 					<a href="#"><i class="zmdi zmdi-pinterest"></i></a>
 				</div>
 			</div>
-			<div class="footer-account col-lg-2 col-md-6 col-12">
+			<div class="footer-account col-lg-2 col-md-6 col-12 mt-2">
 				<h4>Pages</h4>
 				<ul>
 					<li><a href="{{route('web.prod.by.brands')}}">products</a></li>

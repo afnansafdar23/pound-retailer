@@ -187,7 +187,6 @@
     @include('frontend.layout.footer')
     {{-- Footer Section --}}
     @yield('custromJs')
-
     <script src="{{asset('assets/front end/navbar/js/vendor/jquery-1.12.4.min.js')}}"></script>
     <!-- Bootstrap JS ============================================ -->
     <script src="{{asset('assets/front end/navbar/js/bootstrap.bundle.min.js')}}"></script>
