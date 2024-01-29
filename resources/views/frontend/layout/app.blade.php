@@ -144,10 +144,10 @@
             <div class="header-search header-search-2 d-none d-md-block float-right">
                 <button data-bs-toggle="dropdown" class="search-toggle"><i class="zmdi zmdi-search"></i></button>
                 <div class="search-dropdown dropdown-menu right">
-                    <form action="#">
+                    <form action="#" class="shadow mt-3 px-3">
                         <input type="text" placeholder="Search Product...">
-                        <input type="submit" class="search-submit">
                     </form>
+                    <div class="d-flex justify-content-center mt-3 search-dropdown-btn"><button type="button">Search</button></div>
                 </div>
             </div>
         </div>

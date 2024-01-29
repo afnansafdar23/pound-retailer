@@ -12,7 +12,7 @@
                         <div class="col">
                             <h4><b>Shopping Cart</b></h4>
                         </div>
-                        <div class="col align-self-center text-right text-muted">total selected items </div>
+                        <div class="col align-self-center text-right text-muted">Total Selected Items </div>
                     </div>
                 </div>
                 <div class="row border-bottom">
@@ -23,10 +23,9 @@
                             <div class="row">price</div>
                         </div>
                         <div class="col">
-
-                            <a href="#" onclick="decrement()">-</a>
-                            <a href="#" id="counter" class="border">1</a>
-                            <a href="#" onclick="increment()">+</a>
+                            <a class="h3" onclick="decrement()">-</a>
+                            <a id="counter" class="border">1</a>
+                            <a class="h3" onclick="increment()">+</a>
                         </div>
                         <div class="col">&euro; 44.00 <span><i class="fa-solid fa-xmark close"></i></span></div>
                     </div>
@@ -54,7 +53,7 @@
                     <div class="col">TOTAL PRICE</div>
                     <div class="col text-right">&euro; 137.00</div>
                 </div>
-                <a href="#" class="btn checkout-btn">Go To Checkout</a>
+                <a href="{{Route('web.checkout')}}" class="btn checkout-btn">Go To Checkout</a>
             </div>
         </div>
 
@@ -64,20 +63,22 @@
 
 @section('custromJs')
     <script>
-        let counter = 0;
+        let counter = 1; // Start counter at 1 to prevent it from going below 0 initially
 
-        function increment() {
-            counter++;
-            updateCounter();
-        }
+    function increment() {
+        counter++;
+        updateCounter();
+    }
 
-        function decrement() {
+    function decrement() {
+        if (counter > 0) {
             counter--;
             updateCounter();
         }
+    }
 
-        function updateCounter() {
-            document.getElementById('counter').innerText = counter;
-        }
+    function updateCounter() {
+        document.getElementById('counter').innerText = counter;
+    }
     </script>
 @endsection

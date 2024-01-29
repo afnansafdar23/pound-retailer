@@ -13,7 +13,7 @@
     </div>
 
     <!-- START:: Our Company -->
-    <section class="container home-about">
+    <section class="container home-about mt-3">
         <div class="row">
             <!-- Image -->
             <div class="col-lg-6"><img class="rounded-2 img-fluid" src="{{asset('assets/front end/image1-2.jpg')}}" alt="about-image"></div>
@@ -28,7 +28,7 @@
                 explicabo eveniet est?
             </p>
             <div class="mt-4">
-                <input class="btn px-4 py-2 btn-outline-dark" type="submit" value="Call Us" />
+                <a class="btn px-4 py-2 btn-outline-dark" href="tel:+447916312844">Call Us</a>
             </div>
             </div>
             <!-- END -->
