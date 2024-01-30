@@ -6,12 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="{{{asset('assets/front end/zoom-efect/xzoom.css')}}}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{{asset('assets/front end/zoom-efect/xzoom.min.js')}}"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script async src="//jsfiddle.net/8ECh6/embed/"></script>
-    <link rel="stylesheet" href="{{asset('assets/front end/navbar-css/style.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
@@ -36,7 +33,6 @@
     <link rel="stylesheet" href="{{asset('assets/front end/navbar/css/material-design-iconic-font.min.css')}}">
     <!-- Plugins Import CSS
 	============================================ -->
-    <link rel="stylesheet" href="{{asset('assets/front end/navbar/css/import.css')}}">
     <!-- Style CSS
 	============================================ -->
     <link rel="stylesheet" href="{{asset('assets/front end/navbar/style.css')}}">
@@ -47,7 +43,6 @@
     <link rel="stylesheet" href="  {{asset('assets/front end/navbar/css/bootstrap.min.css')}} ">
     <!-- Bootstrap CSS -->
     <!-- Style -->
-    <link rel="stylesheet" href="css/style.css">
 
     <title>Poundkingdom</title>
     <!--
@@ -193,7 +188,7 @@
     <!-- Plugins JS ============================================ -->
     <script src="{{asset('assets/front end/navbar/js/plugins.js')}}"></script>
     <!-- Particles Active JS ============================================ -->
-    <script src="js/app.js {{asset('assets/front end/navbar/js/app.js')}}"></script>
+    <script src="{{asset('assets/front end/navbar/js/app.js')}}"></script>
     <!-- Main JS ============================================ -->
     <script src="{{asset('assets/front end/navbar/js/main.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.js"></script>

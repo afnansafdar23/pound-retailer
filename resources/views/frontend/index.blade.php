@@ -5,7 +5,6 @@
     href="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/accessible-slick-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 <link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
-<link rel="stylesheet" href="{{asset('assets/front assets/front end/css/owl.carousel.min.css')}}">
 @endsection
 @section('content')
 <div class="gallery mt-1">
@@ -142,12 +141,12 @@
 <section class="d-flex justify-content-around mb-2 mt-2 ">
     <section class="container-fluid mt-3 pl-2 row card-main">
         {{-- card 1 --}}
-        <div class="col-md-3 col-sm-6 col-xm-12 row c12">
+        <div class="col-lg-3 row c12">
             <div class=" bg-danger col-sm-4 incard">
-                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/1.gif')}}" alt="product"></div>
+                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/2.gif')}}" alt="product"></div>
             </div>
 
-            <div class="col-sm-8 bg-danger incard2">
+            <div class="col-sm-8 bg-danger incard2 ">
                 <!-- Product Description -->
                 <div>
                     <h4>Product Name</h4>
@@ -157,7 +156,7 @@
             </div>
         </div>
         {{-- card 2 --}}
-        <div class="col-md-3 col-sm-6 col-xm-12 row c12">
+        <div class="col-lg-3 row c12">
             <div class=" bg-danger col-sm-4 incard">
                 <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/2.gif')}}" alt="product"></div>
             </div>
@@ -172,7 +171,7 @@
             </div>
         </div>
         {{-- card 3 --}}
-        <div class="col-md-3 col-sm-6 col-xm-12 row c12">
+        <div class="col-lg-3 row c12">
             <div class=" bg-danger col-sm-4 incard">
                 <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/3.gif')}}" alt="product"></div>
             </div>
@@ -186,7 +185,7 @@
             </div>
         </div>
         {{-- card 4 --}}
-        <div class="col-md-3 col-sm-6 col-xm-12 row c12">
+        <div class="col-lg-3 row c12">
             <div class=" bg-danger col-sm-4 incard">
                 <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/24.gif')}}" alt="product"></div>
             </div>
@@ -249,7 +248,6 @@
 @section('custromJs')
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.js"></script>
-<script src="{{asset('assets/front end/css/owl.carousel.min.js')}}"></script>
 <script>
 
 $(document).ready(function() {
