@@ -43,7 +43,7 @@
     <div class="container container_pro">
         <div class="row justify-content-center">
             @foreach ($childCategory->products as $product)
-            <div class="col-lg-3">
+            <div class="col-lg-3 mt-2">
                 <div class="card">
                     <div class="imgBx">
                         <img src="{{$product->getFirstMediaUrl('product.image')}}" alt="">

@@ -55,152 +55,60 @@
 <section class="product-section container mb-4">
     <h2>Products</h2>
 
-    <div class="row">
-        {{-- 1 --}}
-        <div class="col-lg-3 col-md-4 col-sm-6 mt-2">
-                <!-- card -->
-                <div class="card">
-                    <div class="imgBx">
-                        <img src="{{asset('assets/media/stock/ecommerce/1.gif')}}" alt="product">
-                        {{-- Wishlist and View Detail --}}
-                        <div class="d-flex flex-column justify-content-center align-items-center">
-                            <span><i class="fa-solid fa-heart"></i> <span>add to whishlist</span></span>
-                            <span><i class="fa-solid fa-eye"></i><a href="#">view detail</a></span>
-                        </div>
-                        {{-- Wishlist and View Detail --}}
-                    </div>
-                    <div class="content p-2">
-                        <div class="productname text-center mt-2">
-                            <h3>Product Name</h3>
-                        </div>
-                        <div class="price_rating">
-                            <div class="d-flex align-items-center">
-                                <h3 class="m-auto">200$</h3>
-                                <div class="d-grid">
-                                    <del class="text-danger text-small">200$</del>
-                                    <span class="text-success text-small">50% OFF</span>
-                                </div>
-                            </div>
-                            <div class="ratings d-flex justify-content-center">
-                                <p>
-                                    <span class="badge bg-success"><i class="fa-solid fa-check"></i> In Stock</span>
-                                <p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- card -->
-        </div>
-        {{-- 2 --}}
-        <div class="col-lg-3 col-md-4 col-sm-6 mt-2">
-            <!-- card -->
+    <!-- product section -->
+<div class="container container_pro">
+    <div class="row justify-content-center">
+        @foreach ($childCategory->products as $product)
+        <div class="col-lg-3 mt-2">
             <div class="card">
                 <div class="imgBx">
-                    <img src="{{asset('assets/media/stock/ecommerce/1.gif')}}" alt="product">
-                    {{-- Wishlist and View Detail --}}
-                    <div class="d-flex flex-column justify-content-center align-items-center">
-                        <span><i class="fa-solid fa-heart"></i> <span>add to whishlist</span></span>
-                        <span><i class="fa-solid fa-eye"></i><a href="#">view detail</a></span>
-                    </div>
-                    {{-- Wishlist and View Detail --}}
+                    <img src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
+                    <ul class="action">
+                        <li><i class="fa-solid fa-heart"></i>
+                            <span>add to whishlist</span>
+                        </li>
+                        <li><i class="fa-solid fa-eye"></i>
+                            <span>view detail</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="content p-2">
-                    <div class="productname text-center mt-2">
-                        <h3>Product Name</h3>
+                <div class="content">
+                    <div class="productname text-center">
+                        <h3>{{$product['name']}}</h3>
                     </div>
                     <div class="price_rating">
-                        <div class="d-flex align-items-center">
-                            <h3 class="m-auto">200$</h3>
+                        <div class="d-flex gap-1 align-items-center">
+                            <h3 class="m-auto">{{$product['discounted_price']}}$</h3>
                             <div class="d-grid">
-                                <del class="text-danger text-small">200$</del>
-                                <span class="text-success text-small">50% OFF</span>
+                                <del class="text-danger text-small">{{$product['price']}} $</del>
+                                <span class="text-success text-small">{{number_format((($product['price'] -
+                                    $product['discounted_price']) /
+                                    $product['price']) *
+                                    100)}} % OFF</span>
                             </div>
                         </div>
-                        <div class="ratings d-flex justify-content-center">
+                        <div class="ratings">
                             <p>
+                                @if ($product['availability']=='on')
                                 <span class="badge bg-success"><i class="fa-solid fa-check"></i> In Stock</span>
+                                @else
+                                <span class="badge bg-danger"><i class="fa-solid fa-xmark"></i> Out of Stock</span>
+                                @endif
                             <p>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- card -->
         </div>
-        {{-- 3 --}}
-        <div class="col-lg-3 col-md-4 col-sm-6 mt-2">
-            <!-- card -->
-            <div class="card">
-                <div class="imgBx">
-                    <img src="{{asset('assets/media/stock/ecommerce/1.gif')}}" alt="product">
-                    {{-- Wishlist and View Detail --}}
-                    <div class="d-flex flex-column justify-content-center align-items-center">
-                        <span><i class="fa-solid fa-heart"></i> <span>add to whishlist</span></span>
-                        <span><i class="fa-solid fa-eye"></i><a href="#">view detail</a></span>
-                    </div>
-                    {{-- Wishlist and View Detail --}}
-                </div>
-                <div class="content p-2">
-                    <div class="productname text-center mt-2">
-                        <h3>Product Name</h3>
-                    </div>
-                    <div class="price_rating">
-                        <div class="d-flex align-items-center">
-                            <h3 class="m-auto">200$</h3>
-                            <div class="d-grid">
-                                <del class="text-danger text-small">200$</del>
-                                <span class="text-success text-small">50% OFF</span>
-                            </div>
-                        </div>
-                        <div class="ratings d-flex justify-content-center">
-                            <p>
-                                <span class="badge bg-success"><i class="fa-solid fa-check"></i> In Stock</span>
-                            <p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- card -->
-        </div>
-        {{-- 4 --}}
-        <div class="col-lg-3 col-md-4 col-sm-6 mt-2">
-            <!-- card -->
-            <div class="card">
-                <div class="imgBx">
-                    <img src="{{asset('assets/media/stock/ecommerce/1.gif')}}" alt="product">
-                    {{-- Wishlist and View Detail --}}
-                    <div class="d-flex flex-column justify-content-center align-items-center">
-                        <span><i class="fa-solid fa-heart"></i> <span>add to whishlist</span></span>
-                        <span><i class="fa-solid fa-eye"></i><a href="#">view detail</a></span>
-                    </div>
-                    {{-- Wishlist and View Detail --}}
-                </div>
-                <div class="content p-2">
-                    <div class="productname text-center mt-2">
-                        <h3>Product Name</h3>
-                    </div>
-                    <div class="price_rating">
-                        <div class="d-flex align-items-center">
-                            <h3 class="m-auto">200$</h3>
-                            <div class="d-grid">
-                                <del class="text-danger text-small">200$</del>
-                                <span class="text-success text-small">50% OFF</span>
-                            </div>
-                        </div>
-                        <div class="ratings d-flex justify-content-center">
-                            <p>
-                                <span class="badge bg-success"><i class="fa-solid fa-check"></i> In Stock</span>
-                            <p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- card -->
-        </div>
-        {{-- end --}}
+        @endforeach
     </div>
-
+</div>
+<!-- end product section -->
 </section>
 {{-- products section --}}
+
+
+
 @endsection
 
 @section('custromJs')

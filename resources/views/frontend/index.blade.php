@@ -5,6 +5,8 @@
     href="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/accessible-slick-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 <link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/front end/css/category.css')}}">
 @endsection
 @section('content')
 <div class="gallery mt-1">
@@ -57,7 +59,7 @@
     <div class = "title pt-3">
         <h2 class = "position-relative ms-4">Latest Products</h2>
     </div>
-  <div class="owl-carousel container">
+  <div class="owl-carousel container container_pro">
 
     @forelse ($products as $product)
     <div class="item">
@@ -65,23 +67,21 @@
         <div class="card">
             <div class="imgBx">
                 <img src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
-                <ul class="action mt-2 text-center">
-                    <li>
-                        <i class="fa-solid fa-heart"></i>
+                <ul class="action">
+                    <li><i class="fa-solid fa-heart"></i>
                         <span>add to whishlist</span>
                     </li>
-                    <li>
-                        <i class="fa-solid fa-eye"></i>
-                        <a href="{{route('web.prod.detail',$product['id'])}}">view detail</a>
+                    <li><i class="fa-solid fa-eye"></i>
+                        <span>view detail</span>
                     </li>
                 </ul>
             </div>
-            <div class="content p-2">
+            <div class="content">
                 <div class="productname text-center">
                     <h3>{{$product['name']}}</h3>
                 </div>
                 <div class="price_rating">
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex gap-1 align-items-center">
                         <h3 class="m-auto">{{$product['discounted_price']}}$</h3>
                         <div class="d-grid">
                             <del class="text-danger text-small">{{$product['price']}} $</del>
@@ -91,7 +91,7 @@
                                 100)}} % OFF</span>
                         </div>
                     </div>
-                    <div class="ratings d-flex justify-content-center">
+                    <div class="ratings">
                         <p>
                             @if ($product['availability']=='on')
                             <span class="badge bg-success"><i class="fa-solid fa-check"></i> In Stock</span>
@@ -111,6 +111,66 @@
       <!-- End -->
   </div>
 </section>
+  <!-- END:: Card Slider -->
+
+{{-- products section --}}
+<section class="container mb-4">
+    <h2>Products</h2>
+
+    <!-- product section -->
+<div class="container_pro">
+    <div class="row justify-content-center">
+        @forelse ($products as $product)
+        <div class="col-lg-3 mt-2">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
+                    <ul class="action">
+                        <li><i class="fa-solid fa-heart"></i>
+                            <span>add to whishlist</span>
+                        </li>
+                        <li><i class="fa-solid fa-eye"></i>
+                            <span>view detail</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="productname text-center">
+                        <h3>{{$product['name']}}</h3>
+                    </div>
+                    <div class="price_rating">
+                        <div class="d-flex gap-1 align-items-center">
+                            <h3 class="m-auto">{{$product['discounted_price']}}$</h3>
+                            <div class="d-grid">
+                                <del class="text-danger text-small">{{$product['price']}} $</del>
+                                <span class="text-success text-small">{{number_format((($product['price'] -
+                                    $product['discounted_price']) /
+                                    $product['price']) *
+                                    100)}} % OFF</span>
+                            </div>
+                        </div>
+                        <div class="ratings">
+                            <p>
+                                @if ($product['availability']=='on')
+                                <span class="badge bg-success"><i class="fa-solid fa-check"></i> In Stock</span>
+                                @else
+                                <span class="badge bg-danger"><i class="fa-solid fa-xmark"></i> Out of Stock</span>
+                                @endif
+                            <p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+<!-- end product section -->
+</section>
+{{-- products section --}}
+
+<!-- START:: Card Slider -->
+
   <!-- END:: Card Slider -->
 
 <section id="slider" class="">
