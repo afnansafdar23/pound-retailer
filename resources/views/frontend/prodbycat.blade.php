@@ -17,7 +17,7 @@
 <div class="container mt-3 mb-5">
     <div class="row">
         <div class="col-12">
-            <h1 data-aos="fade-right" data-aos-duration="1000">{{$parentCategory['name']}}</h1>
+            <h2 data-aos="fade-right" data-aos-duration="1000">{{$parentCategory['name']}}</h2>
             <p data-aos="fade-right" data-aos-duration="2000">{{$parentCategory['description']}}</p>
             <span id="dots"></span>
             <div class="container-fluid">

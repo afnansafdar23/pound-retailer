@@ -1,13 +1,24 @@
 @extends('frontend.layout.app')
 @section('customCss')
+<link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
 <link rel="stylesheet" href="{{asset('assets/front end/css/category.css')}}">
 @endsection
 @section('content')
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 contact-banner">
+            <h1 data-aos="fade-left" data-aos-duration="1000">Product by Child Category</h1>
+            <h5 class="text-white" data-aos="fade-right" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Child Category</h5>
+        </div>
+    </div>
+</div>
+
 <div class="container mt-3 mb-5">
     <div class="row">
         <div class="col-12">
-            <h1>{{$childCategory['name']}}</h1>
-            <p>{{$childCategory['description']}}</p>
+            <h2 data-aos="fade-right" data-aos-duration="1000">{{$childCategory['name']}}</h2>
+            <p data-aos="fade-right" data-aos-duration="2000">{{$childCategory['description']}}</p>
             <span id="dots"></span>
             <div class="container-fluid">
                 <div class="row">
@@ -26,7 +37,7 @@
                 <div class="row justify-content-center">
                     @foreach ($subByChildCat as $subCategory)
                     <div class="col-md-2 col-sm-6 col-6">
-                        <div class="card border-0">
+                        <div class="card border-0" data-aos="zoom-in" data-aos-duration="1000">
                             <img src="{{$subCategory->getFirstMediaUrl('subCategory.image')}}"
                                 class="rounded-circle" alt="{{$subCategory['name']}}">
                             <div class="card-body text-center">
@@ -44,7 +55,7 @@
         <div class="row justify-content-center">
             @foreach ($childCategory->products as $product)
             <div class="col-lg-3 mt-2">
-                <div class="card">
+                <div class="card" data-aos="zoom-in-up" data-aos-duration="1000">
                     <div class="imgBx">
                         <img src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
                         <ul class="action">
