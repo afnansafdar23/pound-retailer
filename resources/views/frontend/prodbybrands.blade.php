@@ -1,5 +1,6 @@
 @extends('frontend.layout.app')
 @section('customCss')
+<link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
 <link rel="stylesheet" href="{{asset('assets/front end/css/category.css')}}">
 @endsection
 

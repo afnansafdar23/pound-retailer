@@ -6,8 +6,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 contact-banner">
-                <h1>Contact Us</h1>
-                <h5 class="text-white"><a href="{{Route('web.index')}}">Home</a> > Contact</h5>
+                <h1 data-aos="fade-left" data-aos-duration="1000">Contact Us</h1>
+                <h5 class="text-white" data-aos="fade-right" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Contact</h5>
             </div>
         </div>
     </div>
@@ -16,9 +16,9 @@
     <section class="container home-about mt-3">
         <div class="row">
             <!-- Image -->
-            <div class="col-lg-6"><img class="rounded-2 img-fluid" src="{{asset('assets/front end/image1-2.jpg')}}" alt="about-image"></div>
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000"><img class="rounded-2 img-fluid" src="{{asset('assets/front end/image1-2.jpg')}}" alt="about-image"></div>
             <!-- Text -->
-            <div class="col-lg-6 overflow-hidden">
+            <div class="col-lg-6 overflow-hidden" data-aos="fade-left" data-aos-duration="1000">
             <h2>Our Company</h2>
             <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis provident impedit quis pariatur
@@ -49,7 +49,7 @@
     <div class="container mt-3 mb-3">
         <div class="bg-light">
             <div class="row">
-                <div class="col-lg-8 col-md-12 p-5 bg-white rounded-3">
+                <div class="col-lg-8 col-md-12 p-5 bg-white rounded-3" data-aos="fade-right" data-aos-duration="1000">
                     <form class="row mb-3">
                         <div class="col-md-6 p-3">
                             <input class="contact-input" required placeholder="first name" type="text" name="" id="" />
@@ -71,7 +71,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-4 col-md-12 text-white aside px-4 py-5">
+                <div class="col-lg-4 col-md-12 text-white aside px-4 py-5" data-aos="fade-left" data-aos-duration="1000">
                     <div class="mb-5">
                         <h1 class="h3">Contact Information</h1>
                         <p class="opacity-50">
