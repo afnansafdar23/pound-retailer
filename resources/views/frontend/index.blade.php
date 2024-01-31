@@ -140,7 +140,7 @@
 
 <!-- statics Card Section -->
 <section class="d-flex justify-content-around mb-2 mt-2 ">
-    <section class="container-fluid mt-3 pl-2 row card-main">
+    <div class="container-fluid mt-3 pl-2 row card-main">
         {{-- card 1 --}}
         <div class="col-lg-3 row c12" data-aos="fade-up" data-aos-duration="1000">
             <div class=" bg-danger col-sm-4 incard">
@@ -200,16 +200,16 @@
                 <!-- Product Description -->
             </div>
         </div>
-    </section>
+    </div>
 </section>
 
 <!-- START:: About Responsive -->
 <section class="container home-about">
     <div class="row">
         <!-- Image -->
-        <div class="col-lg-6"><img class="rounded-2 img-fluid" src="{{asset('assets/front end/image1-2.jpg')}}" alt="about-image"></div>
+        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1500"><img class="rounded-2 img-fluid" src="{{asset('assets/front end/image1-2.jpg')}}" alt="about-image"></div>
         <!-- Text -->
-        <div class="col-lg-6 overflow-hidden">
+        <div class="col-lg-6 overflow-hidden" data-aos="fade-left" data-aos-duration="1500">
          <h2 class="text-center">About Us</h2>
          <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis provident impedit quis pariatur
@@ -233,7 +233,7 @@
     @endif
     <div class="owl-carousel container py-4">
         @forelse ($blogs as $blog)
-            <div class="bg-light rounded-2 p-3 shadow-sm blog-cards" style="margin: 0 10px;">
+            <div class="bg-light rounded-2 p-3 shadow-sm blog-cards" style="margin: 0 10px;" data-aos="zoom-in-up" data-aos-duration="1500">
                 <a href="{{route('web.blog',$blog->id)}}"><img class="rounded-2" src="{{$blog->getFirstMediaUrl('blog.image')}}" alt=""></a>
                 <h3 class="text-center mt-2 "><a href="{{ route('web.blog', $blog->id) }}">{{ Illuminate\Support\Str::limit(strip_tags($blog['title']), 25, '...') }}</a></h3>
                 <hr>
