@@ -74,7 +74,7 @@
     height: 100%;
     transition: top 0.5s;
     /* Transition the top property for animation */
-    background: rgba(255, 255, 0, 0.7);
+    background: rgba(255, 255, 0);
     /* Yellow color with 0.7 opacity */
     color: #fff;
     /* Black text color */
@@ -646,4 +646,14 @@ input[type="number"]::-webkit-outer-spin-button {
 .blog-cards h3{
     font-size: 18px;
     overflow-x: hidden;
+}
+
+/* Categories Title */
+.parent-center-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    background-color: rgba(255, 255, 255, 0.404);
 }
