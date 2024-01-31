@@ -8,8 +8,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 contact-banner">
-            <h1>Product by Category</h1>
-            <h5 class="text-white"><a href="{{Route('web.index')}}">Home</a> > Category</h5>
+            <h1 data-aos="fade-left" data-aos-duration="1000">Product by Category</h1>
+            <h5 class="text-white" data-aos="fade-right" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Category</h5>
         </div>
     </div>
 </div>
@@ -17,8 +17,8 @@
 <div class="container mt-3 mb-5">
     <div class="row">
         <div class="col-12">
-            <h1>{{$parentCategory['name']}}</h1>
-            <p>{{$parentCategory['description']}}</p>
+            <h1 data-aos="fade-right" data-aos-duration="1000">{{$parentCategory['name']}}</h1>
+            <p data-aos="fade-right" data-aos-duration="2000">{{$parentCategory['description']}}</p>
             <span id="dots"></span>
             <div class="container-fluid">
                 <div class="row">
@@ -37,7 +37,7 @@
                 <div class="row justify-content-center">
                     @foreach ($childByParentCat as $childCategory)
                     <div class="col-md-2 col-sm-6 col-6">
-                        <div class="card border-0">
+                        <div class="card border-0" data-aos="zoom-in" data-aos-duration="1000">
                             <img src="{{$childCategory->getFirstMediaUrl('childCategory.image')}}"
                                 class="rounded-circle" alt="{{$childCategory['name']}}">
                             <div class="card-body text-center">
@@ -60,7 +60,7 @@
     <div class="row justify-content-center">
         @foreach ($childCategory->products as $product)
         <div class="col-lg-3 mt-2">
-            <div class="card">
+            <div class="card" data-aos="zoom-in-up" data-aos-duration="1000">
                 <div class="imgBx">
                     <img src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
                     <ul class="action">
