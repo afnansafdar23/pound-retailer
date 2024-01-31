@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -182,6 +185,7 @@
     @include('frontend.layout.footer')
     {{-- Footer Section --}}
     @yield('custromJs')
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{{asset('assets/front end/navbar/js/vendor/jquery-1.12.4.min.js')}}"></script>
     <!-- Bootstrap JS ============================================ -->
     <script src="{{asset('assets/front end/navbar/js/bootstrap.bundle.min.js')}}"></script>
@@ -199,6 +203,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <script>
+            AOS.init();
             document.addEventListener("DOMContentLoaded", function () {
             const searchDropdown = document.querySelector('.search-dropdown');
             const searchToggle = document.querySelector('.search-toggle');
