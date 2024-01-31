@@ -113,66 +113,6 @@
 </section>
   <!-- END:: Card Slider -->
 
-{{-- products section --}}
-<section class="container mb-4">
-    <h2>Products</h2>
-
-    <!-- product section -->
-<div class="container_pro">
-    <div class="row justify-content-center">
-        @forelse ($products as $product)
-        <div class="col-lg-3 mt-2">
-            <div class="card">
-                <div class="imgBx">
-                    <img src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
-                    <ul class="action">
-                        <li><i class="fa-solid fa-heart"></i>
-                            <span>add to whishlist</span>
-                        </li>
-                        <li><i class="fa-solid fa-eye"></i>
-                            <span>view detail</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="content">
-                    <div class="productname text-center">
-                        <h3>{{$product['name']}}</h3>
-                    </div>
-                    <div class="price_rating">
-                        <div class="d-flex gap-1 align-items-center">
-                            <h3 class="m-auto">{{$product['discounted_price']}}$</h3>
-                            <div class="d-grid">
-                                <del class="text-danger text-small">{{$product['price']}} $</del>
-                                <span class="text-success text-small">{{number_format((($product['price'] -
-                                    $product['discounted_price']) /
-                                    $product['price']) *
-                                    100)}} % OFF</span>
-                            </div>
-                        </div>
-                        <div class="ratings">
-                            <p>
-                                @if ($product['availability']=='on')
-                                <span class="badge bg-success"><i class="fa-solid fa-check"></i> In Stock</span>
-                                @else
-                                <span class="badge bg-danger"><i class="fa-solid fa-xmark"></i> Out of Stock</span>
-                                @endif
-                            <p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endforeach
-    </div>
-</div>
-<!-- end product section -->
-</section>
-{{-- products section --}}
-
-<!-- START:: Card Slider -->
-
-  <!-- END:: Card Slider -->
-
 <section id="slider" class="">
     <div class="container">
         <h2>Our Brands</h2>
