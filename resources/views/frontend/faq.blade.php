@@ -19,7 +19,7 @@
 </div>
 
     <div class="container mt-5 mb-5">
-        <div class="row">
+        <div class="row" data-aos="fade-left" data-aos-duration="1000">
             <div class="col-12 text-center">
                 <h2>Frequently Asked Questions</h2>
             </div>
@@ -78,7 +78,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 @endsection
 

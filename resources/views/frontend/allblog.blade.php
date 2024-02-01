@@ -34,8 +34,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 blog-banner">
-                <h1>All Blogs</h1>
-                <h5 class="text-white"><a href="{{Route('web.index')}}">Home</a> > Blogs</h5>
+                <h1 data-aos="fade-right" data-aos-duration="1000">All Blogs</h1>
+                <h5 class="text-white" data-aos="fade-left" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Blogs</h5>
             </div>
         </div>
     </div>
@@ -44,10 +44,10 @@
         <div class="main">
             <div class="container">
                 <div class="blog">
-                    <h2 class="h2">Latest Blog Post</h2>
+                    <h2 class="h2" data-aos="fade-right" data-aos-duration="1000">Latest Blog Post</h2>
                     <div class="blog-card-group">
                        @forelse($blogs as $blog)
-                           <div class="blog-card">
+                           <div class="blog-card" data-aos="fade-right" data-aos-duration="1500">
                             @php
                             $averageReadingSpeed = 225; // Adjust this value based on your estimation
                             $wordCount = str_word_count(strip_tags($blog['content']));
@@ -85,7 +85,7 @@
                             @endforelse
                     </div>
                 </div>
-                <div class="aside">
+                <div class="aside" data-aos="zoom-in-up" data-aos-duration="1000">
                     <div class="contact">
 
                         <h2 class="h2">Let's Talk</h2>
