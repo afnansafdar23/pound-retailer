@@ -188,13 +188,13 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{{asset('assets/front end/navbar/js/vendor/jquery-1.12.4.min.js')}}"></script>
     <!-- Bootstrap JS ============================================ -->
-    <script src="{{asset('assets/front end/navbar/js/bootstrap.bundle.min.js')}}"></script>
+    {{-- <script src="{{asset('assets/front end/navbar/js/bootstrap.bundle.min.js')}}"></script> --}}
     <!-- Plugins JS ============================================ -->
-    {{-- <script src="{{asset('assets/front end/navbar/js/plugins.js')}}"></script> --}}
+    <script src="{{asset('assets/front end/navbar/js/plugins.js')}}"></script>
     <!-- Particles Active JS ============================================ -->
     {{-- <script src="{{asset('assets/front end/navbar/js/app.js')}}"></script> --}}
     <!-- Main JS ============================================ -->
-    {{-- <script src="{{asset('assets/front end/navbar/js/main.js')}}"></script> --}}
+    <script src="{{asset('assets/front end/navbar/js/main.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

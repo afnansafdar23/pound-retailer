@@ -48,7 +48,7 @@
     <div class="img-container p-0" data-aos="zoom-in" data-aos-duration="2000">
         <img class="grid-img" src="{{$parentCategory->getFirstMediaUrl('parentCategory.image')}}"
             alt="{{$parentCategory['name']}}">
-        <h3 class="parent-center-image">{{ Illuminate\Support\Str::limit(strip_tags($parentCategory['name']), 25, '...') }}</h3>
+        <h3 class="parent-center-text">{{ Illuminate\Support\Str::limit(strip_tags($parentCategory['name']), 25, '...') }}</h3>
         <div class="overlay">
             <a href="{{ route('web.prodByCat',$parentCategory['id']) }}"><h3>{{ Illuminate\Support\Str::limit(strip_tags($parentCategory['name']), 25, '...') }}</h3></a>
         </div>
