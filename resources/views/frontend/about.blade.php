@@ -7,8 +7,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 contact-banner">
-                <h1 data-aos="fade-left" data-aos-delay="800">About Us</h1>
-                <h5 class="text-white" data-aos="fade-right" data-aos-delay="800"><a href="{{Route('web.index')}}">Home</a> > About</h5>
+                <h1 data-aos="fade-left" data-aos-delay="1000">About Us</h1>
+                <h5 class="text-white" data-aos="fade-right" data-aos-delay="1000"><a href="{{Route('web.index')}}">Home</a> > About</h5>
             </div>
         </div>
     </div>
@@ -17,9 +17,9 @@
     <section class="container home-about mb-4 mt-4">
         <div class="row">
             <!-- Image -->
-            <div class="col-lg-6"><img class="rounded-2 img-fluid" src="{{asset('assets/front end/image1-2.jpg')}}" alt="about-image"></div>
+            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="1000"><img class="rounded-2 img-fluid" src="{{asset('assets/front end/image1-2.jpg')}}" alt="about-image"></div>
             <!-- Text -->
-            <div class="col-lg-6 overflow-hidden">
+            <div class="col-lg-6 overflow-hidden" data-aos="fade-left" data-aos-delay="1000">
             <h2 class="text-center">Company</h2>
             <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis provident impedit quis pariatur
@@ -37,17 +37,17 @@
     </section>
     <!-- END:: About Responsive -->
     <section class="container mb-4">
-        <h1 class="text-center">About Us</h1>
-        <p>
+        <h1 class="text-center" data-aos="fade-left" data-aos-delay="1000">About Us</h1>
+        <p data-aos="fade-right" data-aos-delay="1500">
             Welcome to <b>Pound kindom</b> where we share information related to e-commerce retailer . We're dedicated to
             providing you the very best information and knowledge of the above mentioned topics. About Us Page Generator</a>
         </p>
 
-        <p>
+        <p data-aos="fade-right" data-aos-delay="2000">
             We hope you found all of the information on <b>Pound kindom</b> helpful, as we love to share them with you.
         </p>
 
-        <p>
+        <p data-aos="fade-right" data-aos-delay="2500">
             If you require any more information or have any questions about our site, please feel free to contact us by email
             at.
         </p>
@@ -57,7 +57,7 @@
         <section class="container home-about mb-4 mt-4">
             <div class="row">
                 <!-- Text -->
-                <div class="col-lg-6 overflow-hidden">
+                <div class="col-lg-6 overflow-hidden" data-aos="fade-right" data-aos-delay="1000">
                 <h2 class="text-center">Heading</h2>
                 <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis provident impedit quis pariatur
@@ -70,7 +70,7 @@
                 </div>
                 <!-- END -->
                 <!-- Image -->
-                <div class="col-lg-6"><img class="rounded-2 img-fluid" src="{{asset('assets/front end/image1-2.jpg')}}" alt="about-image"></div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="1000"><img class="rounded-2 img-fluid" src="{{asset('assets/front end/image1-2.jpg')}}" alt="about-image"></div>
             </div>
         </section>
         <!-- END:: About Responsive -->
@@ -78,33 +78,33 @@
     <!-- START:: Counter -->
     <div class="container mt-3 mb-4">
 
-    <div class="col text-center mb-4">
+    <div class="col text-center mb-4" data-aos="fade-right" data-aos-delay="1000">
 		<h2>Counter Heading</h2>
 		<p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
 	</div>
 
 		<div class="row text-center">
-	        <div class="col-md-3 mt-2">
+	        <div class="col-md-3 mt-2" data-aos="zoom-in-up" data-aos-delay="1500">
 	        <div class="counter">
       <i class="fa fa-code fa-2x"></i>
       <h2 class="timer count-title count-number" data-to="100" data-speed="1500"></h2>
        <p class="count-text ">Our Customer</p>
     </div>
 	        </div>
-              <div class="col-md-3 mt-2">
+              <div class="col-md-3 mt-2" data-aos="zoom-in-up" data-aos-delay="1500">
                <div class="counter">
       <i class="fa fa-coffee fa-2x"></i>
       <h2 class="timer count-title count-number" data-to="1700" data-speed="1500"></h2>
       <p class="count-text ">Happy Clients</p>
     </div>
               </div>
-              <div class="col-md-3 mt-2">
+              <div class="col-md-3 mt-2" data-aos="zoom-in-up" data-aos-delay="1500">
                   <div class="counter">
       <i class="fa fa-lightbulb-o fa-2x"></i>
       <h2 class="timer count-title count-number" data-to="11900" data-speed="1500"></h2>
       <p class="count-text ">Project Complete</p>
     </div></div>
-              <div class="col-md-3 mt-2">
+              <div class="col-md-3 mt-2" data-aos="zoom-in-up" data-aos-delay="1500">
               <div class="counter">
       <i class="fa fa-bug fa-2x"></i>
       <h2 class="timer count-title count-number" data-to="157" data-speed="1500"></h2>

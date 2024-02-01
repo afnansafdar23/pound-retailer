@@ -1,12 +1,23 @@
 @extends('frontend.layout.app')
 @section('customCss')
+<link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
 <link rel="stylesheet" href="{{asset('assets/front end/css/cart.css')}}">
 @endsection
 
 @section('content')
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 contact-banner">
+            <h1 data-aos="fade-left" data-aos-duration="1000">Shopping Cart</h1>
+            <h5 class="text-white" data-aos="fade-right" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Cart</h5>
+        </div>
+    </div>
+</div>
+
     <div class="card mt-5 mb-5">
         <div class="row">
-            <div class="col-md-8 cart">
+            <div class="col-md-8 cart" data-aos="fade-right" data-aos-duration="1000">
                 <div class="title">
                     <div class="row">
                         <div class="col">
@@ -23,9 +34,9 @@
                             <div class="row">price</div>
                         </div>
                         <div class="col">
-                            <a class="h3" onclick="decrement()">-</a>
+                            <a class="h3" style="cursor: pointer" onclick="decrement()">-</a>
                             <a id="counter" class="border">1</a>
-                            <a class="h3" onclick="increment()">+</a>
+                            <a class="h3" style="cursor: pointer" onclick="increment()">+</a>
                         </div>
                         <div class="col">&euro; 44.00 <span><i class="fa-solid fa-xmark close"></i></span></div>
                     </div>
@@ -35,7 +46,7 @@
                 <div class="back-to-shop"><a href="{{Route('web.prod.by.brands')}}">&leftarrow; <span class="text-muted">Back to shop</span></a>
                 </div>
             </div>
-            <div class="col-md-4 summary">
+            <div class="col-md-4 summary" data-aos="fade-left" data-aos-duration="1000">
                 <div>
                     <h5><b>Summary</b></h5>
                 </div>

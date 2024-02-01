@@ -9,6 +9,15 @@
 @endsection
 
 @section('content')
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 contact-banner">
+            <h1 data-aos="fade-left" data-aos-duration="1000">Frequently Asked Question</h1>
+            <h5 class="text-white" data-aos="fade-right" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > FAQ</h5>
+        </div>
+    </div>
+</div>
+
     <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-12 text-center">
@@ -16,7 +25,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000">
                 <div class="accordion" id="accordionExampleLeft">
                     <div class="accordion-item">
                         <div class="card">
@@ -43,7 +52,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" data-aos="fade-left" data-aos-duration="1000">
                 <div class="accordion" id="accordionExampleRight">
                     <div class="accordion-item">
                         <div class="card">
@@ -69,6 +78,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 @endsection
 
