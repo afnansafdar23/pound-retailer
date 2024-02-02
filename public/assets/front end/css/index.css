@@ -402,8 +402,8 @@
 
 @media(max-width: 575px) {
     .cart-image img{
-        width: 150px !important;
-        height: 150px !important;
+        width: 80px !important;
+        height: 80px !important;
     }
 
     .c12 {
