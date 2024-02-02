@@ -15,15 +15,15 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{{asset('assets/front end/home-image/1 (5).png')}}" alt="Shining Stars Image"
-                    class="d-block w-100" alt="Home1" style='height:100vh'>
+                    class="d-block w-100" alt="Home1">
             </div>
             <div class="carousel-item">
                 <img src="{{asset('assets/front end/home-image/2 (5).png')}}" alt="A cloudy Mountain Image"
-                    class="d-block w-100" alt="home2" style='height:100vh'>
+                    class="d-block w-100" alt="home2">
             </div>
             <div class="carousel-item">
                 <img src="{{asset('assets/front end/home-image/3 (5).png')}}" alt="Shining Stars Image"
-                    class="d-block w-100" alt="home3" style='height:100vh'>
+                    class="d-block w-100" alt="home3">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -57,7 +57,7 @@
 </div>
 
 <!-- START:: Card Slider -->
-<section class="mt-4 container">
+<section class="mt-4 container" id="slider">
     <div class = "title pt-3">
         <h2 class = "position-relative ms-4">Latest Products</h2>
     </div>
@@ -262,6 +262,9 @@ $(document).ready(function() {
         },
         425: {
           items: 1
+        },
+        574: {
+            items: 1
         },
         768: {
           items: 3
