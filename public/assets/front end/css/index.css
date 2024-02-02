@@ -401,6 +401,11 @@
 }
 
 @media(max-width: 575px) {
+    .cart-image img{
+        width: 150px !important;
+        height: 150px !important;
+    }
+
     .c12 {
         display: grid;
         grid-template-columns: 1fr 1fr;

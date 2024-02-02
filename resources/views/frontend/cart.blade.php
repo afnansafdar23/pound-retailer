@@ -27,9 +27,9 @@
                     </div>
                 </div>
                 <div class="row border-bottom">
-                    <div class="row main align-items-center">
-                        <div class="col-2"><img class="img-fluid" src="{{asset('assets/media/stock/ecommerce/1.gif')}}"></div>
-                        <div class="col">
+                    <div class="row main">
+                        <div class="col-2 cart-image"><img src="{{asset('assets/media/stock/ecommerce/1.gif')}}"></div>
+                        <div class="col-md-2">
                             <div class="row text-muted">product name</div>
                             <div class="row">price</div>
                         </div>
@@ -38,7 +38,7 @@
                             <a id="counter" class="border">1</a>
                             <a class="h3" style="cursor: pointer" onclick="increment()">+</a>
                         </div>
-                        <div class="col">&euro; 44.00 <span><i class="fa-solid fa-xmark close"></i></span></div>
+                        <div class="col-md-2">&euro; 44.00 <span><i class="fa-solid fa-xmark close"></i></span></div>
                     </div>
                 </div>
 
