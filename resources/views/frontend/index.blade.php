@@ -73,7 +73,7 @@
                     <li><i class="fa-solid fa-heart"></i>
                         <span>add to whishlist</span>
                     </li>
-                    <li><i class="fa-solid fa-eye" {{ route('web.prod.detail', $product->id) }}></i>
+                    <li><i class="fa-solid fa-eye" onclick="window.location.href='{{ route('web.prod.detail', $product->id) }}'"></i>
                         <span>view detail</span>
                     </li>
                 </ul>
