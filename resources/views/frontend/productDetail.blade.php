@@ -97,7 +97,7 @@
                     </div>
                     <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
                     <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart
-                    </a> <i class="me-1 fa fa-heart fa-lg"></i>
+                    </a>
                 </div>
             </main>
         </div>
