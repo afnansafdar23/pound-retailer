@@ -178,6 +178,15 @@ class DefaultController extends Controller
         return view('frontend.faq')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
     }
 
+    public function deliveryinfo(): View
+    {
+        $parentCategories = ParentCategory::all();
+        $childCategories = ChildCategory::all();
+
+
+        return view('frontend.deliveryinfo')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
+    }
+
 
     // terms and conditions
     public function term(): View

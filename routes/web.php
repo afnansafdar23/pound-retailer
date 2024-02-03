@@ -47,15 +47,16 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('/contact-us', 'contact')->name('contact');
             Route::get('/about-us', 'about')->name('about');
             Route::get('/faqs', 'faq')->name('faq');
+            Route::get('/deliveryinfo', 'deliveryinfo')->name('deliveryinfo');
             Route::get('/privacy-policy', 'privacy')->name('privacy');
             Route::get('/terms-condition', 'term')->name('term');
             Route::get('/prod-by-brands/{brand}', 'prodByBrands')->name('prodByBrands');
             Route::get('/single/blog/{blog}', 'singleBlog')->name('blog');
             Route::get('/all-blog', 'allBlogs')->name('allblog');
             Route::get('product/detail/{product}', 'prodDetail')->name('prod.detail');
+
         });
 });
-
 
 Route::middleware('auth')->group(function () {
     Route::controller(UserController::class)
