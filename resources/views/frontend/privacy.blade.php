@@ -1,10 +1,22 @@
 @extends('frontend.layout.app')
-
+@section('customCss')
+<link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
+@endsection
 @section('content')
-    <div class="container mb-5">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 contact-banner">
+            <h1>Privacy Policy</h1>
+            <h5 class="text-white"><a href="{{Route('web.index')}}">Home</a> > Privacy</h5>
+        </div>
+    </div>
+</div>
+
+    <div class="container mb-5 mt-4">
         <div class="row">
             <div class="col-12">
-                <p><strong>Privacy Policy</strong></p>
+                <h2><strong>Privacy Policy</strong></h2>
                 <p>Our Privacy Policy was last updated on [___DATE___].</p>
                 <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your
                     information when You use the Service and tells You about Your privacy rights and how the law protects

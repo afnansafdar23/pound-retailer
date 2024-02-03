@@ -6,15 +6,50 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 contact-banner">
-                <h1>Contact Us</h1>
-                <h5 class="text-white"><a href="{{Route('web.index')}}">Home</a> > Contact</h5>
+                <h1 data-aos="fade-left" data-aos-duration="1000">Contact Us</h1>
+                <h5 class="text-white" data-aos="fade-right" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Contact</h5>
             </div>
         </div>
     </div>
-    <div class="container mt-3">
+
+    <!-- START:: Our Company -->
+    <section class="container home-about mt-3">
+        <div class="row">
+            <!-- Image -->
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000"><img class="rounded-2 img-fluid" src="{{asset('assets/front end/image1-2.jpg')}}" alt="about-image"></div>
+            <!-- Text -->
+            <div class="col-lg-6 overflow-hidden" data-aos="fade-left" data-aos-duration="1000">
+            <h2>Our Company</h2>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis provident impedit quis pariatur
+                doloremque at corporis maiores hic exercitationem ut? Expedita sapiente mollitia, qui perspiciatis quas illo
+                ducimus numquam non est rerum, repellat inventore minus! Culpa quisquam iure veniam laudantium dicta omnis,
+                obcaecati impedit ipsam asperiores qui, nobis nihil! Iusto deserunt possimus itaque impedit tempora
+                explicabo eveniet est?
+            </p>
+            <div class="mt-4">
+                <a class="btn px-4 py-2 btn-outline-dark" href="tel:+447916312844">Call Us</a>
+            </div>
+            </div>
+            <!-- END -->
+        </div>
+    </section>
+    <!-- END:: Our Company -->
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-12">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.9275599087728!2d-0.027370024667446546!3d51.49619681152333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487602c0671641a1%3A0x266a92454825f03e!2s10%2C%2016%20Tiller%20Rd%2C%20London%20E14%208PX%2C%20UK!5e0!3m2!1sen!2s!4v1703149601143!5m2!1sen!2s"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3 mb-3">
         <div class="bg-light">
             <div class="row">
-                <div class="col-lg-8 col-md-12 p-5 bg-white rounded-3">
+                <div class="col-lg-8 col-md-12 p-5 bg-white rounded-3" data-aos="fade-right" data-aos-duration="1000">
                     <form class="row mb-3">
                         <div class="col-md-6 p-3">
                             <input class="contact-input" required placeholder="first name" type="text" name="" id="" />
@@ -36,7 +71,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-4 col-md-12 text-white aside px-4 py-5">
+                <div class="col-lg-4 col-md-12 text-white aside px-4 py-5" data-aos="fade-left" data-aos-duration="1000">
                     <div class="mb-5">
                         <h1 class="h3">Contact Information</h1>
                         <p class="opacity-50">
@@ -73,16 +108,7 @@
             </div>
         </div>
     </div>
-    <div class="container mt-4 mb-4">
-        <div class="row">
-            <div class="col-12">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.9275599087728!2d-0.027370024667446546!3d51.49619681152333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487602c0671641a1%3A0x266a92454825f03e!2s10%2C%2016%20Tiller%20Rd%2C%20London%20E14%208PX%2C%20UK!5e0!3m2!1sen!2s!4v1703149601143!5m2!1sen!2s"
-                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </div>
+
 @endsection
 
 @section('custromJs')

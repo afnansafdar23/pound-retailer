@@ -22,7 +22,7 @@ class DefaultController extends Controller
     {
         $parentCategories = ParentCategory::all();
         $childCategories = ChildCategory::all();
-        $blogs = Blog::paginate(4);
+        $blogs = Blog::all();
         $brands = Brand::all();
         $products = Product::all();
 
@@ -64,12 +64,14 @@ class DefaultController extends Controller
     {
         $parentCategories = ParentCategory::all();
         $brand = $product->brand();
+        $relatedProducts=Product::latest()->paginate(3);
 
-        return view('frontend.allbrands')
+        return view('frontend.productDetail')
             ->with([
                 'parentCategories' => $parentCategories,
                 'product' => $product,
-                'brand' => $brand
+                'brand' => $brand,
+                'relatedProducts'=>$relatedProducts
             ]);
     }
 
@@ -114,10 +116,12 @@ class DefaultController extends Controller
     public function prodByBrands(Brand $brand): View
     {
         $prodByBrands = $brand->products();
+        $parentCategories= ParentCategory::all();
         return view('frontend.prodbybrands')
             ->with([
                 'brand' => $brand,
                 'prodByBrands' => $prodByBrands,
+                'parentCategories'=>$parentCategories
             ]);
     }
 

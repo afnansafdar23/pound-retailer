@@ -17,7 +17,7 @@
                     <li><a href="{{Route('web.checkout')}}">check out</a></li>
                     <li><a href="{{route('web.prod.by.brands')}}">shop</a></li>
                     <li><a href="#">wishlist</a></li>
-                    <li><a href="#">log in</a></li>
+                    <li><a href="{{Route('auth.login')}}">log in</a></li>
                     <li><a href="{{Route('web.cart')}}">cart</a></li>
                 </ul>
             </div>

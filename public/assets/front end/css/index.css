@@ -2,7 +2,7 @@
     --bgColor: #ffb207;
     --photoGridPrice: #707070;
     --photoGridGreen: #6DA84A;
-    --gradientBlue1: #051937; 
+    --gradientBlue1: #051937;
     --gradientBlue2: #002350;
     --gradientBlue3: #002d69;
     --gradientBlue4: #003684;
@@ -38,7 +38,9 @@
     grid-column: span 2 / auto;
 }
 
-@media (max-width: 600px) {
+
+
+@media (max-width: 768px) {
     .gallery {
         grid-template-columns: 1fr;
     }
@@ -74,9 +76,9 @@
     height: 100%;
     transition: top 0.5s;
     /* Transition the top property for animation */
-    background: rgba(255, 255, 0, 0.7);
+    background: rgba(255, 255, 0);
     /* Yellow color with 0.7 opacity */
-    color: #000;
+    color: #fff;
     /* Black text color */
     display: flex;
     justify-content: center;
@@ -86,6 +88,10 @@
 .img-container:hover .overlay {
     top: 0;
     /* Move the overlay to the top on hover */
+}
+
+.overlay h3{
+    color: #fff;
 }
 
 .img-container:hover .img {
@@ -321,9 +327,16 @@
     opacity: 0.6;
 }
 
+.gallery .carousel-item img{
+    height: 100vh;
+}
+
 @media only screen and (max-width:990px) {
     .product-grid {
         margin-bottom: 40px;
+    }
+    .gallery .carousel-item img{
+        height: 70vh;
     }
 }
 
@@ -377,7 +390,22 @@
     font-size: 2vh;
 }
 
+@media (max-width: 428px){
+    .gallery .carousel-item img{
+        height: 50vh;
+    }
+
+    .incard2 h4, .incard2 p{
+        font-size: 14px !important;
+    }
+}
+
 @media(max-width: 575px) {
+    .cart-image img{
+        width: 80px !important;
+        height: 80px !important;
+    }
+
     .c12 {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -393,13 +421,17 @@
         height: 160px;
         margin-left: -12px;
     } */
-    
+
     .incard2 p{
-        font-size: 3vh;
+        font-size: 20px;
     }
 
     .home-about, .home-about h2{
         margin-top: 20px !important;
+    }
+
+    .owl-carousel, .container_pro{
+        width: 100% !important;
     }
 }
 
@@ -440,7 +472,6 @@
             width: 300px;
 
         }
-
     }
 
     @media(max-width: 768px) {
@@ -492,7 +523,7 @@ article img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
     font-weight: 700;
     height: 52vh;
 }
@@ -621,3 +652,38 @@ ion-icon:not([name="logo-codepen"]) {
     color: #4ad1e5;
 }
 /* END:: Counter */
+.productname{
+    margin-top: -15px;
+}
+.productname h3, .price_rating h3{
+    font-size: 22px !important;
+}
+
+.item, .owl-carousel2{
+    margin: 2px;
+  }
+
+/* Remove the up and down arrows in Chrome, Safari, and Edge */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.blog-cards h3{
+    font-size: 18px;
+    overflow-x: hidden;
+}
+
+/* Categories Title */
+.parent-center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    background-color: rgba(255, 255, 255, 0.404);
+    border-radius: 10px;
+    padding: 5px;
+}
+

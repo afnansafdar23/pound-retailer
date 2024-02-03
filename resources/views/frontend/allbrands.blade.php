@@ -8,12 +8,12 @@
 </style>
 @endsection
 @section('content')
-    
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 contact-banner">
-            <h1>Brands</h1>
-            <h5 class="text-white"><a href="{{Route('web.index')}}">Home</a> > Brands</h5>
+            <h1 data-aos="fade-left" data-aos-duration="1000">Brands</h1>
+            <h5 class="text-white" data-aos="fade-right" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Brands</h5>
         </div>
     </div>
 </div>
@@ -21,8 +21,8 @@
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-12">
-            <h2>Retailer Brands</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum,
+            <h2 data-aos="fade-left" data-aos-duration="1000">Retailer Brands</h2>
+            <p data-aos="fade-left" data-aos-duration="2000">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum,
                 nisi lorem egestas vitae scel
             </p>
             <span id="dots"></span>
@@ -36,12 +36,12 @@
     </div>
 </div>
 
-<div class="container-fluid mb-3">
-    <div class="row justify-content-center gy-3">
+<div class="container mb-3">
+    <div class="row justify-content-center">
         @foreach ($brands as $brand)
-        <div class="col-md-2 col-6">
-            <div class="card rounded">
-                <div class="card-image m-2">
+        <div class="col-md-4 mt-3">
+            <div class="card rounded" data-aos="zoom-in-up" data-aos-duration="1000">
+                <div class="card-image">
                     <img class="img-fluid" src="{{$brand->getFirstMediaUrl('brand.image')}}" alt="{{$brand['name']}}" />
                 </div>
                 <div class="card-body text-center">

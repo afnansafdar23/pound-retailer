@@ -16,10 +16,10 @@
 					<a href="#"><i class="zmdi zmdi-pinterest"></i></a>
 				</div>
 			</div>
-			<div class="footer-account col-lg-2 col-md-6 col-12">
+			<div class="footer-account col-lg-2 col-md-6 col-12 mt-2">
 				<h4>Pages</h4>
 				<ul>
-					<li><a href="{{route('web.prod.by.brands')}}">products by category</a></li>
+					<li><a href="{{route('web.prod.by.brands')}}">products</a></li>
 					<li><a href="{{route('web.cart')}}">cart</a></li>
 					<li><a href="{{route('web.checkout')}}">checkout</a></li>
 					<li><a href="{{route('web.contact')}}">contact us</a></li>
@@ -32,7 +32,7 @@
 				<ul>
 					<li><a href="#">New Products</a></li>
 					<li><a href="#">Top Sellers</a></li>
-					<li><a href="#">Manufactirers</a></li>
+					<li><a href="#">Manufacturers</a></li>
 					<li><a href="#">Suppliers</a></li>
 					<li><a href="#">Specials</a></li>
 				</ul>

@@ -1,12 +1,23 @@
 @extends('frontend.layout.app')
 @section('customCss')
+<link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
 <link rel="stylesheet" href="{{asset('assets/front end/css/category.css')}}">
 @endsection
 
 @section('content')
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 contact-banner">
+            <h1 data-aos="fade-left" data-aos-duration="1000">Product by Category</h1>
+            <h5 class="text-white" data-aos="fade-right" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Category</h5>
+        </div>
+    </div>
+</div>
+
 <div class="container container_pro">
     <div class="row justify-content-center">
-@forelse ($productByBrands as $productByBrand)
+@forelse ($prodByBrands as $productByBrand)
     <div class="col-lg-3">
         <div class="card">
             <div class="imgBx">
