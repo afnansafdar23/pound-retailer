@@ -171,3 +171,9 @@
         .back-to-shop {
             cursor: pointer;
         }
+
+        @media (max-width: 768px){
+            .cart_box > div{
+                margin-left: 33% !important;
+            }
+        }

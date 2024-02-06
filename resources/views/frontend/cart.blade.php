@@ -26,9 +26,9 @@
                         <div class="col align-self-center text-right text-muted">Total Selected Items </div>
                     </div>
                 </div>
-                <div class="row border-bottom">
+                <div class="row border-bottom cart_box">
                     <div class="row main">
-                        <div class="col-2 cart-image"><img src="{{asset('assets/media/stock/ecommerce/1.gif')}}"></div>
+                        <div class="col-2 cart-image"><img src="{{asset('assets/media/stock/ecommerce/1.gif')}}" class="img-fluid"></div>
                         <div class="col-md-2">
                             <div class="row text-muted">product name</div>
                             <div class="row">price</div>
