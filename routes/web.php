@@ -48,6 +48,7 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('/about-us', 'about')->name('about');
             Route::get('/faqs', 'faq')->name('faq');
             Route::get('/deliveryinfo', 'deliveryinfo')->name('deliveryinfo');
+            Route::get('/wish', 'wish')->name('wish');
             Route::get('/privacy-policy', 'privacy')->name('privacy');
             Route::get('/terms-condition', 'term')->name('term');
             Route::get('/prod-by-brands/{brand}', 'prodByBrands')->name('prodByBrands');
