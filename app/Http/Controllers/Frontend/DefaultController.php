@@ -174,8 +174,25 @@ class DefaultController extends Controller
         $parentCategories = ParentCategory::all();
         $childCategories = ChildCategory::all();
 
-
         return view('frontend.faq')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
+    }
+
+    // Delivery info
+    public function deliveryinfo(): View
+    {
+        $parentCategories = ParentCategory::all();
+        $childCategories = ChildCategory::all();
+
+        return view('frontend.deliveryinfo')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
+    }
+
+    // Wish List
+    public function wish(): View
+    {
+        $parentCategories = ParentCategory::all();
+        $childCategories = ChildCategory::all();
+
+        return view('frontend.wishlist')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
     }
 
 
@@ -185,7 +202,6 @@ class DefaultController extends Controller
         $parentCategories = ParentCategory::all();
         $childCategories = ChildCategory::all();
 
-
         return view('frontend.terms')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
     }
 
@@ -194,7 +210,6 @@ class DefaultController extends Controller
     {
         $parentCategories = ParentCategory::all();
         $childCategories = ChildCategory::all();
-
 
         return view('frontend.privacy')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
     }

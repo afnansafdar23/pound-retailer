@@ -98,7 +98,6 @@
                     <li><a href="#">account</a></li>
                     <li><a href="{{Route('web.checkout')}}">check out</a></li>
                     <li><a href="{{route('web.prod.by.brands')}}">shop</a></li>
-                    <li><a href="#">wishlist</a></li>
                     <li><a href="#">log in</a></li>
                     <li><a href="{{Route('web.cart')}}">cart</a></li>
                 </ul>
@@ -188,11 +187,11 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{{asset('assets/front end/navbar/js/vendor/jquery-1.12.4.min.js')}}"></script>
     <!-- Bootstrap JS ============================================ -->
-    {{-- <script src="{{asset('assets/front end/navbar/js/bootstrap.bundle.min.js')}}"></script> --}}
+    <script src="{{asset('assets/front end/navbar/js/bootstrap.bundle.min.js')}}"></script>
     <!-- Plugins JS ============================================ -->
     <script src="{{asset('assets/front end/navbar/js/plugins.js')}}"></script>
     <!-- Particles Active JS ============================================ -->
-    {{-- <script src="{{asset('assets/front end/navbar/js/app.js')}}"></script> --}}
+    <script src="{{asset('assets/front end/navbar/js/app.js')}}"></script>
     <!-- Main JS ============================================ -->
     <script src="{{asset('assets/front end/navbar/js/main.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.js"></script>

@@ -9,8 +9,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 contact-banner">
-            <h1 data-aos="fade-left" data-aos-duration="1000">Product by Category</h1>
-            <h5 class="text-white" data-aos="fade-right" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Category</h5>
+            <h1 data-aos="fade-left" data-aos-duration="1000">Product by Brand</h1>
+            <h5 class="text-white" data-aos="fade-right" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Brand</h5>
         </div>
     </div>
 </div>
@@ -24,10 +24,10 @@
                 <img src="{{$productByBrand->getFirstMediaUrl('product.image')}}"
                     alt="">
                 <ul class="action">
-                    <li><i class="fa-solid fa-heart"></i>
+                    <li><i class="fa-solid fa-heart" onclick="window.location.href='{{ route('web.wish') }}'"></i>
                         <span>add to whishlist</span>
                     </li>
-                    <li><i class="fa-solid fa-eye"></i>
+                    <li><i class="fa-solid fa-eye" onclick="window.location.href='{{ route('web.prod.detail', $product->id) }}'"></i>
                         <span>view detail</span>
                     </li>
                 </ul>

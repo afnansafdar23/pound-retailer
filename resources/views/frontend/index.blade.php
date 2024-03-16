@@ -70,7 +70,7 @@
             <div class="imgBx">
                 <img src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
                 <ul class="action">
-                    <li><i class="fa-solid fa-heart"></i>
+                    <li><i class="fa-solid fa-heart" onclick="window.location.href='{{ route('web.wish') }}'"></i>
                         <span>add to whishlist</span>
                     </li>
                     <li><i class="fa-solid fa-eye" onclick="window.location.href='{{ route('web.prod.detail', $product->id) }}'"></i>

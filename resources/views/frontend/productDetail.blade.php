@@ -95,9 +95,10 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
-                    <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart
-                    </a> <i class="me-1 fa fa-heart fa-lg"></i>
+                    <a class="btn btn-warning shadow-0" onclick="window.location.href='{{ route('web.checkout') }}'"> Buy now </a>
+                    <a class="btn btn-primary shadow-0" onclick="window.location.href='{{ route('web.cart') }}'"> <i class="me-1 fa fa-shopping-basket" onclick="window.location.href='{{ route('web.cart') }}'"></i> Add to cart
+                    </a>
+                    <a class="fa-solid fa-heart text-danger fa-2xl" onclick="window.location.href='{{ route('web.wish') }}'"></a>
                 </div>
             </main>
         </div>
