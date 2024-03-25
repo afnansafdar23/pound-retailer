@@ -8,12 +8,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 contact-banner">
-            <h1 data-aos="fade-left" data-aos-duration="1000">Product by Child Category</h1>
-            <h5 class="text-white" data-aos="fade-right" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Child Category</h5>
+            <h1 data-aos="fade-left" data-aos-duration="1000">Sub Categories</h1>
+            <h5 class="text-white" data-aos="fade-right" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Sub Categories</h5>
         </div>
     </div>
 </div>
-@foreach($childcategory as $childCategory)
+@foreach($categories as $childCategory)
 @endforeach
 <div class="container mt-3 mb-5">
     <div class="row">
@@ -32,25 +32,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid mb-3">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="row justify-content-center">
-                    @foreach ($subcategory as $subCategory)
-                    <div class="col-md-2 col-sm-6 col-6">
-                        <div class="card border-0" data-aos="zoom-in" data-aos-duration="1000">
-                            <img src="{{$subCategory->getFirstMediaUrl('subCategory.image')}}"
-                                class="rounded-circle" alt="{{$subCategory['name']}}">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">{{$subCategory['name']}}</h5>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- product section -->
     <div class="container container_pro">
         <div class="row justify-content-center">
@@ -69,8 +51,8 @@
                         </ul>
                     </div>
                     <div class="content">
-                        <div class="productname text-center">
-                            <h3 onclick="window.location.href='{{ route('web.prod.detail', $product->id) }}'">{{$product['name']}}</h3>
+                        <div class="productname text-center" onclick="window.location.href='{{ route('web.prod.detail', $product->id) }}'" >
+                            <h3>{{$product['name']}}</h3>
                         </div>
                         <div class="price_rating">
                             <div class="d-flex gap-1 align-items-center">

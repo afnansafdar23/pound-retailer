@@ -123,7 +123,7 @@
                 <div class="card rounded" style="margin: 0 5px" data-aos="zoom-in-up" data-aos-duration="1500">
                     <div class="card-image m-2">
                         <img class="img-fluid" src="{{$brand->getFirstMediaUrl('brand.image')}}"
-                            alt="{{$brand['name']}}" />
+                             >
                     </div>
                     <div class="card-body text-center">
                         <div class="ad-title m-auto">

@@ -69,7 +69,8 @@ class AuthController extends Controller
 
         try {
             if (Auth::attempt($validatedUser)) {
-                return redirect()->intended('/admin/dashboard');
+                $previousUrl = $request->input('previous_url', '/user/index'); // Get the previous URL from the request
+                return redirect()->intended($previousUrl); // Redirect to the previous URL
             } else {
                 return back()->withError('Either the email or the password is incorrect');
             }

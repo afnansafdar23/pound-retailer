@@ -15,58 +15,10 @@
     </div>
 </div>
 
-    <div class="card mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-8 cart" data-aos="fade-right" data-aos-duration="1000">
-                <div class="title">
-                    <div class="row">
-                        <div class="col">
-                            <h4><b>Shopping Cart</b></h4>
-                        </div>
-                        <div class="col align-self-center text-right text-muted">Total Selected Items </div>
-                    </div>
-                </div>
-                <div class="row border-bottom cart_box">
-                    <div class="row main">
-                        <div class="col-2 cart-image"><img src="{{asset('assets/media/stock/ecommerce/1.gif')}}" class="img-fluid"></div>
-                        <div class="col-md-2">
-                            <div class="row text-muted">product name</div>
-                            <div class="row">price</div>
-                        </div>
-                        <div class="col">
-                            <a class="h3" style="cursor: pointer" onclick="decrement()">-</a>
-                            <a id="counter" class="border">1</a>
-                            <a class="h3" style="cursor: pointer" onclick="increment()">+</a>
-                        </div>
-                        <div class="col-md-2">&euro; 44.00 <span><i class="fa-solid fa-xmark close"></i></span></div>
-                    </div>
-                </div>
-
-
-                <div class="back-to-shop"><a href="{{Route('web.prod.by.brands')}}">&leftarrow; <span class="text-muted">Back to shop</span></a>
-                </div>
-            </div>
-            <div class="col-md-4 summary" data-aos="fade-left" data-aos-duration="1000">
-                <div>
-                    <h5><b>Summary</b></h5>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col" style="padding-left:0;">Sub_Total</div>
-                    <div class="col text-right">&euro; 132.00</div>
-                </div>
-                <div class="row">
-                    <div class="col" style="padding-left:0;">Shipping Price</div>
-                    <div class="col text-right">&euro; 132.00</div>
-                </div>
-
-                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                    <div class="col">TOTAL PRICE</div>
-                    <div class="col text-right">&euro; 137.00</div>
-                </div>
-                <a href="{{Route('web.checkout')}}" class="btn checkout-btn">Go To Checkout</a>
-            </div>
-        </div>
+    <div class="card mt-5 mb-5 " >
+    <div class="row" id="adcart">
+        @include('frontend.layout.adcart')
+    </div>
 
     </div>
 @endsection
@@ -92,4 +44,66 @@
         document.getElementById('counter').innerText = counter;
     }
     </script>
+    <script>
+        $(document).on('click', '.increment-btn, .decrement-btn', function(event) {
+    console.log('Button clicked!');
+    event.preventDefault();
+
+    // Get the ID of the session cart
+    var productId = $(this).closest('.col').find('.remove').data('id');
+            var newQuantity = parseInt($(this).closest('.col').find('.qty-input').val());
+
+
+    // Check if the button clicked is increment or decrement, adjust the newQuantity accordingly
+    if ($(this).hasClass('increment-btn')) {
+        newQuantity += 1;
+    } else if ($(this).hasClass('decrement-btn')) {
+        newQuantity -= 1;
+    }
+
+    // Make an AJAX request to update the cart quantity
+    updateCartQuantity(productId, newQuantity);
+});
+
+        function updateCartQuantity(productId, newQuantity) {
+            $.ajax({
+                type: 'POST',
+                url: "/update-cart",
+                data: {
+                    id: productId,
+                    quantity: newQuantity,
+                    // Add any other necessary data
+                },
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.redirect) {
+                        window.location.href = response.redirect;
+                    } else {
+                        updateCart(response.cartSection);
+                        updateaddCart(response.updatecar);
+                        // Other actions...
+                    }
+                },
+                error: function() {
+                    console.log('Failed to update cart quantity');
+                }
+
+
+            });
+        }
+
+        function updateCart(cartHtml) {
+            // Update the cart section with the new HTML content
+            $('.adcart').html(cartHtml);
+        }
+
+        function updateaddCart(carhtml) {
+            // Update the cart section with the new HTML content
+            $('#adcart').html(carhtml);
+        }
+        </script>
 @endsection
+

@@ -21,41 +21,8 @@
                     <li><a href="{{Route('web.cart')}}">cart</a></li>
                 </ul>
             </div>
-            <div class="mini-cart-wrapper mini-cart-wrapper-2 float-right">
-                <a href="#" data-bs-toggle="dropdown" class="mini-cart-btn"><span><i
-                            class="zmdi zmdi-shopping-cart"></i><span class="cart-number">2</span></span></a>
-                <div class="mini-cart dropdown-menu right">
-                    <div class="mini-cart-product fix">
-                        <a href="#" class="image"><img src="{{ asset('assets/media/products/1.png') }}" alt="Product"></a>
-                        <div class="content fix">
-                            <a href="#" class="title">wooden furniture</a>
-                            <p>Color: Black</p>
-                            <p>Size: SL</p>
-                            <button class="remove"><i class="zmdi zmdi-close"></i></button>
-                        </div>
-                    </div>
-                    <div class="mini-cart-product fix">
-                        <a href="#" class="image"><img src="{{ asset('assets/media/products/2.png') }}" alt="Product"></a>
-                        <div class="content fix">
-                            <a href="#" class="title">wooden furniture</a>
-                            <p>Color: Black</p>
-                            <p>Size: SL</p>
-                            <button class="remove"><i class="zmdi zmdi-close"></i></button>
-                        </div>
-                    </div>
-                    <div class="mini-cart-product fix">
-                        <a href="#" class="image"><img src="{{ asset('assets/media/products/3.png') }}" alt="Product"></a>
-                        <div class="content fix">
-                            <a href="#" class="title">wooden furniture</a>
-                            <p>Color: Black</p>
-                            <p>Size: SL</p>
-                            <button class="remove"><i class="zmdi zmdi-close"></i></button>
-                        </div>
-                    </div>
-                    <div class="mini-cart-checkout text-center">
-                        <a href="#">checkout</a>
-                    </div>
-                </div>
+            <div class="mini-cart-wrapper mini-cart-wrapper-2 float-right" id="addcart">
+               @include('frontend.layout.cart')
             </div>
             <div class="header-search header-search-2 d-none d-md-block float-right">
                 <button data-bs-toggle="dropdown" class="search-toggle"><i class="zmdi zmdi-search"></i></button>

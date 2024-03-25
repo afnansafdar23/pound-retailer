@@ -39,9 +39,10 @@
                     <div class="col-md-2 col-sm-6 col-6">
                         <div class="card border-0" data-aos="zoom-in" data-aos-duration="1000">
                             <img src="{{$childCategory->getFirstMediaUrl('childCategory.image')}}"
+                            onclick="location.href='/product-by-child/{{$childCategory->id}}'"
                                 class="rounded-circle" alt="{{$childCategory['name']}}">
                             <div class="card-body text-center">
-                                <h5 class="card-title">{{$childCategory['name']}}</h5>
+                                <h5 class="card-title"  onclick="location.href='/product-by-child/{{$childCategory->id}}'">{{$childCategory['name']}}</h5>
                             </div>
                         </div>
                     </div>
@@ -62,7 +63,7 @@
         <div class="col-lg-3 mt-2">
             <div class="card" data-aos="zoom-in-up" data-aos-duration="1000">
                 <div class="imgBx">
-                    <img src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
+                    <img src="{{$product->getFirstMediaUrl('product.image')}}" onclick="window.location.href='{{ route('web.prod.detail', $product->id) }}'" alt="">
                     <ul class="action">
                         <li><i class="fa-solid fa-heart" onclick="window.location.href='{{ route('web.wish') }}'"></i>
                             <span>add to whishlist</span>
@@ -74,7 +75,7 @@
                 </div>
                 <div class="content">
                     <div class="productname text-center">
-                        <h3>{{$product['name']}}</h3>
+                        <h3 onclick="window.location.href='{{ route('web.prod.detail', $product->id) }}'">{{$product['name']}}</h3>
                     </div>
                     <div class="price_rating">
                         <div class="d-flex gap-1 align-items-center">

@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -102,41 +104,8 @@
                     <li><a href="{{Route('web.cart')}}">cart</a></li>
                 </ul>
             </div>
-            <div class="mini-cart-wrapper mini-cart-wrapper-2 float-right">
-                <a href="#" data-bs-toggle="dropdown" class="mini-cart-btn"><span><i
-                            class="zmdi zmdi-shopping-cart"></i><span class="cart-number">2</span></span></a>
-                <div class="mini-cart dropdown-menu right">
-                    <div class="mini-cart-product fix">
-                        <a href="#" class="image"><img src="{{ asset('assets/media/products/1.png') }}" alt="Product"></a>
-                        <div class="content fix">
-                            <a href="#" class="title">wooden furniture</a>
-                            <p>Color: Black</p>
-                            <p>Size: SL</p>
-                            <button class="remove"><i class="zmdi zmdi-close"></i></button>
-                        </div>
-                    </div>
-                    <div class="mini-cart-product fix">
-                        <a href="#" class="image"><img src="{{ asset('assets/media/products/2.png') }}" alt="Product"></a>
-                        <div class="content fix">
-                            <a href="#" class="title">wooden furniture</a>
-                            <p>Color: Black</p>
-                            <p>Size: SL</p>
-                            <button class="remove"><i class="zmdi zmdi-close"></i></button>
-                        </div>
-                    </div>
-                    <div class="mini-cart-product fix">
-                        <a href="#" class="image"><img src="{{ asset('assets/media/products/3.png') }}" alt="Product"></a>
-                        <div class="content fix">
-                            <a href="#" class="title">wooden furniture</a>
-                            <p>Color: Black</p>
-                            <p>Size: SL</p>
-                            <button class="remove"><i class="zmdi zmdi-close"></i></button>
-                        </div>
-                    </div>
-                    <div class="mini-cart-checkout text-center">
-                        <a href="#">checkout</a>
-                    </div>
-                </div>
+            <div class="mini-cart-wrapper mini-cart-wrapper-2 float-right" id="addcart">
+               @include('frontend.layout.cart')
             </div>
             <div class="header-search header-search-2 d-none d-md-block float-right">
                 <button data-bs-toggle="dropdown" class="search-toggle"><i class="zmdi zmdi-search"></i></button>
@@ -216,6 +185,118 @@
                 }
             });
         });
+
+        $(document).on('click', '.remove-from-cart', function(e) {
+
+            e.preventDefault();
+            var ele = $(this);
+            if (confirm("Are you sure")) {
+                $.ajax({
+                    url: '{{ url('delete-cart') }}',
+                    method: "DELETE",
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        id: ele.attr("data-id")
+                    },
+                    success: function(response) {
+
+
+                        updateCart(response.cartSection);
+                        updateaddCart(response.updatecar);
+
+
+
+
+
+
+
+        }
+
+
+    });
+}
+
+function updateCart(cartHtml) {
+                // Update the cart section with the new HTML content
+                $('#addcart').html(cartHtml);
+            }
+            function updateaddCart(cartHtml) {
+                // Update the cart section with the new HTML content
+                $('#adcart').html(cartHtml);
+            }
+
+
+});
+
+
+        $(document).ready(function() {
+            $('.add-to-cart').on('click', function() {
+                var productId = $(this).data('product-id');
+                console.log('Product ID:', productId); // Add this line
+
+
+                $.ajax({
+                    type: 'POST', // Use POST method
+                    url: '/add-to-cart/' + productId,
+                    headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+                    success: function(response) {
+                        // Check the console for the response
+                        if (response.redirect) {
+                            // Handle redirect
+                            window.location.href = response.redirect;
+                        } else {
+                            // Update the cart section with the new HTML content
+                            updateCart(response.cartSection);
+                            // Other actions...
+                        }
+
+
+                        // Show the cart message
+
+                    },
+                    error: function(error) {
+                        // Check the console for errors
+                        console.error('Error adding to cart:', error);
+                    }
+                });
+            });
+
+            function updateCart(cartHtml) {
+                // Update the cart section with the new HTML content
+                $('#addcart').html(cartHtml);
+            }
+
+
+        });
+
+
+        $(document).ready(function() {
+
+$('.increment-btn').click(function(e) {
+    e.preventDefault();
+    var incre_value = $(this).parents('.col').find('.qty-input').val();
+    var value = parseInt(incre_value, 10);
+    value = isNaN(value) ? 0 : value;
+    if (value < 10) {
+        value++;
+        $(this).parents('.col').find('.qty-input').val(value);
+    }
+});
+$('.decrement-btn').click(function(e) {
+    e.preventDefault();
+    var
+        decre_value = $(this).parents('.col').find('.qty-input').val();
+    var value = parseInt(decre_value, 10);
+    value = isNaN(value) ? 0 : value;
+    if (value > 1) {
+        value--;
+        $(this).parents('.col').find('.qty-input').val(value);
+    }
+});
+
+});
     </script>
 
 </body>

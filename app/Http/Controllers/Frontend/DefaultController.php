@@ -8,7 +8,10 @@ use App\Models\Brand;
 use App\Models\ChildCategory;
 use App\Models\ParentCategory;
 use App\Models\Product;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
 class DefaultController extends Controller
@@ -77,10 +80,51 @@ class DefaultController extends Controller
 
     public function prodByCat(ParentCategory $parentCategory): View
     {
+
         $parentCategories = ParentCategory::all();
         $childByParentCat = ChildCategory::all();
 
         return view('frontend.prodbycat')->with(['parentCategories' => $parentCategories, 'childByParentCat' => $childByParentCat, 'parentCategory' => $parentCategory,]);
+    }
+
+    public function prductbychild(Request $request){
+
+        $id = $request->childCategory;
+
+
+
+        $pid = SubCategory::where('child_category_id', $id)->get();
+        if($pid->isEmpty())
+        {
+            $parentCategories = ParentCategory::all();
+            $products = Product::where( function ($query) use($id){
+                $query->whereNull('sub_category_id')->where('child_category_id', $id);
+            })->paginate(12);
+            $blogs = Blog::orderBy('created_at', 'desc')->take(5)->get();
+            $childcategory = ChildCategory::where('id', $id)->get();
+            return view('frontend.subcategories')->with([
+                'products' =>$products,
+                'categories' =>$childcategory,
+                'blogs' => $blogs,
+                'parentCategories' =>$parentCategories
+            ]);
+
+        }else{
+            $parentcategories = ParentCategory::all();
+            $subcategory = SubCategory::where('child_category_id', $id)->get();
+            $childcategory = ChildCategory::where('id', $id)->get();
+            $blogs = Blog::orderBy('created_at','desc')->take(5)->get();
+            $product = Product::latest()->take(20)->get();
+            return view('frontend.prodbychildcat')->with([
+                'subcategory' =>$subcategory,
+                'childcategory' =>$childcategory,
+                'blogs' => $blogs,
+                'products' => $product,
+                'parentCategories' =>$parentcategories
+
+            ]);
+        }
+
     }
 
     public function prodByChildCat(ChildCategory $childCategory): View
@@ -213,4 +257,71 @@ class DefaultController extends Controller
 
         return view('frontend.privacy')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
     }
+
+    public function addtocart($productId)
+
+    {
+
+
+    if(Auth::user()) {
+        $product = Product::find($productId);
+        $cart = Session::get('cart', []);
+        $productImage = $product->getFirstMediaUrl('product.image');
+        $dimension = $product->product_height + $product->product_width;
+        $price = $product->discounted_price ?? $product->price;
+        $cart[$productId] = [
+            "name" => $product->name,
+            "quantity" => 1,
+            "price" => $price,
+            "dimention" => $dimension,
+            "photo" => $productImage
+
+        ];
+
+        Session::put('cart', $cart);
+        return response()->json(['cartSection' => view('frontend.layout.cart')->render()]);
+
+    }else{
+        return response()->json(['redirect' =>route('auth.login')]);
+    }
+
+       }
+
+       public function deletecart(Request $request)
+    {
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+                return response()->json([ 'cartSection' => view('frontend.layout.cart')->render(),
+                'updatecar' => view('frontend.layout.adcart')->render()]);
+
+            }
+
+        }
+
+    }
+
+       public function updateCart(Request $request)
+{
+    $id = $request->input('id');
+    $quantity = $request->input('quantity');
+
+    $cart = Session::get('cart', []);
+
+    if (isset($cart[$id])) {
+        // Update the quantity for the specified product
+        $cart[$id]['quantity'] = $quantity;
+
+        // Save the updated cart array to the session
+        Session::put('cart', $cart);
+
+        // Return a JSON response with the updated cart section
+        return response()->json([ 'cartSection' => view('frontend.layout.cart')->render(),
+         'updatecar' => view('frontend.layout.adcart')->render()]);
+    }
+
+    return response()->json(['error' => 'Product not found in cart']);
+}
 }

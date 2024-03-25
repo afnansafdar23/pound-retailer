@@ -41,6 +41,7 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('', 'home')->name('index');
             Route::get('/prod-by-cat/{parentCategory}', 'prodByCat')->name('prodByCat');
             Route::get('/prod-by-child-cat/{childCategory}', 'prodByChildCat')->name('prodByChildCat');
+            Route::get('/product-by-child/{childCategory}', 'prductbychild')->name('productbychild');
             Route::get('brands', 'brands')->name('prod.by.brands');
             Route::get('/cart', 'cart')->name('cart');
             Route::get('/checkout', 'checkout')->name('checkout');
@@ -55,6 +56,9 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('/single/blog/{blog}', 'singleBlog')->name('blog');
             Route::get('/all-blog', 'allBlogs')->name('allblog');
             Route::get('product/detail/{product}', 'prodDetail')->name('prod.detail');
+            Route::post('add-to-cart/{productId}', 'addtocart')->name('addtocar');
+            Route::delete('delete-cart', 'deletecart')->name('deletecart');
+            Route::post('/update-cart', 'updateCart')->name('updatecart');
 
         });
 });
