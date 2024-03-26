@@ -52,7 +52,7 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('/wish', 'wish')->name('wish');
             Route::get('/privacy-policy', 'privacy')->name('privacy');
             Route::get('/terms-condition', 'term')->name('term');
-            Route::get('/prod-by-brands/{brand}', 'prodByBrands')->name('prodByBrands');
+            Route::get('/prod-by-brands/{brand}', 'prodByBrands')->name('prod.brand');
             Route::get('/single/blog/{blog}', 'singleBlog')->name('blog');
             Route::get('/all-blog', 'allBlogs')->name('allblog');
             Route::get('product/detail/{product}', 'prodDetail')->name('prod.detail');

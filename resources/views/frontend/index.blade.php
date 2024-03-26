@@ -1,6 +1,7 @@
 @extends('frontend.layout.app')
 @section('customCss')
 
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.css">
 <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/accessible-slick-theme.min.css">
@@ -68,7 +69,7 @@
         <!-- card -->
         <div class="card">
             <div class="imgBx">
-                <img src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
+                <img  class="corsor" onclick="window.location.href='{{ route('web.prod.detail', $product->id) }}'" src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
                 <ul class="action">
                     <li><i class="fa-solid fa-heart" onclick="window.location.href='{{ route('web.wish') }}'"></i>
                         <span>add to whishlist</span>
@@ -80,11 +81,11 @@
             </div>
             <div class="content">
                 <div class="productname text-center">
-                    <h3>{{$product['name']}}</h3>
+                    <h3 class="corsor" onclick="window.location.href='{{ route('web.prod.detail', $product->id) }}'">{{$product['name']}}</h3>
                 </div>
                 <div class="price_rating">
                     <div class="d-flex gap-1 align-items-center">
-                        <h3 class="m-auto">{{$product['discounted_price']}}$</h3>
+                        <h3  class="m-auto">{{$product['discounted_price']}}$</h3>
                         <div class="d-grid">
                             <del class="text-danger text-small">{{$product['price']}} $</del>
                             <span class="text-success text-small">{{number_format((($product['price'] -
@@ -121,13 +122,13 @@
             <div class="owl-carousel owl-theam owl-carousel2">
                 @forelse($brands as $brand)
                 <div class="card rounded" style="margin: 0 5px" data-aos="zoom-in-up" data-aos-duration="1500">
-                    <div class="card-image m-2">
-                        <img class="img-fluid" src="{{$brand->getFirstMediaUrl('brand.image')}}"
+                    <div class="card-image m-2" >
+                        <img class="img-fluid corsor" onclick="window.location.href='{{ route('web.prod.brand', $brand->id) }}'" style="height:120px;" src="{{$brand->getFirstMediaUrl('brand.image')}}" width="100%"
                              >
                     </div>
                     <div class="card-body text-center">
                         <div class="ad-title m-auto">
-                            <h5>{{$brand['name']}}</h5>
+                            <h5 class="corsor" onclick="window.location.href='{{ route('web.prod.detail', $product->id) }}'">{{$brand['name']}}</h5>
                         </div>
                     </div>
                 </div>

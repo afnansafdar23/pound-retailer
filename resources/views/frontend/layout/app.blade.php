@@ -78,6 +78,13 @@
         }
 
     </style>
+    <style>
+
+.corsor:hover{
+    cursor:pointer;
+    
+}
+</style>
     @yield('customCss')
 </head>
 
@@ -123,13 +130,13 @@
             <!-- treeview start -->
             <nav id="sidebar-menu" class="sidebar-menu">
                 <ul>
-                    @foreach ($parentCategories as $parentCategory)
-                    <li class="{{Request::route()->getName()=='parent.category.index'?'active':''}}"><a
-                            href="{{route('parent.category.index')}}">{{$parentCategory['name']}}</a>
+                   @foreach ($parentCategories as $parentCategory)
+                    <li class="{{Request::route()->getName()=='web.prodByCat'?'active':''}}"><a
+                    href="{{ route('web.prodByCat',$parentCategory['id']) }}">{{$parentCategory['name']}}</a>
                         @if ($parentCategory->childCategories)
                         <ul>
                             @foreach ($parentCategory->childCategories as $childCategory)
-                            <li><a href="#">{{$childCategory['name']}}</a></li>
+                            <li><a href="/product-by-child/{{$childCategory['id']}}">{{$childCategory['name']}}</a></li>
                             @endforeach
                         </ul>
                         @endif

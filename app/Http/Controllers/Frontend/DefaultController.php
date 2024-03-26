@@ -159,7 +159,11 @@ class DefaultController extends Controller
 
     public function prodByBrands(Brand $brand): View
     {
-        $prodByBrands = $brand->products();
+      $id = $brand->id;
+      $prodByBrands = Product::where("brand_id", $id)->get();
+        
+        
+      
         $parentCategories= ParentCategory::all();
         return view('frontend.prodbybrands')
             ->with([

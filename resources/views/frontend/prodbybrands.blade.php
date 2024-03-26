@@ -20,21 +20,21 @@
 @forelse ($prodByBrands as $productByBrand)
     <div class="col-lg-3">
         <div class="card">
-            <div class="imgBx">
-                <img src="{{$productByBrand->getFirstMediaUrl('product.image')}}"
+            <div class="imgBx corsor">
+                <img onclick="window.location.href='{{ route('web.prod.detail', $productByBrand->id) }}'" src="{{$productByBrand->getFirstMediaUrl('product.image')}}"
                     alt="">
                 <ul class="action">
                     <li><i class="fa-solid fa-heart" onclick="window.location.href='{{ route('web.wish') }}'"></i>
                         <span>add to whishlist</span>
                     </li>
-                    <li><i class="fa-solid fa-eye" onclick="window.location.href='{{ route('web.prod.detail', $product->id) }}'"></i>
+                    <li><i class="fa-solid fa-eye " onclick="window.location.href='{{ route('web.prod.detail', $productByBrand->id) }}'"></i>
                         <span>view detail</span>
                     </li>
                 </ul>
             </div>
             <div class="content">
                 <div class="productname text-center">
-                    <h3>{{$productByBrand['name']}}</h3>
+                    <h3  class="corsor" onclick="window.location.href='{{ route('web.prod.detail', $productByBrand->id) }}'">{{$productByBrand['name']}}</h3>
                 </div>
                 <div class="price_rating">
                     <h2>{{$productByBrand['price']?$productByBrand['price']:$productByBrand['discounted_price']}}</h2>
