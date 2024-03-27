@@ -82,7 +82,7 @@
 
 .corsor:hover{
     cursor:pointer;
-    
+
 }
 </style>
     @yield('customCss')
@@ -129,22 +129,31 @@
             <button class="menu-close"><i class="zmdi zmdi-close-circle"></i></button>
             <!-- treeview start -->
             <nav id="sidebar-menu" class="sidebar-menu">
-                <ul>
-                   @foreach ($parentCategories as $parentCategory)
-                    <li class="{{Request::route()->getName()=='web.prodByCat'?'active':''}}"><a
-                    href="{{ route('web.prodByCat',$parentCategory['id']) }}">{{$parentCategory['name']}}</a>
-                        @if ($parentCategory->childCategories)
-                        <ul>
-                            @foreach ($parentCategory->childCategories as $childCategory)
-                            <li><a href="/product-by-child/{{$childCategory['id']}}">{{$childCategory['name']}}</a></li>
-                            @endforeach
-                        </ul>
-                        @endif
-                    </li>
-                    @endforeach
-                    <li><a href="{{Route('web.contact')}}">contact</a></li>
-                </ul>
-            </nav>
+    <ul>
+        @foreach ($parentCategories as $parentCategory)
+        <li class="{{Request::route()->getName()=='web.prodByCat'?'active':''}}">
+            <a href="{{ route('web.prodByCat',$parentCategory['id']) }}">{{$parentCategory['name']}}</a>
+            @if ($parentCategory->childCategories->isNotEmpty())
+            <ul>
+                @foreach ($parentCategory->childCategories as $childCategory)
+                <li>
+                    <a href="/product-by-child/{{$childCategory['id']}}">{{$childCategory['name']}}</a>
+                    @if ($childCategory->subCategories->isNotEmpty())
+                    <ul>
+                        @foreach ($childCategory->subCategories as $subCategory)
+                        <li><a href="/product-by-child/{{$subCategory['id']}}">{{$subCategory['name']}}</a></li>
+                        @endforeach
+                    </ul>
+                    @endif
+                </li>
+                @endforeach
+            </ul>
+            @endif
+        </li>
+        @endforeach
+        <li><a href="{{Route('web.contact')}}">contact</a></li>
+    </ul>
+</nav>
 
         </div>
         <!-- Mobile Menu Wrapper 1 -->

@@ -57,6 +57,7 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('/all-blog', 'allBlogs')->name('allblog');
             Route::get('product/detail/{product}', 'prodDetail')->name('prod.detail');
             Route::post('add-to-cart/{productId}', 'addtocart')->name('addtocar');
+            Route::post('add-to-wish/{productId}', 'addtowish')->name('addtowish');
             Route::delete('delete-cart', 'deletecart')->name('deletecart');
             Route::post('/update-cart', 'updateCart')->name('updatecart');
 

@@ -25,6 +25,7 @@ class DefaultController extends Controller
     {
         $parentCategories = ParentCategory::all();
         $childCategories = ChildCategory::all();
+        $subCategories = SubCategory::all();
         $blogs = Blog::all();
         $brands = Brand::all();
         $products = Product::all();
@@ -36,6 +37,7 @@ class DefaultController extends Controller
                 'blogs' => $blogs,
                 'brands' => $brands,
                 'products' => $products,
+                'subCategories' => $subCategories
             ]);
     }
 
@@ -161,9 +163,9 @@ class DefaultController extends Controller
     {
       $id = $brand->id;
       $prodByBrands = Product::where("brand_id", $id)->get();
-        
-        
-      
+
+
+
         $parentCategories= ParentCategory::all();
         return view('frontend.prodbybrands')
             ->with([
@@ -328,4 +330,50 @@ class DefaultController extends Controller
 
     return response()->json(['error' => 'Product not found in cart']);
 }
+
+
+
+public function addtowish($productId)
+
+{
+
+
+if(Auth::user()) {
+    $product = Product::find($productId);
+    $wish = Session::get('wish', []);
+    $productImage = $product->getFirstMediaUrl('product.image');
+    $dimension = $product->product_height + $product->product_width;
+    $price = $product->discounted_price ?? $product->price;
+    $wish[$productId] = [
+        "name" => $product->name,
+        "quantity" => 1,
+        "price" => $price,
+        "dimention" => $dimension,
+        "photo" => $productImage
+
+    ];
+
+    Session::put('wish', $wish);
+    return response()->json(['wishSection' => view('frontend.layout.wish')->render()]);
+
+}else{
+    return response()->json(['redirect' =>route('auth.login')]);
+}
+
+   }
+   public function deletewish(Request $request)
+   {
+       if($request->id) {
+           $wish = session()->get('wish');
+           if(isset($wish[$request->id])) {
+               unset($wish[$request->id]);
+               session()->put('wish', $wish);
+               return response()->json([ 'wishSection' => view('frontend.layout.wish')->render(),
+               'updatecar' => view('frontend.layout.adwish')->render()]);
+
+           }
+
+       }
+
+   }
 }
