@@ -72,6 +72,25 @@ Route::controller(StripePaymentController::class)->group(function () {
     Route::post('/stripe/{id}', 'StripePost')->name('stripe.post');
 
 });
+Route::controller(DefaultController::class)
+->prefix('order')
+->name('order.')
+->group(function () {
+    Route::get('trans', 'detail')->name('trans');
+
+
+});
+ Route::controller(DefaultController::class)
+        ->prefix('order')
+        ->name('order.')
+        ->group(function () {
+            Route::get('detail', 'detail')->name('detail');
+            Route::get('details{id}', 'details')->name('details');
+            Route::get('edit/{id}', 'orderedit')->name('edit');
+            Route::post('update/{id}', 'orderupdate')->name('update');
+
+
+        });
 
 Route::middleware('auth')->group(function () {
     Route::controller(UserController::class)

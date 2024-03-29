@@ -52,7 +52,7 @@ class order extends Model
             $currentMonth = now()->format('m');
 
             // Concatenate the month and the random or sequential three-digit number
-            $order->order_no = "FM-$currentMonth$randomNumber";
+            $order->order_no = "PK-$currentMonth$randomNumber";
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\DataTables\OrderDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Brand;
@@ -10,6 +11,8 @@ use App\Models\order;
 use App\Models\ParentCategory;
 use App\Models\Product;
 use App\Models\SubCategory;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -506,6 +509,50 @@ if(Auth::user()) {
 
 
 
+
 }
 
+
+public function detail(OrderDataTable $colorDatable)
+{
+    return $colorDatable->render('admin.order.index',[$colorDatable]);
+}
+
+
+public function orderedit(order $id):View
+{
+
+
+     $userid = $id->userid;
+     $mail = User::where('id', $userid)->first();
+    //  dd($mail);
+   $email= $mail->email;
+
+
+
+
+    return view('admin.order.updateorder',)->with([
+        'orders' => $id,
+        'mail' => $email
+    ]);
+
+
+}
+ public function orderupdate(Request $request):RedirectResponse
+ {
+
+
+
+    $id =$request->id;
+    $order= order::where('id',$id)->first();
+
+    $order->delivery_status = $request->delivery_status;
+    $order->zipcode = $request->zipcode;
+    $order->StreetAddress = $request->StreetAddress;
+    $order->state = $request->state;
+    $order->phoneNo = $request->phoneNo;
+
+    $order->save();
+    return redirect()->back()->with('success', 'Delivery status updated successfully');
+    }
 }
