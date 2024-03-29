@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\ChildCategory;
+use App\Models\order;
 use App\Models\ParentCategory;
 use App\Models\Product;
 use App\Models\SubCategory;
@@ -376,4 +377,135 @@ if(Auth::user()) {
        }
 
    }
+
+   public function billing(){
+
+    $parentCategories = ParentCategory::all();
+    $childCategories = ChildCategory::all();
+    $subCategories = SubCategory::all();
+    $blogs = Blog::all();
+    $brands = Brand::all();
+    $products = Product::all();
+
+    return view('frontend.layout.billing')
+        ->with([
+            'parentCategories' => $parentCategories,
+            'childCategories' => $childCategories,
+            'blogs' => $blogs,
+            'brands' => $brands,
+            'products' => $products,
+            'subCategories' => $subCategories
+        ]);
+
+
+   }
+   public function payment(Request $request)
+    {
+
+        // $all = $request->all();
+        // dd($all);
+        // $userID = Auth::User()->id;
+        $validation =$request->validate([
+            'Fname'=>'required',
+            'Lname'=>'required|max:60',
+            'email'=>'required|max:60',
+            'address'=>'required',
+            'city'=>'required',
+            'state'=>'required',
+            'zipcode'=>'required',
+            'Phno'=>'required',
+            'payment_method'=>'required',
+
+      ]);
+        print_r($validation);
+        $Fname=$request->input('Fname');
+        $Lname=$request->input('Lname');
+        $address=$request->input('address');
+        $city=$request->input('city');
+        $state=$request->input('state');
+        $zipcode=$request->input('zipcode');
+        $phno=$request->input('Phno');
+        $Pmethod=$request->input('payment_method');
+
+          $fullname =$Fname.''.$Lname;
+          $state_city = $city.','.$state;
+
+
+        if(session('cart'))
+        {
+            $total=0;$count=0;$order_details='';$delivery_charges=0;
+            foreach (session('cart') as $id => $details)
+            {
+                $count=$count +1 ;
+                $total += $details['price'] * $details['quantity'];
+                $order_details=$order_details.'<br>'.
+                ('Product Name:'.$details["name"].', Quantity: '.$details["quantity"].
+                '<br> Price:'.$details["price"].',Size:'.$details["dimention"]);
+            }
+    }
+    $Amount =$total;
+    $O_Details=$order_details;
+    $Email_Id=Auth::user()->email;
+    $userid = Auth::user()->id;
+    $loginid=$Email_Id;
+    $name=Auth::user()->name;
+/*Order Details Ends Here*/
+     $Order = new order();
+
+     $Order->userid=$userid;
+     $Order->userName=$fullname;
+     $Order->StreetAddress=$address;
+     $Order->state=$state_city;
+     $Order->zipcode=$zipcode;
+     $Order->phoneNo=$phno;
+     $Order->product_detail=$order_details;
+     $Order->totalprice=$Amount;
+     $Order->payment_method=$Pmethod;
+     $Order->save();
+     $id=$Order->id;
+
+     if($Pmethod=='Stripe')
+     {
+        return redirect("stripe/$id");
+     }
+     else
+     {
+
+
+            $welcomemessage='Hello '.$name.'<br>';
+            $emailbody='Your Order Was Placed Successfully<br>
+            <p>Thank you for your order. We’ll send a confirmation when your order ships. Your estimated delivery date is 3-5 working days. If you would like to view the status of your order or make any changes to it, please visit Your Orders on <a href="https://www.gainaloe.com">Gainaloe.com</a></p>
+            <h4>Order Details: </h4><p> Order No:'.$id.$O_Details.'</p>
+             <p><strong>Delivery Address:</strong>
+           '.$Delivery_Address.'</p>
+            <p> <strong>Total Amount:</strong>
+            '.$Amount.'</p>
+             <p><strong>Payment Method:</strong>'.$Pmethod.'</p>';
+            $emailcontent=array(
+                'WelcomeMessage'=>$welcomemessage,
+                'emailBody'=>$emailbody
+
+                );
+                Mail::send(array('html' => 'emails.order_email'), $emailcontent, function($message) use
+                ($loginid, $name,$id)
+                {
+                    $message->to($loginid, $name)->subject
+                    ('Your ouction.pk order '.$id.' is Confirmed');
+                    $message->from('muhammadnoman0786@hotmail.com','ouction.pk');
+
+                });
+
+                Session::forget('cart');
+                Session::forget('discount');
+                Session::forget('promocode');
+                session()->flash('success', 'Session data  is Cleared');
+
+
+        return redirect("/Orders")->with('status','Order Placed Succesfully!');
+     }
+
+
+
+}
+
 }

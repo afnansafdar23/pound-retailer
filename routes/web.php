@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\StripePaymentController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\UserController;
@@ -48,6 +49,7 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('/contact-us', 'contact')->name('contact');
             Route::get('/about-us', 'about')->name('about');
             Route::get('/faqs', 'faq')->name('faq');
+            Route::post('/payment', 'payment')->name('payment');
             Route::get('/deliveryinfo', 'deliveryinfo')->name('deliveryinfo');
             Route::get('/wish', 'wish')->name('wish');
             Route::get('/privacy-policy', 'privacy')->name('privacy');
@@ -60,8 +62,15 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::post('add-to-wish/{productId}', 'addtowish')->name('addtowish');
             Route::delete('delete-cart', 'deletecart')->name('deletecart');
             Route::post('/update-cart', 'updateCart')->name('updatecart');
+            Route::get('/billing', 'billing')->name('billing');
 
         });
+});
+Route::controller(StripePaymentController::class)->group(function () {
+    Route::get('stripe/{id}', 'stripe');
+
+    Route::post('/stripe/{id}', 'StripePost')->name('stripe.post');
+
 });
 
 Route::middleware('auth')->group(function () {
