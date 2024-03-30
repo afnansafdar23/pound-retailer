@@ -210,6 +210,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'GlobalHelper' => App\Helpers\GlobalHelper::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

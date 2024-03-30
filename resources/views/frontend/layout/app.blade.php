@@ -49,7 +49,13 @@
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Poundkingdom</title>
+    @php
+        $allSettings = app('GlobalHelper')->getSettings();
+    @endphp
+    @foreach ($allSettings as $setting)
+        <!-- Display other columns as needed -->
+    @endforeach
+    <title>{{$setting['application_name'] ?$setting['application_name']:'Pound Kingdom'}}</title>
     @yield('customCss')
 </head>
 

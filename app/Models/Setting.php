@@ -11,12 +11,16 @@ class Setting extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
     protected $fillable = [
-        'site_name',
+        'application_name',
+        'email',
         'short_description',
-        'color1',
-        'color2',
-        'color3',
-        'color4',
+        'color_one' ,
+        'color_two' ,
+        'color_three' ,
+        'color_four' ,
+        'facebook_link',
+        'instagram_link',
         'gsc',
+        'site_index',
     ];
 }

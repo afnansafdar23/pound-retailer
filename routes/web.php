@@ -93,7 +93,7 @@ Route::middleware('auth')->group(function () {
         ->name('setting.')
         ->group(function () {
             Route::get('', 'index')->name('index');
-            Route::get('store', 'storeUpdateSetting')->name('store');
+            Route::post('store', 'storeUpdateSetting')->name('store');
         });
 
     Route::controller(RoleController::class)
