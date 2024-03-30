@@ -14,9 +14,13 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\StripePaymentController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\DefaultController;
+use App\Http\Controllers\PostController;
 use App\Http\Middleware\Permissions;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 Route::withoutMiddleware([Permissions::class])->group(function () {
 
@@ -42,7 +46,17 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('/prod-by-child-cat/{childCategory}', 'prodByChildCat')->name('prodByChildCat');
             Route::get('/product-by-child/{childCategory}', 'prductbychild')->name('productbychild');
             Route::get('brands', 'brands')->name('prod.by.brands');
-            Route::get('/cart', 'cart')->name('cart');
+            Route::get('/cart', function () {
+                // Check if cart exists in the session
+                if (!Session::has('cart')) {
+                    // Redirect or return a response indicating that cart doesn't exist
+                    return redirect()->route('web.index')->with('error', 'Cart is empty!');
+                }
+
+                // Cart exists, proceed with your cart logic
+                // For example, return a view
+                return view('cart');
+            })->name('cart');
             Route::get('/checkout', 'checkout')->name('checkout');
             Route::get('/contact-us', 'contact')->name('contact');
             Route::get('/about-us', 'about')->name('about');
@@ -65,7 +79,17 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
         });
 });
 Route::controller(StripePaymentController::class)->group(function () {
-    Route::get('stripe/{id}', 'stripe');
+    Route::get('stripe/{id}', function ($id, StripePaymentController $controller, Request $request) {
+        // Check if cart exists in the session
+        if (!Session::has('cart')) {
+            // Redirect or return a response indicating that cart doesn't exist
+            return redirect()->route('home')->with('error', 'Cart is empty!');
+        }
+
+        // Cart exists, proceed with payment logic
+        // Call the appropriate method on the controller
+        return $controller->stripe($request, $id);
+    });
 
     Route::post('/stripe/{id}', 'StripePost')->name('stripe.post');
 

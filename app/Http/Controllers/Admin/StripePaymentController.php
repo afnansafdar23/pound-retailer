@@ -13,8 +13,15 @@ use Stripe\Customer;
 use Stripe\Charge;
 use Illuminate\Support\Facades\Session;
 
+
+
 class StripePaymentController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function stripe(Request $request)
     {
         $id = $request->id;
@@ -32,7 +39,7 @@ class StripePaymentController extends Controller
    public function stripePost(Request $request)
 {
     $id = $request->id;
-    $order = order::findOrFail($id); // Find the order by ID
+    $order = Order::findOrFail($id); // Find the order by ID
 
     try {
         Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -80,4 +87,59 @@ class StripePaymentController extends Controller
     return redirect()->route('web.index');
 }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }
