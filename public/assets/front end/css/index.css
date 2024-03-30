@@ -731,3 +731,60 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 5px;
 }
 
+/* Parent Category */
+.pound-pc-imageContainer{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 45vh;
+    width: 300px;
+    border-radius: 6px
+}
+
+.pound-pc-imageContainer:hover .overlay {
+    top: 0;
+    /* Move the overlay to the top on hover */
+}
+
+.overlay h3{
+    color: #fff;
+}
+
+.pound-pc-imageContainer:hover .img {
+    filter: brightness(0.7);
+    /* Optional: Darken the image on hover */
+}
+
+.pound-parent-category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* To evenly space the items */
+}
+
+.pound-pc-imageContainer {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 45vh;
+    width: calc(25% - 20px); /* 4 items per row by default, adjust as needed */
+    margin-bottom: 20px; /* Space between rows */
+    border-radius: 6px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .pound-pc-imageContainer {
+        width: calc(33.33% - 20px); /* 3 items per row on smaller screens */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .pound-pc-imageContainer {
+        width: calc(50% - 20px); /* 2 items per row on even smaller screens */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .pound-pc-imageContainer {
+        width: calc(100% - 20px); /* 1 item per row on smallest screens */
+    }
+}

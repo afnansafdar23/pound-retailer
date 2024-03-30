@@ -43,6 +43,7 @@
     <img class="grid-img" src="{{asset('assets/front end/home-image/6 (4).png')}}" alt="A Winter Rainbow Image" />
     <img class="grid-img" src="{{asset('assets/front end/home-image/7 (3).png')}}" alt="Shining Stars Image" />
 
+    {{-- For Responsive View --}}
     <div class="grid-block-images">
         <img class="gb-img" src="{{asset('assets/front end/home-image/4 (4).png')}}" alt="Shining Stars Image" />
         <img class="gb-img" src="{{asset('assets/front end/home-image/5 (4).png')}}" alt="A cloudy Mountain Image" />
@@ -51,10 +52,10 @@
     </div>
 </div>
 
-<div class="gallery row mt-2">
+<div class="pound-parent-category row mt-2">
     @foreach ($parentCategories as $parentCategory)
-    <div class="img-container p-0">
-        <img class="grid-img" src="{{$parentCategory->getFirstMediaUrl('parentCategory.image')}}"
+    <div class="pound-pc-imageContainer p-0">
+        <img src="{{$parentCategory->getFirstMediaUrl('parentCategory.image')}}"
             alt="{{$parentCategory['name']}}">
         <h3 class="parent-center-text">{{ Illuminate\Support\Str::limit(strip_tags($parentCategory['name']), 25, '...') }}</h3>
         <div class="overlay">
