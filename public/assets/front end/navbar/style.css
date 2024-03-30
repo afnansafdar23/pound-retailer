@@ -56,7 +56,7 @@ body {
 body {
     background-color: #fff;
     color: #606060;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans","sans-serif";
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -76,14 +76,14 @@ h4,
 h5,
 h6 {
     color: #252525;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", 'sans-serif';
     font-weight: 400;
 }
 
-p {
+/* p {
     --bs-text-opacity: 1;
     color: #6c757d !important;
-}
+} */
 
 p:last-child {
     margin-bottom: 0;
@@ -920,7 +920,7 @@ textarea:-ms-input-placeholder {
 
 /* Scroll up */
 #scrollUp {
-    background-color: var(--button);
+    background-color: #ff9900;
     bottom: 30px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
     color: #fff;
@@ -1042,7 +1042,7 @@ textarea:-ms-input-placeholder {
 /*----------------------------------------*/
 /* Header Style 1 */
 .header-area {
-    background-color: var(--navcolor);
+    background-color: #fff;
     left: 0;
     right: 0;
     top: 0;
@@ -1080,7 +1080,7 @@ textarea:-ms-input-placeholder {
 .header-area-1 {
     padding-left: 50px;
     padding-right: 50px;
-    box-shadow: 3px 8px 5px -6px rgba(0, 0, 0, 0.75) !important;
+    box-shadow: 3px 8px 5px -6px rgba(0,0,0,0.75) !important;
 }
 
 /* Header Left 1 */
@@ -1607,7 +1607,7 @@ textarea:-ms-input-placeholder {
     z-index: 999;
 }
 
-.search-dropdown form {
+.search-dropdown form{
     border: 1px solid black;
     width: 90%;
     margin: 0 auto;
@@ -1620,12 +1620,12 @@ textarea:-ms-input-placeholder {
     padding: 15px 24px;
     width: 100%;
 }
-.search-dropdown-btn button {
+.search-dropdown-btn button{
     border: 1px solid #000 !important;
     padding: 5px 24px;
 }
 
-.search-dropdown-btn button:hover {
+.search-dropdown-btn button:hover{
     border: 1px solid #000 !important;
     background-color: #000;
     color: white;
@@ -1751,10 +1751,23 @@ textarea:-ms-input-placeholder {
     float: left;
     width: 100%;
 }
+.headsidebar{
+    margin-top: -30px;
+    display: flex;
 
-/* Sidebar Menu Style */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border-bottom: 2px solid white;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #ff9900;
+}
 .sidebar-menu-wrapper {
-    background-color: var(--navcolor);
+    background-color:#0f0f0c;
+    color: white;
     bottom: 0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     left: -400px;
@@ -1787,7 +1800,10 @@ textarea:-ms-input-placeholder {
 
 .sidebar-menu-wrapper .menu-close i {
     display: block;
-    font-size: 30px;
+    position: absolute;
+    top:20px;
+    right: 30px;
+    font-size: 40px;
     line-height: 33px;
 }
 
@@ -1799,11 +1815,32 @@ textarea:-ms-input-placeholder {
     margin-bottom: 5px;
     position: relative;
 }
+/* boxes section of sidebar start*/
+                .boxes{
+                    margin-top: 10px;
+                    margin-bottom: 10px;
 
+                }
+                .boxes .box{
+                    height: 40px;
+                    width: 40%;
+                    margin: 10px;
+                    background-color:#FFF;
+                    color: black;
+                    border-radius: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color:#ff9900;
+                    color: #fff !important;
+                    font-weight: bold;
+                }
+  /* boxes section of sidebar end*/
 .sidebar-menu > ul > li > a {
-    color: #333333;
+    color:white;
+    font-family:"Open Sans", 'sans-serif';
     display: block;
-    font-weight: 700;
+    font-weight: 600;
     /* margin-right: 125px; */
     padding: 8px 6px 9px 16px;
     text-transform: uppercase;
@@ -1811,7 +1848,7 @@ textarea:-ms-input-placeholder {
     transition: all 0.3s ease 0s;
 }
 
-.sidebar-menu > ul > li.active > a,
+.hovereffect:hover,
 .sidebar-menu > ul > li > a:hover {
     background-color: #ff9900;
     color: #fff;
@@ -1857,7 +1894,7 @@ textarea:-ms-input-placeholder {
 }
 
 .sidebar-menu .hitarea:before {
-    color: #020202;
+    color: white;
     display: block;
     line-height: 14px;
     text-align: center;
@@ -4584,7 +4621,7 @@ textarea:-ms-input-placeholder {
 /*  12.  Footer Top Area
 /*----------------------------------------*/
 .footer-top-area {
-    background-color: var(--footcolor);
+    background-color: #292929;
 }
 
 /* Footer Contact */
@@ -4597,14 +4634,14 @@ textarea:-ms-input-placeholder {
 }
 
 .footer-contact div span {
-    color: #eeeeee !important;
+    color: #eeeeee;
     display: block;
     float: left;
     min-width: 100px;
 }
 
 .footer-contact div p {
-    color: #eeeeee !important;
+    color: #eeeeee;
     overflow: hidden;
 }
 
@@ -4642,7 +4679,7 @@ textarea:-ms-input-placeholder {
 }
 
 .footer-social a:hover {
-    background-color: var(--button);
+    background-color: #ff9900;
     border-color: #ff9900;
     color: #fff !important;
 }
@@ -4911,7 +4948,7 @@ textarea:-ms-input-placeholder {
 }
 
 .footer-newsletter p {
-    color: #ffffff !important;
+    color: #ffffff;
     margin-bottom: 15px;
 }
 
@@ -4925,7 +4962,7 @@ textarea:-ms-input-placeholder {
 
 /*Newsletter Form */
 .footer-newsletter .mc-form input[type="email"] {
-    background-color: var(--button);
+    background-color: #909090;
     border: none;
     border-radius: 3px;
     color: #fff;
@@ -4936,7 +4973,7 @@ textarea:-ms-input-placeholder {
 }
 
 .footer-newsletter .mc-form input[type="submit"] {
-    background-color: var(--button);
+    background-color: #ff9900;
     border: none;
     border-radius: 3px;
     color: #fff;
