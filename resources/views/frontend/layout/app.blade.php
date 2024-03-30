@@ -11,9 +11,14 @@
 
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script async src="//jsfiddle.net/8ECh6/embed/"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
@@ -89,7 +94,7 @@
 </head>
 
 <body>
-    <div class="header-area sticky header-area-1 clearfix">
+    <div class="header-area sticky header-area-1 clearfix ">
         <!-- Header Left 1 -->
         <div class="header-left header-left-1 scroll  d-sm-block">
             <button class="sidebar-menu-toggle float-left"><i class="zmdi zmdi-menu"></i></button>
@@ -99,7 +104,7 @@
             <a href="{{Route('web.index')}}" class="logo"><img src="{{asset('assets/media/logos/site_logo.jpg')}}" alt="logo"></a>
         </div>
         <!-- Header Right 1 -->
-        <div class="header-right header-right-1">
+        <div class="header-right header-right-1 ">
             <!-- Account Menu -->
             <div class="account-menu account-menu-2 float-right d-block d-lg-block">
                 <button data-bs-toggle="dropdown" class="acc-menu-toggle"><i class="zmdi zmdi-settings"></i></button>
@@ -114,7 +119,7 @@
             <div class="mini-cart-wrapper mini-cart-wrapper-2 float-right" id="addcart">
                @include('frontend.layout.cart')
             </div>
-            <div class="header-search header-search-2 d-none d-md-block float-right">
+            <div class="header-search header-search-2 d-none d-md-block float-right ">
                 <button data-bs-toggle="dropdown" class="search-toggle"><i class="zmdi zmdi-search"></i></button>
                 <div class="search-dropdown dropdown-menu right">
                     <form action="#" class="shadow mt-3 px-3">
@@ -125,23 +130,56 @@
             </div>
         </div>
         <!-- Sidebar Menu Wrapper -->
-        <div class="sidebar-menu-wrapper z-index-3">
+        <div class="sidebar-menu-wrapper z-index-3 " style="">
             <button class="menu-close"><i class="zmdi zmdi-close-circle"></i></button>
+            <div class="headsidebar">
+                <div class="circularlogo">
+
+                </div>
+                <span class="material-symbols-outlined">
+                    account_circle
+                    </span>
+                <p style="color: white; ">login or signup</p>
+            </div>
+            
+                
+            </style>
+            <div class="boxes container">
+                <div class="row ">
+                    <div class="col-5 box">
+                        <p>Free delivery </p>
+                    </div>
+                    <div class="col-6 box">
+                        <p>Free delivery </p>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                        <div class="col-5 box">
+                            <p>Free delivery </p>
+                        </div>
+                        <div class="col-6 box">
+                            <p>Free delivery </p>
+                        </div>
+                    
+                </div>
+            </div>
+            
             <!-- treeview start -->
             <nav id="sidebar-menu" class="sidebar-menu">
     <ul>
         @foreach ($parentCategories as $parentCategory)
-        <li class="{{Request::route()->getName()=='web.prodByCat'?'active':''}}">
+        <li class="{{Request::route()->getName()=='web.prodByCat'?'active':''}}" >
             <a href="{{ route('web.prodByCat',$parentCategory['id']) }}">{{$parentCategory['name']}}</a>
             @if ($parentCategory->childCategories->isNotEmpty())
             <ul>
                 @foreach ($parentCategory->childCategories as $childCategory)
-                <li>
-                    <a href="/product-by-child/{{$childCategory['id']}}">{{$childCategory['name']}}</a>
+                <li >
+                    <a class="hovereffect" href="/product-by-child/{{$childCategory['id']}}" style="color: white">{{$childCategory['name']}}</a>
                     @if ($childCategory->subCategories->isNotEmpty())
                     <ul>
                         @foreach ($childCategory->subCategories as $subCategory)
-                        <li><a href="/product-by-child/{{$subCategory['id']}}">{{$subCategory['name']}}</a></li>
+                        <li><a class="hovereffect" href="/product-by-child/{{$subCategory['id']}}" style="color: white">{{$subCategory['name']}}</a></li>
                         @endforeach
                     </ul>
                     @endif
