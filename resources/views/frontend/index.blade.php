@@ -149,69 +149,41 @@
 {{-- Best --}}
 
 <!-- statics Card Section -->
-<section class="d-flex justify-content-around mb-2 mt-2 ">
-    <div class="container-fluid mt-3 pl-2 row card-main">
-        {{-- card 1 --}}
-        <div class="col-lg-3 row c12">
-            <div class=" bg-danger col-sm-4 incard">
-                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/2.gif')}}" alt="product"></div>
-            </div>
+@php
+    // Array to store image paths
+    $imagePaths = [
+        'assets/media/stock/ecommerce/2.gif',
+        'assets/media/stock/ecommerce/2.gif',
+        'assets/media/stock/ecommerce/3.gif',
+        'assets/media/stock/ecommerce/24.gif'
+    ];
+@endphp
 
-            <div class="col-sm-8 bg-danger incard2">
-                <!-- Product Description -->
-                <div>
-                    <h4>Product Name</h4>
-                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+<section class="d-flex justify-content-around mb-2 mt-2">
+    <div class="container-fluid mt-3 pl-2 row custom-card-container">
+        @foreach($imagePaths as $imagePath)
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+                <div class="custom-card card h-100 shadow-custom">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div class="text-center mb-3">
+                            <img src="{{ asset($imagePath) }}" class="custom-card-img card-img-top img-fluid" alt="Product">
+                        </div>
+                        <div class="text-center">
+                            <h5 class="custom-card-title card-title mb-2">Product Name</h5>
+                            <p class="custom-card-text card-text text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="#" class="custom-card-btn btn btn-primary">View Details</a>
+                        </div>
+                    </div>
                 </div>
-                <!-- Product Description -->
             </div>
-        </div>
-        {{-- card 2 --}}
-        <div class="col-lg-3 row c12">
-            <div class=" bg-danger col-sm-4 incard">
-                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/2.gif')}}" alt="product"></div>
-            </div>
-
-            <div class="col-sm-8 bg-danger incard2 ">
-                <!-- Product Description -->
-                <div>
-                    <h4>Product Name</h4>
-                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <!-- Product Description -->
-            </div>
-        </div>
-        {{-- card 3 --}}
-        <div class="col-lg-3 row c12">
-            <div class=" bg-danger col-sm-4 incard">
-                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/3.gif')}}" alt="product"></div>
-            </div>
-            <div class="col-sm-8 bg-danger incard2">
-                <!-- Product Description -->
-                <div>
-                    <h4>Product Name</h4>
-                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <!-- Product Description -->
-            </div>
-        </div>
-        {{-- card 4 --}}
-        <div class="col-lg-3 row c12">
-            <div class=" bg-danger col-sm-4 incard">
-                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/24.gif')}}" alt="product"></div>
-            </div>
-
-            <div class="col-sm-8 bg-danger incard2">
-                <!-- Product Description -->
-                <div>
-                    <h4>Product Name</h4>
-                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <!-- Product Description -->
-            </div>
-        </div>
+        @endforeach
     </div>
 </section>
+
+
+
 
 <!-- START:: About Responsive -->
 <section class="container home-about">
