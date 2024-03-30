@@ -15,7 +15,7 @@
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{asset('assets/front end/home-image/1 (5).png')}}" alt="Shining Stars Image"
+                <img src="{{asset('assets/front end/home-image/1 (6).png')}}" alt="Shining Stars Image"
                     class="d-block w-100" alt="Home1">
             </div>
             <div class="carousel-item">
@@ -42,6 +42,13 @@
     <img class="grid-img" src="{{asset('assets/front end/home-image/5 (4).png')}}" alt="A cloudy Mountain Image" />
     <img class="grid-img" src="{{asset('assets/front end/home-image/6 (4).png')}}" alt="A Winter Rainbow Image" />
     <img class="grid-img" src="{{asset('assets/front end/home-image/7 (3).png')}}" alt="Shining Stars Image" />
+
+    <div class="grid-block-images">
+        <img class="gb-img" src="{{asset('assets/front end/home-image/4 (4).png')}}" alt="Shining Stars Image" />
+        <img class="gb-img" src="{{asset('assets/front end/home-image/5 (4).png')}}" alt="A cloudy Mountain Image" />
+        <img class="gb-img" src="{{asset('assets/front end/home-image/6 (4).png')}}" alt="A Winter Rainbow Image" />
+        <img class="gb-img" src="{{asset('assets/front end/home-image/7 (3).png')}}" alt="Shining Stars Image" />
+    </div>
 </div>
 
 <div class="gallery row mt-2">
