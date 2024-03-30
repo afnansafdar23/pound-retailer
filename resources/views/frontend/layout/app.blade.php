@@ -31,21 +31,21 @@
 
     <!-- CSS -->
     <!-- Bootstrap CSS
-	============================================ -->
-    <link rel="stylesheet" href="{{asset('assets/front end/navbar/css/bootstrap.min.css')}}">
+ ============================================ -->
+    <link rel="stylesheet" href="{{ asset('assets/front end/navbar/css/bootstrap.min.css') }}">
     <!-- Icon Font CSS
-	============================================ -->
-    <link rel="stylesheet" href="{{asset('assets/front end/navbar/css/material-design-iconic-font.min.css')}}">
+ ============================================ -->
+    <link rel="stylesheet" href="{{ asset('assets/front end/navbar/css/material-design-iconic-font.min.css') }}">
     <!-- Plugins Import CSS
-	============================================ -->
+ ============================================ -->
     <!-- Style CSS
-	============================================ -->
-    <link rel="stylesheet" href="{{asset('assets/front end/navbar/style.css')}}">
+ ============================================ -->
+    <link rel="stylesheet" href="{{ asset('assets/front end/navbar/style.css') }}">
     <!-- Responsive CSS
-	============================================ -->
+ ============================================ -->
     <!-- Modernizer JS
-	============================================ -->
-    <link rel="stylesheet" href="  {{asset('assets/front end/navbar/css/bootstrap.min.css')}} ">
+ ============================================ -->
+    <link rel="stylesheet" href="  {{ asset('assets/front end/navbar/css/bootstrap.min.css') }} ">
     <!-- Bootstrap CSS -->
     <!-- Style -->
 
@@ -55,36 +55,34 @@
         it can effect the other files with seperate css
     -->
     <style>
-        :root{
+        :root {
             --black: black;
         }
 
-        .logo{
+        .logo {
             width: 80px;
         }
 
-        .acc-menu-dropdown li a{
+        .acc-menu-dropdown li a {
             color: var(--black);
             padding: 0 10px;
         }
 
-        .mini-cart{
+        .mini-cart {
             color: var(--black);
             padding: 10px;
         }
 
-        .mini-cart a{
+        .mini-cart a {
             color: var(--black) !important;
         }
-
     </style>
     <style>
+        .corsor:hover {
+            cursor: pointer;
 
-.corsor:hover{
-    cursor:pointer;
-
-}
-</style>
+        }
+    </style>
     @yield('customCss')
 </head>
 
@@ -96,7 +94,8 @@
         </div>
         <!-- Header Center 3 -->
         <div class="header-center header-center-3 text-center">
-            <a href="{{Route('web.index')}}" class="logo"><img src="{{asset('assets/media/logos/site_logo.jpg')}}" alt="logo"></a>
+            <a href="{{ Route('web.index') }}" class="logo"><img src="{{ asset('assets/media/logos/site_logo.png') }}"
+                    alt="logo"></a>
         </div>
         <!-- Header Right 1 -->
         <div class="header-right header-right-1">
@@ -105,14 +104,14 @@
                 <button data-bs-toggle="dropdown" class="acc-menu-toggle"><i class="zmdi zmdi-settings"></i></button>
                 <ul class="acc-menu-dropdown dropdown-menu right">
                     <li><a href="#">account</a></li>
-                    <li><a href="{{Route('web.checkout')}}">check out</a></li>
-                    <li><a href="{{route('web.prod.by.brands')}}">shop</a></li>
+                    <li><a href="{{ Route('web.checkout') }}">check out</a></li>
+                    <li><a href="{{ route('web.prod.by.brands') }}">shop</a></li>
                     <li><a href="#">log in</a></li>
-                    <li><a href="{{Route('web.cart')}}">cart</a></li>
+                    <li><a href="{{ Route('web.cart') }}">cart</a></li>
                 </ul>
             </div>
             <div class="mini-cart-wrapper mini-cart-wrapper-2 float-right" id="addcart">
-               @include('frontend.layout.cart')
+                @include('frontend.layout.cart')
             </div>
             <div class="header-search header-search-2 d-none d-md-block float-right">
                 <button data-bs-toggle="dropdown" class="search-toggle"><i class="zmdi zmdi-search"></i></button>
@@ -120,7 +119,8 @@
                     <form action="#" class="shadow mt-3 px-3">
                         <input type="text" placeholder="Search Product...">
                     </form>
-                    <div class="d-flex justify-content-center mt-3 search-dropdown-btn"><button type="button">Search</button></div>
+                    <div class="d-flex justify-content-center mt-3 search-dropdown-btn"><button
+                            type="button">Search</button></div>
                 </div>
             </div>
         </div>
@@ -129,31 +129,35 @@
             <button class="menu-close"><i class="zmdi zmdi-close-circle"></i></button>
             <!-- treeview start -->
             <nav id="sidebar-menu" class="sidebar-menu">
-    <ul>
-        @foreach ($parentCategories as $parentCategory)
-        <li class="{{Request::route()->getName()=='web.prodByCat'?'active':''}}">
-            <a href="{{ route('web.prodByCat',$parentCategory['id']) }}">{{$parentCategory['name']}}</a>
-            @if ($parentCategory->childCategories->isNotEmpty())
-            <ul>
-                @foreach ($parentCategory->childCategories as $childCategory)
-                <li>
-                    <a href="/product-by-child/{{$childCategory['id']}}">{{$childCategory['name']}}</a>
-                    @if ($childCategory->subCategories->isNotEmpty())
-                    <ul>
-                        @foreach ($childCategory->subCategories as $subCategory)
-                        <li><a href="/product-by-child/{{$subCategory['id']}}">{{$subCategory['name']}}</a></li>
-                        @endforeach
-                    </ul>
-                    @endif
-                </li>
-                @endforeach
-            </ul>
-            @endif
-        </li>
-        @endforeach
-        <li><a href="{{Route('web.contact')}}">contact</a></li>
-    </ul>
-</nav>
+                <ul>
+                    @foreach ($parentCategories as $parentCategory)
+                        <li class="{{ Request::route()->getName() == 'web.prodByCat' ? 'active' : '' }}">
+                            <a
+                                href="{{ route('web.prodByCat', $parentCategory['id']) }}">{{ $parentCategory['name'] }}</a>
+                            @if ($parentCategory->childCategories->isNotEmpty())
+                                <ul>
+                                    @foreach ($parentCategory->childCategories as $childCategory)
+                                        <li>
+                                            <a
+                                                href="/product-by-child/{{ $childCategory['id'] }}">{{ $childCategory['name'] }}</a>
+                                            @if ($childCategory->subCategories->isNotEmpty())
+                                                <ul>
+                                                    @foreach ($childCategory->subCategories as $subCategory)
+                                                        <li><a
+                                                                href="/product-by-child/{{ $subCategory['id'] }}">{{ $subCategory['name'] }}</a>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </li>
+                    @endforeach
+                    <li><a href="{{ Route('web.contact') }}">contact</a></li>
+                </ul>
+            </nav>
 
         </div>
         <!-- Mobile Menu Wrapper 1 -->
@@ -170,15 +174,15 @@
     {{-- Footer Section --}}
     @yield('custromJs')
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="{{asset('assets/front end/navbar/js/vendor/jquery-1.12.4.min.js')}}"></script>
+    <script src="{{ asset('assets/front end/navbar/js/vendor/jquery-1.12.4.min.js') }}"></script>
     <!-- Bootstrap JS ============================================ -->
-    <script src="{{asset('assets/front end/navbar/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('assets/front end/navbar/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Plugins JS ============================================ -->
-    <script src="{{asset('assets/front end/navbar/js/plugins.js')}}"></script>
+    <script src="{{ asset('assets/front end/navbar/js/plugins.js') }}"></script>
     <!-- Particles Active JS ============================================ -->
-    <script src="{{asset('assets/front end/navbar/js/app.js')}}"></script>
+    <script src="{{ asset('assets/front end/navbar/js/app.js') }}"></script>
     <!-- Main JS ============================================ -->
-    <script src="{{asset('assets/front end/navbar/js/main.js')}}"></script>
+    <script src="{{ asset('assets/front end/navbar/js/main.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/slick.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -186,14 +190,14 @@
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <script>
-            AOS.init();
-            document.addEventListener("DOMContentLoaded", function () {
+    <script>
+        AOS.init();
+        document.addEventListener("DOMContentLoaded", function() {
             const searchDropdown = document.querySelector('.search-dropdown');
             const searchToggle = document.querySelector('.search-toggle');
 
-                // Add scroll event listener
-            window.addEventListener('scroll', function () {
+            // Add scroll event listener
+            window.addEventListener('scroll', function() {
                 if (window.scrollY > 120) {
                     // If scrolled, hide the search box
                     searchDropdown.classList.remove('show');
@@ -226,23 +230,24 @@
 
 
 
-        }
+                    }
 
 
-    });
-}
+                });
+            }
 
-function updateCart(cartHtml) {
+            function updateCart(cartHtml) {
                 // Update the cart section with the new HTML content
                 $('#addcart').html(cartHtml);
             }
+
             function updateaddCart(cartHtml) {
                 // Update the cart section with the new HTML content
                 $('#adcart').html(cartHtml);
             }
 
 
-});
+        });
 
 
         $(document).ready(function() {
@@ -255,8 +260,8 @@ function updateCart(cartHtml) {
                     type: 'POST', // Use POST method
                     url: '/add-to-cart/' + productId,
                     headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     success: function(response) {
                         // Check the console for the response
                         if (response.redirect) {
@@ -290,29 +295,29 @@ function updateCart(cartHtml) {
 
         $(document).ready(function() {
 
-$('.increment-btn').click(function(e) {
-    e.preventDefault();
-    var incre_value = $(this).parents('.col').find('.qty-input').val();
-    var value = parseInt(incre_value, 10);
-    value = isNaN(value) ? 0 : value;
-    if (value < 10) {
-        value++;
-        $(this).parents('.col').find('.qty-input').val(value);
-    }
-});
-$('.decrement-btn').click(function(e) {
-    e.preventDefault();
-    var
-        decre_value = $(this).parents('.col').find('.qty-input').val();
-    var value = parseInt(decre_value, 10);
-    value = isNaN(value) ? 0 : value;
-    if (value > 1) {
-        value--;
-        $(this).parents('.col').find('.qty-input').val(value);
-    }
-});
+            $('.increment-btn').click(function(e) {
+                e.preventDefault();
+                var incre_value = $(this).parents('.col').find('.qty-input').val();
+                var value = parseInt(incre_value, 10);
+                value = isNaN(value) ? 0 : value;
+                if (value < 10) {
+                    value++;
+                    $(this).parents('.col').find('.qty-input').val(value);
+                }
+            });
+            $('.decrement-btn').click(function(e) {
+                e.preventDefault();
+                var
+                    decre_value = $(this).parents('.col').find('.qty-input').val();
+                var value = parseInt(decre_value, 10);
+                value = isNaN(value) ? 0 : value;
+                if (value > 1) {
+                    value--;
+                    $(this).parents('.col').find('.qty-input').val(value);
+                }
+            });
 
-});
+        });
     </script>
 
 </body>

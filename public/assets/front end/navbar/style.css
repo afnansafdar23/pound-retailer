@@ -43,6 +43,16 @@
 /*----------------------------------------*/
 /*  1.  Theme default CSS
 /*----------------------------------------*/
+
+:root {
+    --navcolor: #4831d4;
+    --footcolor: #4831d4;
+    --button: #ccf381;
+}
+html,
+body {
+    overflow-x: hidden;
+}
 body {
     background-color: #fff;
     color: #606060;
@@ -910,7 +920,7 @@ textarea:-ms-input-placeholder {
 
 /* Scroll up */
 #scrollUp {
-    background-color: #ff9900;
+    background-color: var(--button);
     bottom: 30px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
     color: #fff;
@@ -1032,7 +1042,7 @@ textarea:-ms-input-placeholder {
 /*----------------------------------------*/
 /* Header Style 1 */
 .header-area {
-    background-color: #fff;
+    background-color: var(--navcolor);
     left: 0;
     right: 0;
     top: 0;
@@ -1070,7 +1080,7 @@ textarea:-ms-input-placeholder {
 .header-area-1 {
     padding-left: 50px;
     padding-right: 50px;
-    box-shadow: 3px 8px 5px -6px rgba(0,0,0,0.75) !important;
+    box-shadow: 3px 8px 5px -6px rgba(0, 0, 0, 0.75) !important;
 }
 
 /* Header Left 1 */
@@ -1597,7 +1607,7 @@ textarea:-ms-input-placeholder {
     z-index: 999;
 }
 
-.search-dropdown form{
+.search-dropdown form {
     border: 1px solid black;
     width: 90%;
     margin: 0 auto;
@@ -1610,12 +1620,12 @@ textarea:-ms-input-placeholder {
     padding: 15px 24px;
     width: 100%;
 }
-.search-dropdown-btn button{
+.search-dropdown-btn button {
     border: 1px solid #000 !important;
     padding: 5px 24px;
 }
 
-.search-dropdown-btn button:hover{
+.search-dropdown-btn button:hover {
     border: 1px solid #000 !important;
     background-color: #000;
     color: white;
@@ -1744,7 +1754,7 @@ textarea:-ms-input-placeholder {
 
 /* Sidebar Menu Style */
 .sidebar-menu-wrapper {
-    background-color: #fff;
+    background-color: var(--navcolor);
     bottom: 0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     left: -400px;
@@ -4574,7 +4584,7 @@ textarea:-ms-input-placeholder {
 /*  12.  Footer Top Area
 /*----------------------------------------*/
 .footer-top-area {
-    background-color: #292929;
+    background-color: var(--footcolor);
 }
 
 /* Footer Contact */
@@ -4587,14 +4597,14 @@ textarea:-ms-input-placeholder {
 }
 
 .footer-contact div span {
-    color: #eeeeee;
+    color: #eeeeee !important;
     display: block;
     float: left;
     min-width: 100px;
 }
 
 .footer-contact div p {
-    color: #eeeeee;
+    color: #eeeeee !important;
     overflow: hidden;
 }
 
@@ -4632,7 +4642,7 @@ textarea:-ms-input-placeholder {
 }
 
 .footer-social a:hover {
-    background-color: #ff9900;
+    background-color: var(--button);
     border-color: #ff9900;
     color: #fff !important;
 }
@@ -4901,7 +4911,7 @@ textarea:-ms-input-placeholder {
 }
 
 .footer-newsletter p {
-    color: #ffffff;
+    color: #ffffff !important;
     margin-bottom: 15px;
 }
 
@@ -4915,7 +4925,7 @@ textarea:-ms-input-placeholder {
 
 /*Newsletter Form */
 .footer-newsletter .mc-form input[type="email"] {
-    background-color: #909090;
+    background-color: var(--button);
     border: none;
     border-radius: 3px;
     color: #fff;
@@ -4926,7 +4936,7 @@ textarea:-ms-input-placeholder {
 }
 
 .footer-newsletter .mc-form input[type="submit"] {
-    background-color: #ff9900;
+    background-color: var(--button);
     border: none;
     border-radius: 3px;
     color: #fff;
