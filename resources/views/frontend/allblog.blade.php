@@ -3,30 +3,65 @@
     <link rel="stylesheet" href="{{ asset('assets/front end/allblogcss/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        .blog-banner{
+        background-image: url('/assets/media/stock/1600x800/img-2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        font-weight: 700;
+        height: 52vh;
+        }
+
+        .blog-banner h1, .blog-banner a{
+            color: #ffb207;
+            text-shadow: 2px 2px #051937;
+        }
+        img{
+            cursor: pointer;
+        }
+    </style>
 @endsection
 @section('content')
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 blog-banner">
+                <h1 data-aos="fade-right" data-aos-duration="1000">All Blogs</h1>
+                <h5 class="text-white" data-aos="fade-left" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Blogs</h5>
+            </div>
+        </div>
+    </div>
+
     <main>
         <div class="main">
             <div class="container">
                 <div class="blog">
-                    <h2 class="h2">Latest Blog Post</h2>
+                    <h2 class="h2" data-aos="fade-right" data-aos-duration="1000">Latest Blog Post</h2>
                     <div class="blog-card-group">
                        @forelse($blogs as $blog)
-                           <div class="blog-card">
+                           <div class="blog-card" data-aos="fade-right" data-aos-duration="1500">
                             @php
                             $averageReadingSpeed = 225; // Adjust this value based on your estimation
                             $wordCount = str_word_count(strip_tags($blog['content']));
                             $readingTime = max(1, ceil($wordCount / $averageReadingSpeed));
                             @endphp
                                 <div class="blog-card-banner">
-                                    <img src="{{$blog->getFirstMediaUrl('blog.image')}}" alt="{{$blog['title']}}" width="250"
+                                    <a href="{{ route('web.blog', $blog->id) }}">
+                                        <img src="{{$blog->getFirstMediaUrl('blog.image')}}" alt="{{$blog['title']}}" width="250"
                                         class="blog-banner-img">
+                                    </a>
                                 </div>
                                 <div class="blog-content-wrapper">
                                     <h3>
-                                        <a href="#" class="h3">
+                                        <a href="{{ route('web.blog', $blog->id) }}" class="h3">
                                             {{ \Illuminate\Support\Str::limit(strip_tags($blog['title']), 30, '...') }}
                                         </a>
                                     </h3>
@@ -50,7 +85,7 @@
                             @endforelse
                     </div>
                 </div>
-                <div class="aside">
+                <div class="aside" data-aos="zoom-in-up" data-aos-duration="1000">
                     <div class="contact">
 
                         <h2 class="h2">Let's Talk</h2>
@@ -85,15 +120,9 @@
                             </ul>
 
                         </div>
-
                     </div>
-
-
-
                 </div>
-
             </div>
-
         </div>
 
     </main>

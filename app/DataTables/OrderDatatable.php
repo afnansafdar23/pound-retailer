@@ -2,16 +2,17 @@
 
 namespace App\DataTables;
 
-use App\Models\Brand;
+use App\Models\order;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
+use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
 
-class BrandDatatable extends DataTable
+class OrderDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -22,24 +23,20 @@ class BrandDatatable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', 'admin.brand.datatables_actions')
-            ->addColumn('image', function (Brand $brand) {
-                return '<img src="' . asset($brand->getFirstMediaUrl('brand.image')) . '" class="image-input-wrapper rounded-circle w-50px h-50px" alt="alt text">';
-            })
-            ->rawColumns(['image', 'edit', 'delete', 'action'])
+            ->addColumn('action', 'admin.order.datatables_actions')
+            ->rawColumns(['edit','details','action'])
             ->setRowId('id');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\User $model
+     * @param \App\Models\ParentCategory $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Brand $model): QueryBuilder
+    public function query(order $model): QueryBuilder
     {
-       
-        return $model->newQuery()->select('id', 'name', 'brand_title');
+        return $model->newQuery()->select('id','order_no', 'product_detail', 'totalprice','userid','delivery_status','payment_method','payment_status');
     }
 
     /**
@@ -50,7 +47,7 @@ class BrandDatatable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('brand-table')
+            ->setTableId('order-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             //->dom('Bfrtip')
@@ -70,14 +67,20 @@ class BrandDatatable extends DataTable
     {
         $columns = [
             Column::make('id'),
-            Column::make('image'),
-            Column::make('name'),
-            Column::make('brand_title')->title('Brand Title'),
+            Column::make('order_no'),
+            Column::make('product_detail')->naem('Details'),
+            Column::make('totalprice'),
+            Column::make('userid'),
+            Column::make('delivery_status'),
+            Column::make('payment_method')->name('method'),
+            Column::make('payment_status')->name('status'),
         ];
 
-        if (Auth::user()->can('brand.edit') || Auth::user()->can('brand.delete')) {
-            $columns = array_merge($columns, [Column::make('action')]);
+        if(Auth::user()->can('order.details') || Auth::user()->can('order.edit'))
+        {
+            $columns = array_merge($columns,[Column::make('action')]);
         }
+
 
         return $columns;
     }
@@ -89,6 +92,6 @@ class BrandDatatable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Brand_' . date('YmdHis');
+        return 'Order_' . date('YmdHis');
     }
 }

@@ -1,7 +1,17 @@
 @extends('frontend.layout.app')
-
+@section('customCss')
+<link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
+@endsection
 @section('content')
-    <div class="container">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 contact-banner">
+            <h1>Terms and Conditions</h1>
+            <h5 class="text-white"><a href="{{Route('web.index')}}">Home</a> > Terms</h5>
+        </div>
+    </div>
+</div>
+    <div class="container mb-5">
         <h1 class="mt-4 mb-4">Terms and Conditions</h1>
 
         <p>

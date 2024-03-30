@@ -12,22 +12,11 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\StripePaymentController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\DefaultController;
 use App\Http\Middleware\Permissions;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 
 Route::withoutMiddleware([Permissions::class])->group(function () {
 
@@ -51,21 +40,55 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('', 'home')->name('index');
             Route::get('/prod-by-cat/{parentCategory}', 'prodByCat')->name('prodByCat');
             Route::get('/prod-by-child-cat/{childCategory}', 'prodByChildCat')->name('prodByChildCat');
+            Route::get('/product-by-child/{childCategory}', 'prductbychild')->name('productbychild');
             Route::get('brands', 'brands')->name('prod.by.brands');
             Route::get('/cart', 'cart')->name('cart');
             Route::get('/checkout', 'checkout')->name('checkout');
             Route::get('/contact-us', 'contact')->name('contact');
             Route::get('/about-us', 'about')->name('about');
             Route::get('/faqs', 'faq')->name('faq');
+            Route::post('/payment', 'payment')->name('payment');
+            Route::get('/deliveryinfo', 'deliveryinfo')->name('deliveryinfo');
+            Route::get('/wish', 'wish')->name('wish');
             Route::get('/privacy-policy', 'privacy')->name('privacy');
             Route::get('/terms-condition', 'term')->name('term');
-            Route::get('/prod-by-brands/{brand}', 'prodByBrands')->name('prodByBrands');
+            Route::get('/prod-by-brands/{brand}', 'prodByBrands')->name('prod.brand');
             Route::get('/single/blog/{blog}', 'singleBlog')->name('blog');
             Route::get('/all-blog', 'allBlogs')->name('allblog');
             Route::get('product/detail/{product}', 'prodDetail')->name('prod.detail');
+            Route::post('add-to-cart/{productId}', 'addtocart')->name('addtocar');
+            Route::post('add-to-wish/{productId}', 'addtowish')->name('addtowish');
+            Route::delete('delete-cart', 'deletecart')->name('deletecart');
+            Route::post('/update-cart', 'updateCart')->name('updatecart');
+            Route::get('/billing', 'billing')->name('billing');
+
         });
 });
+Route::controller(StripePaymentController::class)->group(function () {
+    Route::get('stripe/{id}', 'stripe');
 
+    Route::post('/stripe/{id}', 'StripePost')->name('stripe.post');
+
+});
+Route::controller(DefaultController::class)
+->prefix('order')
+->name('order.')
+->group(function () {
+    Route::get('trans', 'detail')->name('trans');
+
+
+});
+ Route::controller(DefaultController::class)
+        ->prefix('order')
+        ->name('order.')
+        ->group(function () {
+            Route::get('detail', 'detail')->name('detail');
+            Route::get('details{id}', 'details')->name('details');
+            Route::get('edit/{id}', 'orderedit')->name('edit');
+            Route::post('update/{id}', 'orderupdate')->name('update');
+
+
+        });
 
 Route::middleware('auth')->group(function () {
     Route::controller(UserController::class)

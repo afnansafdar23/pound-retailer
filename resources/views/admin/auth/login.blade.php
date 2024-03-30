@@ -41,6 +41,7 @@
                                 <!--begin::Title-->
                                 <h1 class="text-dark mb-3 fs-3x" data-kt-translate="sign-in-title">Sign In</h1>
                                 <!--end::Title-->
+                                <input type="hidden" name="previous_url" value="{{ URL::previous() }}">
                             </div>
                             @if (Session::has('error'))
                             <div class="alert alert-danger">

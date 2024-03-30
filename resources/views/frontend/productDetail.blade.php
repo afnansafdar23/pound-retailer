@@ -6,24 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css"
     integrity="sha512-hj9rznBPdFg9A4fACbJcp4ttzdinMDtPrtZ3gBD11DiY3O1xJfn0r1U5so/J0zwfGOzq9teIaH5rFmjFAFw8SA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-<style>
-    @media(min-width:767px) {
-        .display-none {
-            display: none;
-        }
-    }
-
-    .icon-hover:hover {
-        border-color: #3b71ca !important;
-        background-color: white !important;
-        color: #3b71ca !important;
-    }
-
-    .icon-hover:hover i {
-        color: #3b71ca !important;
-    }
-</style>
-
+    <link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
 @endsection
 @section('content')
 <!-- content -->
@@ -32,10 +15,10 @@
         <div class="row gx-5">
             <aside class="col-lg-6">
                 <div class="border rounded-4 mb-3 d-flex justify-content-center">
-                    <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="#">
+                    <div data-fslightbox="mygalley" class="rounded-4" data-type="image">
                         <img style="height: 80vh; margin: auto;" class="rounded-4 fit"
                             src="{{$product->getFirstMediaUrl('product.image')}}" />
-                    </a>
+                    </div>
                 </div>
             </aside>
             <main class="col-lg-6">
@@ -102,23 +85,20 @@
                         <div class="col-md-4 col-6 mb-3">
                             <label class="mb-2 d-block">Quantity</label>
                             <div class="input-group mb-3" style="width: 170px;">
-                                <button class="btn btn-white border border-secondary px-3" type="button"
-                                    id="button-addon1" data-mdb-ripple-color="dark">
+                                <button class="btn btn-white border border-secondary px-3" type="button" id="decrementButton" data-mdb-ripple-color="dark">
                                     <i class="fas fa-minus"></i>
                                 </button>
-                                <input type="text" class="form-control text-center border border-secondary"
-                                    placeholder="14" aria-label="Example text with button addon"
-                                    aria-describedby="button-addon1" />
-                                <button class="btn btn-white border border-secondary px-3" type="button"
-                                    id="button-addon2" data-mdb-ripple-color="dark">
+                                <input style="margin-right: 5px;" type="number" class="form-control text-center border border-secondary" value="1" aria-label="Example text with button addon" aria-describedby="button-addon1" id="quantityInput" inputmode="numeric"/>
+                                <button class="btn btn-white border border-secondary px-3" type="button" id="incrementButton" data-mdb-ripple-color="dark">
                                     <i class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="btn btn-warning shadow-0"> Buy now </a>
-                    <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart
-                    </a> <i class="me-1 fa fa-heart fa-lg"></i>
+                    <a class="btn btn-warning shadow-0" onclick="window.location.href='{{ route('web.checkout') }}'"> Buy now </a>
+                    <a class="btn btn-primary shadow-0 add-to-cart" data-product-id="{{ $product->id }}"> <i class="me-1 fa fa-shopping-basket " ></i> Add to cart
+                    </a>
+                    <a class="fa-solid fa-heart text-danger fa-2xl" onclick="window.location.href='{{ route('web.wish') }}'"></a>
                 </div>
             </main>
         </div>
@@ -230,4 +210,40 @@
         </div>
     </div>
 </section>
+@endsection
+@section('custromJs')
+<script>
+    // Wait for the document to fully load
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get elements
+        const decrementButton = document.getElementById('decrementButton');
+        const incrementButton = document.getElementById('incrementButton');
+        const quantityInput = document.getElementById('quantityInput');
+
+        // Add click event listeners
+        decrementButton.addEventListener('click', () => {
+            decrementQuantity();
+        });
+
+        incrementButton.addEventListener('click', () => {
+            incrementQuantity();
+        });
+
+        // Function to decrement quantity
+        function decrementQuantity() {
+            let currentQuantity = parseInt(quantityInput.value, 10);
+            if (!isNaN(currentQuantity) && currentQuantity > 0) {
+                quantityInput.value = currentQuantity - 1;
+            }
+        }
+
+        // Function to increment quantity
+        function incrementQuantity() {
+            let currentQuantity = parseInt(quantityInput.value, 10);
+            if (!isNaN(currentQuantity)) {
+                quantityInput.value = currentQuantity + 1;
+            }
+        }
+    });
+</script>
 @endsection
