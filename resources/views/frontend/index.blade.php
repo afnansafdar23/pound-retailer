@@ -11,11 +11,11 @@
 <link rel="stylesheet" href="{{asset('assets/front end/css/category.css')}}">
 @endsection
 @section('content')
-<div class="gallery mt-1" data-aos="fade-right" data-aos-duration="2000">
+<div class="gallery mt-1">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{asset('assets/front end/home-image/1 (5).png')}}" alt="Shining Stars Image"
+                <img src="{{asset('assets/front end/home-image/1 (6).png')}}" alt="Shining Stars Image"
                     class="d-block w-100" alt="Home1">
             </div>
             <div class="carousel-item">
@@ -38,16 +38,25 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <img data-aos="zoom-out-left" data-aos-duration="1000" class="grid-img" src="{{asset('assets/front end/home-image/4 (4).png')}}" alt="Shining Stars Image" />
-    <img data-aos="zoom-out-left" data-aos-duration="1500" class="grid-img" src="{{asset('assets/front end/home-image/5 (4).png')}}" alt="A cloudy Mountain Image" />
-    <img data-aos="zoom-out-left" data-aos-duration="2000" class="grid-img" src="{{asset('assets/front end/home-image/6 (4).png')}}" alt="A Winter Rainbow Image" />
-    <img data-aos="zoom-out-left" data-aos-duration="2500" class="grid-img" src="{{asset('assets/front end/home-image/7 (3).png')}}" alt="Shining Stars Image" />
+    <img class="grid-img" src="{{asset('assets/front end/home-image/4 (4).png')}}" alt="Shining Stars Image" />
+    <img class="grid-img" src="{{asset('assets/front end/home-image/5 (4).png')}}" alt="A cloudy Mountain Image" />
+    <img class="grid-img" src="{{asset('assets/front end/home-image/6 (4).png')}}" alt="A Winter Rainbow Image" />
+    <img class="grid-img" src="{{asset('assets/front end/home-image/7 (3).png')}}" alt="Shining Stars Image" />
+
+    {{-- For Responsive View --}}
+    <div class="grid-block-images">
+        <img class="gb-img" src="{{asset('assets/front end/home-image/4 (4).png')}}" alt="Shining Stars Image" />
+        <img class="gb-img" src="{{asset('assets/front end/home-image/5 (4).png')}}" alt="A cloudy Mountain Image" />
+        <img class="gb-img" src="{{asset('assets/front end/home-image/6 (4).png')}}" alt="A Winter Rainbow Image" />
+        <img class="gb-img" src="{{asset('assets/front end/home-image/7 (3).png')}}" alt="Shining Stars Image" />
+    </div>
+    {{-- For Responsive View --}}
 </div>
 
-<div class="gallery row mt-2">
+<div class="pound-parent-category px-3 row mt-2">
     @foreach ($parentCategories as $parentCategory)
-    <div class="img-container p-0" data-aos="zoom-in" data-aos-duration="2000">
-        <img class="grid-img" src="{{$parentCategory->getFirstMediaUrl('parentCategory.image')}}"
+    <div class="pound-pc-imageContainer p-0">
+        <img src="{{$parentCategory->getFirstMediaUrl('parentCategory.image')}}"
             alt="{{$parentCategory['name']}}">
         <h3 class="parent-center-text">{{ Illuminate\Support\Str::limit(strip_tags($parentCategory['name']), 25, '...') }}</h3>
         <div class="overlay">
@@ -65,7 +74,7 @@
   <div class="owl-carousel container container_pro">
 
     @forelse ($products as $product)
-    <div class="item" data-aos="zoom-in-up" data-aos-duration="1500">
+    <div class="item">
         <!-- card -->
         <div class="card">
             <div class="imgBx">
@@ -119,9 +128,9 @@
         <h2>Our Brands</h2>
             <div class="owl-carousel owl-theam owl-carousel2">
                 @forelse($brands as $brand)
-                <div class="card rounded" style="margin: 0 5px" data-aos="zoom-in-up" data-aos-duration="1500">
+                <div class="card rounded" style="margin: 0 5px">
                     <div class="card-image m-2" >
-                        <img class="img-fluid corsor" onclick="window.location.href='{{ route('web.prod.brand', $brand->id) }}'" style="height:120px;" src="{{$brand->getFirstMediaUrl('brand.image')}}" width="100%"
+                        <img class="img-fluid corsor" onclick="window.location.href='{{ route('web.prod.brand', $brand->id) }}'" style="height:220px;" src="{{$brand->getFirstMediaUrl('brand.image')}}" width="100%"
                              >
                     </div>
                     <div class="card-body text-center">
@@ -139,77 +148,49 @@
 {{-- Best --}}
 
 <!-- statics Card Section -->
-<section class="d-flex justify-content-around mb-2 mt-2 ">
-    <div class="container-fluid mt-3 pl-2 row card-main">
-        {{-- card 1 --}}
-        <div class="col-lg-3 row c12" data-aos="fade-up" data-aos-duration="1000">
-            <div class=" bg-danger col-sm-4 incard">
-                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/2.gif')}}" alt="product"></div>
-            </div>
+@php
+    // Array to store image paths
+    $imagePaths = [
+        'assets/media/stock/ecommerce/2.gif',
+        'assets/media/stock/ecommerce/2.gif',
+        'assets/media/stock/ecommerce/3.gif',
+        'assets/media/stock/ecommerce/24.gif'
+    ];
+@endphp
 
-            <div class="col-sm-8 bg-danger incard2">
-                <!-- Product Description -->
-                <div>
-                    <h4>Product Name</h4>
-                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+<section class="d-flex justify-content-around mb-2 mt-2">
+    <div class="container-fluid mt-3 pl-2 row custom-card-container">
+        @foreach($imagePaths as $imagePath)
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+                <div class="custom-card card h-100 shadow-custom">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div class="text-center mb-3">
+                            <img src="{{ asset($imagePath) }}" class="custom-card-img card-img-top img-fluid" alt="Product">
+                        </div>
+                        <div class="text-center">
+                            <h5 class="custom-card-title card-title mb-2">Product Name</h5>
+                            <p class="custom-card-text card-text text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="#" class="custom-card-btn btn btn-primary">View Details</a>
+                        </div>
+                    </div>
                 </div>
-                <!-- Product Description -->
             </div>
-        </div>
-        {{-- card 2 --}}
-        <div class="col-lg-3 row c12" data-aos="fade-down" data-aos-duration="1000">
-            <div class=" bg-danger col-sm-4 incard">
-                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/2.gif')}}" alt="product"></div>
-            </div>
-
-            <div class="col-sm-8 bg-danger incard2 ">
-                <!-- Product Description -->
-                <div>
-                    <h4>Product Name</h4>
-                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <!-- Product Description -->
-            </div>
-        </div>
-        {{-- card 3 --}}
-        <div class="col-lg-3 row c12" data-aos="fade-up" data-aos-duration="1000">
-            <div class=" bg-danger col-sm-4 incard">
-                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/3.gif')}}" alt="product"></div>
-            </div>
-            <div class="col-sm-8 bg-danger incard2">
-                <!-- Product Description -->
-                <div>
-                    <h4>Product Name</h4>
-                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <!-- Product Description -->
-            </div>
-        </div>
-        {{-- card 4 --}}
-        <div class="col-lg-3 row c12" data-aos="fade-down" data-aos-duration="1000">
-            <div class=" bg-danger col-sm-4 incard">
-                <div class="col-sm-12 bg-info div1"><img src="{{asset('assets/media/stock/ecommerce/24.gif')}}" alt="product"></div>
-            </div>
-
-            <div class="col-sm-8 bg-danger incard2">
-                <!-- Product Description -->
-                <div>
-                    <h4>Product Name</h4>
-                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <!-- Product Description -->
-            </div>
-        </div>
+        @endforeach
     </div>
 </section>
+
+
+
 
 <!-- START:: About Responsive -->
 <section class="container home-about">
     <div class="row">
         <!-- Image -->
-        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1500"><img class="rounded-2 img-fluid" src="{{asset('assets/front end/image1-2.jpg')}}" alt="about-image"></div>
+        <div class="col-lg-6"><img class="rounded-2 img-fluid" src="{{asset('assets/front end/image1-2.jpg')}}" alt="about-image"></div>
         <!-- Text -->
-        <div class="col-lg-6 overflow-hidden" data-aos="fade-left" data-aos-duration="1500">
+        <div class="col-lg-6 overflow-hidden">
          <h2 class="text-center">About Us</h2>
          <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis provident impedit quis pariatur
@@ -233,7 +214,7 @@
     @endif
     <div class="owl-carousel container py-4">
         @forelse ($blogs as $blog)
-            <div class="bg-light rounded-2 p-3 shadow-sm blog-cards" style="margin: 0 10px;" data-aos="zoom-in-up" data-aos-duration="1500">
+            <div class="bg-light rounded-2 p-3 shadow-sm blog-cards" style="margin: 0 10px;">
                 <a href="{{route('web.blog',$blog->id)}}"><img class="rounded-2" src="{{$blog->getFirstMediaUrl('blog.image')}}" alt=""></a>
                 <h3 class="text-center mt-2 "><a href="{{ route('web.blog', $blog->id) }}">{{ Illuminate\Support\Str::limit(strip_tags($blog['title']), 25, '...') }}</a></h3>
                 <hr>
@@ -263,7 +244,7 @@ $(document).ready(function() {
           items: 1
         },
         574: {
-            items: 1
+            items: 2
         },
         768: {
           items: 3

@@ -34,13 +34,19 @@
     grid-column: span 2 / auto;
 }
 
-.wide-image {
+/* .wide-image {
     grid-column: span 2 / auto;
+} */
+
+.carousel-item img{
+    height: auto !important;
 }
 
+.grid-block-images{
+    display: none;
+}
 
-
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     .gallery {
         grid-template-columns: 1fr;
     }
@@ -53,6 +59,49 @@
     .four-grid-cells,
     .wide-image {
         grid-column: auto;
+    }
+    
+    .carousel-item img{
+        height: 110vh !important;
+    }
+
+    .grid-img{
+        display: none;
+    }
+
+    .grid-block-images{
+        display: block;
+    }
+
+    .grid-block-images{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .gb-img{
+        width: 49%;
+        height: 75vh;
+        border-radius: 6px;
+    }
+}
+
+@media (max-width: 480px){
+    .grid-block-images{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+     }
+
+    .gb-img{
+        width: 100%;
+        height: 45vh !important;
+     }
+
+     .carousel-item img{
+        height: 45vh !important;
     }
 }
 
@@ -340,63 +389,10 @@
     }
 }
 
-.c12 {
-    height: 160px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.incard {
-    height: 160px;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
-
-}
-
-.div1 {
-    clip-path: ellipse(100% 66% at 0% 48%);
-    height: 160px;
-    margin-left: -12px;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
-    position: relative;
-}
-
-.div1 img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: inherit;
-    width: inherit;
-}
-
-.incard2 {
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-}
-
-.incard2 h4{
-    color: var(--bgColor);
-    text-shadow: 2px 2px var(--gradientBlue1);
-    font-size: 4vh;
-}
-
-.incard2 p{
-    font-size: 2vh;
-}
 
 @media (max-width: 428px){
     .gallery .carousel-item img{
         height: 50vh;
-    }
-
-    .incard2 h4, .incard2 p{
-        font-size: 14px !important;
     }
 }
 
@@ -404,26 +400,6 @@
     .cart-image img{
         width: 80px !important;
         height: 80px !important;
-    }
-
-    .c12 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin-top: 40px;
-        margin-bottom: -5px;
-        margin-left: 10px;
-        width: 90%;
-    }
-
-    /* .div1 {
-        padding-top: 50px;
-        clip-path: ellipse(99% 100% at 0% 52%);
-        height: 160px;
-        margin-left: -12px;
-    } */
-
-    .incard2 p{
-        font-size: 20px;
     }
 
     .home-about, .home-about h2{
@@ -435,28 +411,8 @@
     }
 }
 
-@media(min-width: 768px) {
-    .div1 {
-        padding-top: 50px;
-        clip-path: ellipse(99% 100% at 0% 52%);
-        width: 50px;
-        height: 160px;
-        margin-left: -12px;
-    }
-
-    .c12 {
-        margin-left: 10px;
-    }
-
+    
     @media(min-width: 991px) {
-        .div1 {
-            width: auto;
-        }
-
-        .c12 {
-            width: 25%
-        }
-
         .card-main {
             margin-left: -14px;
         }
@@ -466,20 +422,46 @@
         }
     }
 
-    @media(max-width: 413px) {
-        .c12 {
-            margin-left: 8px;
-            width: 300px;
 
-        }
-    }
-
-    @media(max-width: 768px) {
-        .c12 {
-            margin-left: 10px;
-        }
-    }
+/* START: Cards */
+/* Custom Styles */
+.custom-card-container {
+    justify-content: center;
 }
+
+.custom-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+}
+
+.custom-card-img {
+    width: 57%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.custom-card-title {
+    color: #333;
+}
+
+.custom-card-text {
+    font-size: 0.9rem;
+}
+
+.custom-card-btn {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.shadow-custom {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* END: Cards */
 
 /* END:: Index */
 
@@ -675,6 +657,10 @@ input[type="number"]::-webkit-outer-spin-button {
     overflow-x: hidden;
 }
 
+.blog-cards a img{
+    height: 150px !important;
+}
+
 /* Categories Title */
 .parent-center-text {
     position: absolute;
@@ -687,3 +673,69 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 5px;
 }
 
+/* Parent Category */
+.pound-pc-imageContainer{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 45vh;
+    width: 300px;
+    border-radius: 6px
+}
+
+.pound-pc-imageContainer:hover .overlay {
+    top: 0;
+    /* Move the overlay to the top on hover */
+}
+
+.overlay h3{
+    color: #fff;
+}
+
+.pound-pc-imageContainer:hover img {
+    filter: brightness(0.7);
+    /* Optional: Darken the image on hover */
+}
+
+.pound-parent-category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* To evenly space the items */
+}
+
+.pound-pc-imageContainer {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 45vh;
+    width: calc(25% - 20px); /* 4 items per row by default, adjust as needed */
+    margin-bottom: 20px; /* Space between rows */
+    border-radius: 6px;
+}
+
+.pound-pc-imageContainer img{
+    width: 100%;
+    height: 45vh !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    .pound-pc-imageContainer {
+        width: calc(33.33% - 20px); /* 3 items per row on smaller screens */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .pound-pc-imageContainer {
+        width: calc(50% - 20px); /* 2 items per row on even smaller screens */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .pound-pc-imageContainer {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        height: 20vh;
+        width: calc(50% - 20px); /* 2 item per row on smallest screens */
+    }
+}

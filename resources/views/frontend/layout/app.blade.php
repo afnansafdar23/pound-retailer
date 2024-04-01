@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-
+    {{-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> --}}
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -220,8 +217,8 @@
     @include('frontend.layout.footer')
     {{-- Footer Section --}}
     @yield('custromJs')
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="{{ asset('assets/front end/navbar/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    {{-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> --}}
+    <script src="{{asset('assets/front end/navbar/js/vendor/jquery-1.12.4.min.js')}}"></script>
     <!-- Bootstrap JS ============================================ -->
     <script src="{{ asset('assets/front end/navbar/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Plugins JS ============================================ -->
@@ -237,9 +234,9 @@
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script>
-        AOS.init();
-        document.addEventListener("DOMContentLoaded", function() {
+        <script>
+            //AOS.init();
+            document.addEventListener("DOMContentLoaded", function () {
             const searchDropdown = document.querySelector('.search-dropdown');
             const searchToggle = document.querySelector('.search-toggle');
 
