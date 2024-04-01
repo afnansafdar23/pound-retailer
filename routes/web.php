@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogController;
@@ -19,7 +20,6 @@ use App\Http\Controllers\Frontend\DefaultController;
 use App\Http\Controllers\PostController;
 use App\Http\Middleware\Permissions;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
 Route::withoutMiddleware([Permissions::class])->group(function () {
@@ -85,6 +85,7 @@ Route::controller(StripePaymentController::class)->group(function () {
     });
 
     Route::post('/stripe/{id}', 'StripePost')->name('stripe.post');
+
 });
 Route::controller(DefaultController::class)
 ->prefix('order')
@@ -132,7 +133,7 @@ Route::middleware('auth')->group(function () {
         ->name('setting.')
         ->group(function () {
             Route::get('', 'index')->name('index');
-            Route::get('store', 'storeUpdateSetting')->name('store');
+            Route::post('store', 'storeUpdateSetting')->name('store');
         });
 
     Route::controller(RoleController::class)
