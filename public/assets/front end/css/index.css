@@ -97,7 +97,12 @@
 
     .gb-img{
         width: 100%;
+        height: 45vh !important;
      }
+
+     .carousel-item img{
+        height: 45vh !important;
+    }
 }
 
 .img-container {
@@ -683,7 +688,7 @@ input[type="number"]::-webkit-outer-spin-button {
     color: #fff;
 }
 
-.pound-pc-imageContainer:hover .img {
+.pound-pc-imageContainer:hover img {
     filter: brightness(0.7);
     /* Optional: Darken the image on hover */
 }
@@ -704,6 +709,11 @@ input[type="number"]::-webkit-outer-spin-button {
     border-radius: 6px;
 }
 
+.pound-pc-imageContainer img{
+    width: 100%;
+    height: 45vh !important;
+}
+
 @media only screen and (max-width: 1024px) {
     .pound-pc-imageContainer {
         width: calc(33.33% - 20px); /* 3 items per row on smaller screens */
@@ -718,6 +728,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
 @media only screen and (max-width: 480px) {
     .pound-pc-imageContainer {
-        width: calc(100% - 20px); /* 1 item per row on smallest screens */
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        height: 20vh;
+        width: calc(50% - 20px); /* 2 item per row on smallest screens */
     }
 }

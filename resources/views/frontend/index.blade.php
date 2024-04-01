@@ -50,9 +50,10 @@
         <img class="gb-img" src="{{asset('assets/front end/home-image/6 (4).png')}}" alt="A Winter Rainbow Image" />
         <img class="gb-img" src="{{asset('assets/front end/home-image/7 (3).png')}}" alt="Shining Stars Image" />
     </div>
+    {{-- For Responsive View --}}
 </div>
 
-<div class="pound-parent-category row mt-2">
+<div class="pound-parent-category px-3 row mt-2">
     @foreach ($parentCategories as $parentCategory)
     <div class="pound-pc-imageContainer p-0">
         <img src="{{$parentCategory->getFirstMediaUrl('parentCategory.image')}}"
@@ -131,7 +132,7 @@
                 @forelse($brands as $brand)
                 <div class="card rounded" style="margin: 0 5px">
                     <div class="card-image m-2" >
-                        <img class="img-fluid corsor" onclick="window.location.href='{{ route('web.prod.brand', $brand->id) }}'" style="height:120px;" src="{{$brand->getFirstMediaUrl('brand.image')}}" width="100%"
+                        <img class="img-fluid corsor" onclick="window.location.href='{{ route('web.prod.brand', $brand->id) }}'" style="height:220px;" src="{{$brand->getFirstMediaUrl('brand.image')}}" width="100%"
                              >
                     </div>
                     <div class="card-body text-center">
@@ -245,7 +246,7 @@ $(document).ready(function() {
           items: 1
         },
         574: {
-            items: 1
+            items: 2
         },
         768: {
           items: 3
