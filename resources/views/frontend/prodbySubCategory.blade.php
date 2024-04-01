@@ -2,41 +2,46 @@
 @section('customCss')
 <link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
 <link rel="stylesheet" href="{{asset('assets/front end/css/category.css')}}">
+
 @endsection
 @section('content')
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 contact-banner">
-            <h1 data-aos="fade-left" data-aos-duration="1000">Product by Child Category</h1>
+            <h1 data-aos="fade-left" data-aos-duration="1000">Product by Sub Category</h1>
             <h5 class="text-white" data-aos="fade-right" data-aos-duration="1000"><a href="{{Route('web.index')}}">Home</a> > Child Category</h5>
         </div>
     </div>
 </div>
-@foreach($childcategory as $childCategory)
-@endforeach
+
+
 <div class="container mt-3 mb-5">
+
+@foreach($subCategory as $subcat)
+
     <div class="row">
         <div class="col-12">
-            <h2 data-aos="fade-right" data-aos-duration="1000">{{$childCategory['name']}}</h2>
-            <p data-aos="fade-right" data-aos-duration="2000">{{$childCategory['description']}}</p>
+            <h2 data-aos="fade-right" data-aos-duration="1000">{{$subcat['name']}}</h2>
+            <p data-aos="fade-right" data-aos-duration="2000">{{$subcat['description']}}</p>
             <span id="dots"></span>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12" id="more">
-                        <h3>{{$childCategory['sub_name']}}</h3>
-                        <p>{{$childCategory['sub_description']}}</p>
+                        <h3>{{$subcat['sub_name']}}</h3>
+                        <p>{{$subcat['sub_description']}}</p>
                     </div>
                 </div>
                 <button onclick="myFunction()" id="myBtn">Read more</button>
             </div>
         </div>
     </div>
+    @endforeach
     <div class="container-fluid mb-3">
         <div class="row">
             <div class="col-lg-12">
                 <div class="row justify-content-center">
-                    @foreach ($subcategory as $subCategory)
+                    @foreach ($relatedCategory as $subCategory)
                     <div class="col-md-2 col-sm-6 col-6">
                         <div class="card border-0" data-aos="zoom-in" data-aos-duration="1000">
                             <img src="{{$subCategory->getFirstMediaUrl('subCategory.image')}}"
@@ -52,7 +57,9 @@
         </div>
     </div>
     <!-- product section -->
+    <h3>products</h3>
     <div class="container container_pro">
+
         <div class="row justify-content-center">
             @foreach ($products as $product)
             <div class="col-lg-3 mt-2">
@@ -94,9 +101,44 @@
                     </div>
                 </div>
             </div>
+
             @endforeach
         </div>
+
+
     </div>
+    <div class="col-6"></div>
+    <div class=" pagination-wrapper justify-content-end">
+    <nav aria-label="navigation">
+        <ul class="pagination align-items-center">
+            @if ($products->onFirstPage())
+                <li class="page-item disabled">
+                    <span class="page-link">&laquo;</span>
+                </li>
+            @else
+                <li class="page-item">
+                    <a class="page-link" href="{{ $products->previousPageUrl() }}" rel="prev">&laquo;</a>
+                </li>
+            @endif
+
+            @foreach ($products->getUrlRange(1, $products->lastPage()) as $page => $url)
+                <li class="page-item {{ $page == $products->currentPage() ? 'active' : '' }}">
+                    <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                </li>
+            @endforeach
+
+            @if ($products->hasMorePages())
+                <li class="page-item">
+                    <a class="page-link" href="{{ $products->nextPageUrl() }}" rel="next">&raquo;</a>
+                </li>
+            @else
+                <li class="page-item disabled">
+                    <span class="page-link">&raquo;</span>
+                </li>
+            @endif
+        </ul>
+    </nav>
+</div>
     <!-- end product section -->
 </div>
 {{-- products section --}}

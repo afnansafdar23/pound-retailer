@@ -55,6 +55,6 @@
                     <div class="col">TOTAL PRICE</div>
                     <div class="col text-right">&euro;{{$total}}</div>
                 </div>
-                <a href="{{Route('web.checkout')}}" class="btn checkout-btn">Go To Checkout</a>
+                <a href="{{Route('web.billing')}}" class="btn checkout-btn">Go To Checkout</a>
             </div>
 

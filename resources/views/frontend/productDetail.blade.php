@@ -84,11 +84,11 @@
                     <div class="row mb-4">
                         <div class="col-md-4 col-6 mb-3">
                             <label class="mb-2 d-block">Quantity</label>
-                            <div class="input-group mb-3" style="width: 170px;">
+                            <div class="input-group mb-3" readonly style="width: 170px;">
                                 <button class="btn btn-white border border-secondary px-3" type="button" id="decrementButton" data-mdb-ripple-color="dark">
                                     <i class="fas fa-minus"></i>
                                 </button>
-                                <input style="margin-right: 5px;" type="number" class="form-control text-center border border-secondary" value="1" aria-label="Example text with button addon" aria-describedby="button-addon1" id="quantityInput" inputmode="numeric"/>
+                                <input style="margin-right: 5px;" type="number" class="form-control text-center border border-secondary" value="1"readonly aria-label="Example text with button addon" aria-describedby="button-addon1" id="quantityInput" inputmode="numeric"/>
                                 <button class="btn btn-white border border-secondary px-3" type="button" id="incrementButton" data-mdb-ripple-color="dark">
                                     <i class="fas fa-plus"></i>
                                 </button>
@@ -98,7 +98,7 @@
                     <a class="btn btn-warning shadow-0" onclick="window.location.href='{{ route('web.checkout') }}'"> Buy now </a>
                     <a class="btn btn-primary shadow-0 add-to-cart" data-product-id="{{ $product->id }}"> <i class="me-1 fa fa-shopping-basket " ></i> Add to cart
                     </a>
-                    <a class="fa-solid fa-heart text-danger fa-2xl" onclick="window.location.href='{{ route('web.wish') }}'"></a>
+
                 </div>
             </main>
         </div>

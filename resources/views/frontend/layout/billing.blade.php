@@ -106,9 +106,9 @@
             <input class="form-check-input" type="radio" name="payment_method" id="CashOnDelivry" value="CashOnDelivry">
             <label class="form-check-label" for="CashOnDelivry">Cash On delievery</label>
           </div>
-          <button class="btn btn-primary" type="submit">Back to Cart</button>
+          <button class="btn btn-primary" >Back to Cart</button>
         </div>
-        </form>
+
       </div>
     </div>
     <div class="col-md-4">
@@ -174,6 +174,7 @@
           </table>
           <button class="btn btn-primary btn-larg d-flex " type="submit">Checkout</button>
         </div>
+        </form>
       </div>
     </div>
   </div>

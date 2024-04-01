@@ -41,7 +41,11 @@
                                         @include('admin.media.dropdown',['dropzone_name','site_logo'])
                                     </div>
                                     <div class="col-6">
-                                        <x-cento-dash-input type="text" name="site_name" label="Site Name" placeholder="Name" value="{{$setting['site_name']}}"
+                                        <x-cento-dash-input type="text" name="application_name" label="Site Name" placeholder="Name" value="{{$setting['application_name']}}"
+                                            :message="$errors->first('name')" />
+                                    </div>
+                                    <div class="col-6">
+                                        <x-cento-dash-input type="email" name="email" label="Site email" placeholder="email" value="{{$setting['email']}}"
                                             :message="$errors->first('name')" />
                                     </div>
                                     <div class="col-6">
@@ -56,18 +60,34 @@
                                         <x-cento-dash-input type="url" name="twitter_link" label="Twitter URL" value="{{$setting['twitter_link']}}"
                                             placeholder="Twitter URL" :message="$errors->first('twitter_link')" />
                                     </div>
+                                    <div class="col-6">
+                                        <x-cento-dash-input type="text" name="gsc" label="Google Search Console" value="{{$setting['gsc']}}"
+                                            placeholder="Twitter URL" :message="$errors->first('gsc')" />
+                                    </div>
                                     <div class="col-12">
                                         <x-textarea type='text' name="short_description" label="Short Description" class="col-12" value="{{$setting['short_description']}}"
                                             placeholder="Enter Short Description" :message="$errors->first('short Description')" />
                                     </div>
-                                    <div class="col-6">
-                                        <x-cento-dash-input type="email" name="email" label="Admin Mail" placeholder="Enter Your Email"value="{{$setting['email']}}"
-                                            :message="$errors->first('email')" />
+                                    <div class="col-3">
+                                        <x-cento-dash-input type="text" name="color_one" label="Color One" placeholder="Enter Color code (#0000)" value="{{$setting['color_one']}}"
+                                            :message="$errors->first('color_one')" />
+                                    </div>
+                                    <div class="col-3">
+                                        <x-cento-dash-input type="text" name="color_two" label="Color Two" placeholder="Enter Color code (#0000)" value="{{$setting['color_two']}}"
+                                            :message="$errors->first('color_two')" />
+                                    </div>
+                                    <div class="col-3">
+                                        <x-cento-dash-input type="text" name="color_three" label="Color Three" placeholder="Enter Color code (#0000)" value="{{$setting['color_three']}}"
+                                            :message="$errors->first('color_three')" />
+                                    </div>
+                                    <div class="col-3">
+                                        <x-cento-dash-input type="text" name="color_four" label="Color Fourth" placeholder="Enter Color code (#0000)" value="{{$setting['color_four']}}"
+                                            :message="$errors->first('color_four')" />
                                     </div>
                                     <div class="col-2 my-4">
                                         <label class="form-check form-switch form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" name="fixed_header" />
-                                            <span class="form-check-label fw-semibold text-muted">Fixed Header</span>
+                                            <input class="form-check-input" type="checkbox" name="site_index" />
+                                            <span class="form-check-label fw-semibold text-muted">Site Index</span>
                                         </label>
                                     </div>
                                 </div>

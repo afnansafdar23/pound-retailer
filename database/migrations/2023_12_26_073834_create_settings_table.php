@@ -16,14 +16,17 @@ return new class extends Migration
         if (!Schema::hasTable('settings')) {
             Schema::create('settings', function (Blueprint $table) {
                 $table->id();
-                $table->string('site_name', 50);
-                $table->string('meta_title')->nullable();
-                $table->longText('meta_description')->nullable();
-                $table->string('color1')->default('#000');
-                $table->string('color2')->default('#000');
-                $table->string('color3')->default('#000');
-                $table->string('color4')->default('#000');
+                $table->string('application_name', 50)->default('Pound Kingdom');
+                $table->string('email')->nullable();
+                $table->longText('short_description')->nullable();
+                $table->string('color_one')->default('#000');
+                $table->string('color_two')->default('#000');
+                $table->string('color_three')->default('#000');
+                $table->string('color_four')->default('#000');
+                $table->string('facebook_link')->nullable();
+                $table->string('instagram_link')->nullable();
                 $table->string('gsc')->nullable();
+                $table->string('site_index')->nullable();
                 $table->softDeletes();
                 $table->timestamps();
             });

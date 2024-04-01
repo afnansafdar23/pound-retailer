@@ -24,9 +24,7 @@
                 <img onclick="window.location.href='{{ route('web.prod.detail', $productByBrand->id) }}'" src="{{$productByBrand->getFirstMediaUrl('product.image')}}"
                     alt="">
                 <ul class="action">
-                    <li><i class="fa-solid fa-heart" onclick="window.location.href='{{ route('web.wish') }}'"></i>
-                        <span>add to whishlist</span>
-                    </li>
+
                     <li><i class="fa-solid fa-eye " onclick="window.location.href='{{ route('web.prod.detail', $productByBrand->id) }}'"></i>
                         <span>view detail</span>
                     </li>

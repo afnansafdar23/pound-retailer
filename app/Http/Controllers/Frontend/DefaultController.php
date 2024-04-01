@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\DataTables\OrderDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Brand;
@@ -10,6 +11,8 @@ use App\Models\order;
 use App\Models\ParentCategory;
 use App\Models\Product;
 use App\Models\SubCategory;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -176,7 +179,28 @@ class DefaultController extends Controller
             ]);
     }
 
-    //cart function
+    //Product by SubCategory
+    public function prductbysubCate(SubCategory $subCategory): View
+
+
+    {
+        // getting Parent Categories
+        $parentCategories = ParentCategory::all();
+
+       $subcata = SubCategory::where('id', $subCategory->id)->get();
+
+        // geting Child Category Id
+        $childID = $subCategory->child_category_id;
+
+        // Getting Child Categories According to SubCategory for related
+        $relatdCategory = SubCategory::where('child_category_id', $childID)->get();
+    //   getting Product According to SubCategory
+       $products = Product::where('sub_category_id',  $subCategory->id)->paginate(12);
+
+
+        return view('frontend.prodbySubCategory')->with(['parentCategories' => $parentCategories, 'subCategory' => $subcata, 'relatedCategory' =>$relatdCategory, 'products' => $products,]);
+    }
+
 
     public function cart(): View
     {
@@ -237,14 +261,8 @@ class DefaultController extends Controller
         return view('frontend.deliveryinfo')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
     }
 
-    // Wish List
-    public function wish(): View
-    {
-        $parentCategories = ParentCategory::all();
-        $childCategories = ChildCategory::all();
 
-        return view('frontend.wishlist')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
-    }
+
 
 
     // terms and conditions
@@ -265,10 +283,11 @@ class DefaultController extends Controller
         return view('frontend.privacy')->with(['parentCategories' => $parentCategories, 'childCategories' => $childCategories]);
     }
 
-    public function addtocart($productId)
+    public function addtocart($productId , Request $request)
 
     {
 
+        $qty = $request->input('quantity');
 
     if(Auth::user()) {
         $product = Product::find($productId);
@@ -278,7 +297,7 @@ class DefaultController extends Controller
         $price = $product->discounted_price ?? $product->price;
         $cart[$productId] = [
             "name" => $product->name,
-            "quantity" => 1,
+            "quantity" => $qty,
             "price" => $price,
             "dimention" => $dimension,
             "photo" => $productImage
@@ -334,49 +353,7 @@ class DefaultController extends Controller
 
 
 
-public function addtowish($productId)
 
-{
-
-
-if(Auth::user()) {
-    $product = Product::find($productId);
-    $wish = Session::get('wish', []);
-    $productImage = $product->getFirstMediaUrl('product.image');
-    $dimension = $product->product_height + $product->product_width;
-    $price = $product->discounted_price ?? $product->price;
-    $wish[$productId] = [
-        "name" => $product->name,
-        "quantity" => 1,
-        "price" => $price,
-        "dimention" => $dimension,
-        "photo" => $productImage
-
-    ];
-
-    Session::put('wish', $wish);
-    return response()->json(['wishSection' => view('frontend.layout.wish')->render()]);
-
-}else{
-    return response()->json(['redirect' =>route('auth.login')]);
-}
-
-   }
-   public function deletewish(Request $request)
-   {
-       if($request->id) {
-           $wish = session()->get('wish');
-           if(isset($wish[$request->id])) {
-               unset($wish[$request->id]);
-               session()->put('wish', $wish);
-               return response()->json([ 'wishSection' => view('frontend.layout.wish')->render(),
-               'updatecar' => view('frontend.layout.adwish')->render()]);
-
-           }
-
-       }
-
-   }
 
    public function billing(){
 
@@ -506,6 +483,50 @@ if(Auth::user()) {
 
 
 
+
 }
 
+
+public function detail(OrderDataTable $colorDatable)
+{
+    return $colorDatable->render('admin.order.index',[$colorDatable]);
+}
+
+
+public function orderedit(order $id):View
+{
+
+
+     $userid = $id->userid;
+     $mail = User::where('id', $userid)->first();
+    //  dd($mail);
+   $email= $mail->email;
+
+
+
+
+    return view('admin.order.updateorder',)->with([
+        'orders' => $id,
+        'mail' => $email
+    ]);
+
+
+}
+ public function orderupdate(Request $request):RedirectResponse
+ {
+
+
+
+    $id =$request->id;
+    $order= order::where('id',$id)->first();
+
+    $order->delivery_status = $request->delivery_status;
+    $order->zipcode = $request->zipcode;
+    $order->StreetAddress = $request->StreetAddress;
+    $order->state = $request->state;
+    $order->phoneNo = $request->phoneNo;
+
+    $order->save();
+    return redirect()->back()->with('success', 'Delivery status updated successfully');
+    }
 }

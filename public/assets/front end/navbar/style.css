@@ -43,10 +43,20 @@
 /*----------------------------------------*/
 /*  1.  Theme default CSS
 /*----------------------------------------*/
+
+:root {
+    --navcolor: #4831d4;
+    --footcolor: #4831d4;
+    --button: #ccf381;
+}
+html,
+body {
+    overflow-x: hidden;
+}
 body {
     background-color: #fff;
     color: #606060;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans","sans-serif";
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -66,14 +76,14 @@ h4,
 h5,
 h6 {
     color: #252525;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", 'sans-serif';
     font-weight: 400;
 }
 
-p {
+/* p {
     --bs-text-opacity: 1;
     color: #6c757d !important;
-}
+} */
 
 p:last-child {
     margin-bottom: 0;
@@ -1742,10 +1752,23 @@ textarea:-ms-input-placeholder {
     float: left;
     width: 100%;
 }
+.headsidebar{
+    margin-top: -30px;
+    display: flex;
 
-/* Sidebar Menu Style */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border-bottom: 2px solid white;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #ff9900;
+}
 .sidebar-menu-wrapper {
-    background-color: #fff;
+    background-color:#0f0f0c;
+    color: white;
     bottom: 0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     left: -400px;
@@ -1778,7 +1801,10 @@ textarea:-ms-input-placeholder {
 
 .sidebar-menu-wrapper .menu-close i {
     display: block;
-    font-size: 30px;
+    position: absolute;
+    top:20px;
+    right: 30px;
+    font-size: 40px;
     line-height: 33px;
 }
 
@@ -1790,11 +1816,32 @@ textarea:-ms-input-placeholder {
     margin-bottom: 5px;
     position: relative;
 }
+/* boxes section of sidebar start*/
+                .boxes{
+                    margin-top: 10px;
+                    margin-bottom: 10px;
 
+                }
+                .boxes .box{
+                    height: 40px;
+                    width: 40%;
+                    margin: 10px;
+                    background-color:#FFF;
+                    color: black;
+                    border-radius: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color:#ff9900;
+                    color: #fff !important;
+                    font-weight: bold;
+                }
+  /* boxes section of sidebar end*/
 .sidebar-menu > ul > li > a {
-    color: #333333;
+    color:white;
+    font-family:"Open Sans", 'sans-serif';
     display: block;
-    font-weight: 700;
+    font-weight: 600;
     /* margin-right: 125px; */
     padding: 8px 6px 9px 16px;
     text-transform: uppercase;
@@ -1802,7 +1849,7 @@ textarea:-ms-input-placeholder {
     transition: all 0.3s ease 0s;
 }
 
-.sidebar-menu > ul > li.active > a,
+.hovereffect:hover,
 .sidebar-menu > ul > li > a:hover {
     background-color: #ff9900;
     color: #fff;
@@ -1848,7 +1895,7 @@ textarea:-ms-input-placeholder {
 }
 
 .sidebar-menu .hitarea:before {
-    color: #020202;
+    color: white;
     display: block;
     line-height: 14px;
     text-align: center;

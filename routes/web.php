@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogController;
@@ -18,7 +19,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\DefaultController;
 use App\Http\Controllers\PostController;
 use App\Http\Middleware\Permissions;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 Route::withoutMiddleware([Permissions::class])->group(function () {
 
@@ -43,15 +45,18 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('/prod-by-cat/{parentCategory}', 'prodByCat')->name('prodByCat');
             Route::get('/prod-by-child-cat/{childCategory}', 'prodByChildCat')->name('prodByChildCat');
             Route::get('/product-by-child/{childCategory}', 'prductbychild')->name('productbychild');
+            Route::get('/product-by-subCategory/{subCategory}', 'prductbysubCate')->name('prod.sub');
+
             Route::get('brands', 'brands')->name('prod.by.brands');
             Route::get('/cart', 'cart')->name('cart');
+
             Route::get('/checkout', 'checkout')->name('checkout');
             Route::get('/contact-us', 'contact')->name('contact');
             Route::get('/about-us', 'about')->name('about');
             Route::get('/faqs', 'faq')->name('faq');
             Route::post('/payment', 'payment')->name('payment');
             Route::get('/deliveryinfo', 'deliveryinfo')->name('deliveryinfo');
-            Route::get('/wish', 'wish')->name('wish');
+
             Route::get('/privacy-policy', 'privacy')->name('privacy');
             Route::get('/terms-condition', 'term')->name('term');
             Route::get('/prod-by-brands/{brand}', 'prodByBrands')->name('prod.brand');
@@ -59,7 +64,7 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('/all-blog', 'allBlogs')->name('allblog');
             Route::get('product/detail/{product}', 'prodDetail')->name('prod.detail');
             Route::post('add-to-cart/{productId}', 'addtocart')->name('addtocar');
-            Route::post('add-to-wish/{productId}', 'addtowish')->name('addtowish');
+
             Route::delete('delete-cart', 'deletecart')->name('deletecart');
             Route::post('/update-cart', 'updateCart')->name('updatecart');
             Route::get('/billing', 'billing')->name('billing');
@@ -67,11 +72,40 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
         });
 });
 Route::controller(StripePaymentController::class)->group(function () {
-    Route::get('stripe/{id}', 'stripe');
+    Route::get('stripe/{id}', function ($id, StripePaymentController $controller, Request $request) {
+        // Check if cart exists in the session
+        if (!Session::has('cart')) {
+            // Redirect or return a response indicating that cart doesn't exist
+            return redirect()->route('home')->with('error', 'Cart is empty!');
+        }
+
+        // Cart exists, proceed with payment logic
+        // Call the appropriate method on the controller
+        return $controller->stripe($request, $id);
+    });
 
     Route::post('/stripe/{id}', 'StripePost')->name('stripe.post');
 
 });
+Route::controller(DefaultController::class)
+->prefix('order')
+->name('order.')
+->group(function () {
+    Route::get('trans', 'detail')->name('trans');
+
+
+});
+ Route::controller(DefaultController::class)
+        ->prefix('order')
+        ->name('order.')
+        ->group(function () {
+            Route::get('detail', 'detail')->name('detail');
+            Route::get('details{id}', 'details')->name('details');
+            Route::get('edit/{id}', 'orderedit')->name('edit');
+            Route::post('update/{id}', 'orderupdate')->name('update');
+
+
+        });
 
 Route::middleware('auth')->group(function () {
     Route::controller(UserController::class)
@@ -99,7 +133,7 @@ Route::middleware('auth')->group(function () {
         ->name('setting.')
         ->group(function () {
             Route::get('', 'index')->name('index');
-            Route::get('store', 'storeUpdateSetting')->name('store');
+            Route::post('store', 'storeUpdateSetting')->name('store');
         });
 
     Route::controller(RoleController::class)

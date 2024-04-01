@@ -25,6 +25,6 @@
                     @endif
 
                     <div class="mini-cart-checkout text-center">
-                    <a href="{{ url('/check-out') }}" >Checkout</a>
+                    <a href="{{ url('/cart') }}" >Checkout</a>
                     </div>
                 </div>
