@@ -81,7 +81,9 @@ input{
     padding: 1vh;
     margin-bottom: 4vh;
     outline: none;
-    width: 100%;
+    height: 37px;
+    font-size: large;
+    width: 98%;
     background-color: rgb(247, 247, 247);
 }
 input:focus::-webkit-input-placeholder
@@ -225,7 +227,7 @@ input[type=checkbox]{
                         @csrf
                             <span>Cardholder's name:</span>
                             <input
-                                    class='' size='4' type='text'>
+                                    class='fs-3' type='text'>
                             <span>Card Number:</span>
                             <input
                             autocomplete='off' class=' card-number cc-number'  placeholder="0125 6780 4567 9909" size='20' maxlength="19"

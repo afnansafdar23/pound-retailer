@@ -45,25 +45,18 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('/prod-by-cat/{parentCategory}', 'prodByCat')->name('prodByCat');
             Route::get('/prod-by-child-cat/{childCategory}', 'prodByChildCat')->name('prodByChildCat');
             Route::get('/product-by-child/{childCategory}', 'prductbychild')->name('productbychild');
-            Route::get('brands', 'brands')->name('prod.by.brands');
-            Route::get('/cart', function () {
-                // Check if cart exists in the session
-                if (!Session::has('cart')) {
-                    // Redirect or return a response indicating that cart doesn't exist
-                    return redirect()->route('web.index')->with('error', 'Cart is empty!');
-                }
+            Route::get('/product-by-subCategory/{subCategory}', 'prductbysubCate')->name('prod.sub');
 
-                // Cart exists, proceed with your cart logic
-                // For example, return a view
-                return view('cart');
-            })->name('cart');
+            Route::get('brands', 'brands')->name('prod.by.brands');
+            Route::get('/cart', 'cart')->name('cart');
+
             Route::get('/checkout', 'checkout')->name('checkout');
             Route::get('/contact-us', 'contact')->name('contact');
             Route::get('/about-us', 'about')->name('about');
             Route::get('/faqs', 'faq')->name('faq');
             Route::post('/payment', 'payment')->name('payment');
             Route::get('/deliveryinfo', 'deliveryinfo')->name('deliveryinfo');
-            Route::get('/wish', 'wish')->name('wish');
+
             Route::get('/privacy-policy', 'privacy')->name('privacy');
             Route::get('/terms-condition', 'term')->name('term');
             Route::get('/prod-by-brands/{brand}', 'prodByBrands')->name('prod.brand');
@@ -71,7 +64,7 @@ Route::withoutMiddleware([Permissions::class])->group(function () {
             Route::get('/all-blog', 'allBlogs')->name('allblog');
             Route::get('product/detail/{product}', 'prodDetail')->name('prod.detail');
             Route::post('add-to-cart/{productId}', 'addtocart')->name('addtocar');
-            Route::post('add-to-wish/{productId}', 'addtowish')->name('addtowish');
+
             Route::delete('delete-cart', 'deletecart')->name('deletecart');
             Route::post('/update-cart', 'updateCart')->name('updatecart');
             Route::get('/billing', 'billing')->name('billing');

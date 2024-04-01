@@ -18,7 +18,7 @@
                     <li><a href="{{route('web.prod.by.brands')}}">shop</a></li>
                     <li><a href="#">wishlist</a></li>
                     <li><a href="{{Route('auth.login')}}">log in</a></li>
-                    <li><a href="{{Route('web.cart')}}">cart</a></li>
+                    <li><a href="{{Route(''')}}">cart</a></li>
                 </ul>
             </div>
             <div class="mini-cart-wrapper mini-cart-wrapper-2 float-right" id="addcart">

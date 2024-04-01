@@ -25,7 +25,6 @@
                 <ul>
                     <li><a href="{{ route('web.prod.by.brands') }}">products</a></li>
                     <li><a href="{{ route('web.cart') }}">cart</a></li>
-                    <li><a href="{{ route('web.checkout') }}">checkout</a></li>
                     <li><a href="{{ route('web.contact') }}">contact us</a></li>
                     <li><a href="{{ route('web.faq') }}">FAQ</a></li>
                     <li><a href="{{ route('web.privacy') }}">Privacy policy</a></li>

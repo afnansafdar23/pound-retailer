@@ -251,47 +251,49 @@
 
 
         $(document).ready(function() {
-            $('.add-to-cart').on('click', function() {
-                var productId = $(this).data('product-id');
-                console.log('Product ID:', productId); // Add this line
+    $('.add-to-cart').on('click', function() {
+        var productId = $(this).data('product-id');
+        var quantity = $('#quantityInput').val(); // Assuming you have an input field with id 'quantityInput'
+       console.log(quantity);
+        // Check if quantity is valid (not empty, not NaN, etc.)
+        if (!quantity || isNaN(quantity) || quantity <= 0) {
+            alert('Please enter a valid quantity.');
+            return;
+        }
 
-
-                $.ajax({
-                    type: 'POST', // Use POST method
-                    url: '/add-to-cart/' + productId,
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function(response) {
-                        // Check the console for the response
-                        if (response.redirect) {
-                            // Handle redirect
-                            window.location.href = response.redirect;
-                        } else {
-                            // Update the cart section with the new HTML content
-                            updateCart(response.cartSection);
-                            // Other actions...
-                        }
-
-
-                        // Show the cart message
-
-                    },
-                    error: function(error) {
-                        // Check the console for errors
-                        console.error('Error adding to cart:', error);
-                    }
-                });
-            });
-
-            function updateCart(cartHtml) {
-                // Update the cart section with the new HTML content
-                $('#addcart').html(cartHtml);
+        $.ajax({
+            type: 'POST', // Use POST method
+            url: '/add-to-cart/' + productId,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {
+                quantity: quantity // Send quantity along with the request
+            },
+            success: function(response) {
+                // Check the console for the response
+                if (response.redirect) {
+                    // Handle redirect
+                    window.location.href = response.redirect;
+                } else {
+                    // Update the cart section with the new HTML content
+                    updateCart(response.cartSection);
+                    // Other actions...
+                }
+                // Show the cart message
+            },
+            error: function(error) {
+                // Check the console for errors
+                console.error('Error adding to cart:', error);
             }
-
-
         });
+    });
 
+    function updateCart(cartHtml) {
+        // Update the cart section with the new HTML content
+        $('#addcart').html(cartHtml);
+    }
+});
 
         $(document).ready(function() {
 
