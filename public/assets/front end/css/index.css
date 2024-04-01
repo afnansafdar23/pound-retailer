@@ -657,6 +657,10 @@ input[type="number"]::-webkit-outer-spin-button {
     overflow-x: hidden;
 }
 
+.blog-cards a img{
+    height: 150px !important;
+}
+
 /* Categories Title */
 .parent-center-text {
     position: absolute;
