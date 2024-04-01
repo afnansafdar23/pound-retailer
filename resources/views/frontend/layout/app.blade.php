@@ -67,6 +67,10 @@
     -->
     <style>
         :root {
+            --nav-background: linear-gradient(
+            {{ app('GlobalHelper')->hexToRgb($setting['color_one']) }},
+            {{ app('GlobalHelper')->hexToRgb($setting['color_two']) }}
+        );
             --black: black;
         }
 
@@ -152,21 +156,20 @@
             </style>
             <div class="boxes container">
                 <div class="row ">
-                    <div class="col-5 box">
-                        <p>Free delivery </p>
-                    </div>
-                    <div class="col-6 box">
-                        <p>Free delivery </p>
-                    </div>
+                    <a type="btn" class="col-5 box cursor-pointer">
+                        Free delivery
+                    </a>
+                    <a type="btn" class="col-6 box cursor-pointer">
+                        Free delivery
+                    </a>
                 </div>
                 <div class="row">
-
-                        <div class="col-5 box">
-                            <p>Free delivery </p>
-                        </div>
-                        <div class="col-6 box">
-                            <p>Free delivery </p>
-                        </div>
+                        <a type="btn" class="col-5 box cursor-pointer">
+                            Free delivery
+                        </a>
+                        <a type="btn" class="col-6 box cursor-pointer">
+                            Free delivery
+                        </a>
 
                 </div>
             </div>
@@ -202,31 +205,6 @@
                     <li><a href="{{ Route('web.contact') }}">contact</a></li>
                 </ul>
             </nav>
-    <ul>
-        @foreach ($parentCategories as $parentCategory)
-        <li class="{{Request::route()->getName()=='web.prodByCat'?'active':''}}" >
-            <a href="{{ route('web.prodByCat',$parentCategory['id']) }}">{{$parentCategory['name']}}</a>
-            @if ($parentCategory->childCategories->isNotEmpty())
-            <ul>
-                @foreach ($parentCategory->childCategories as $childCategory)
-                <li >
-                    <a class="hovereffect" href="/product-by-child/{{$childCategory['id']}}" style="color: white">{{$childCategory['name']}}</a>
-                    @if ($childCategory->subCategories->isNotEmpty())
-                    <ul>
-                        @foreach ($childCategory->subCategories as $subCategory)
-                        <li><a class="hovereffect" href="/product-by-child/{{$subCategory['id']}}" style="color: white">{{$subCategory['name']}}</a></li>
-                        @endforeach
-                    </ul>
-                    @endif
-                </li>
-                @endforeach
-            </ul>
-            @endif
-        </li>
-        @endforeach
-        <li><a href="{{Route('web.contact')}}">contact</a></li>
-    </ul>
-</nav>
 
         </div>
         <!-- Mobile Menu Wrapper 1 -->

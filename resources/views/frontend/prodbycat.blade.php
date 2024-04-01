@@ -35,6 +35,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row justify-content-center">
+                    @if(isset($childCategories))
                     @foreach ($childByParentCat as $childCategory)
                     <div class="col-md-2 col-sm-6 col-6">
                         <div class="card border-0" data-aos="zoom-in" data-aos-duration="1000">
@@ -46,7 +47,7 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    @endforeach @endif
                 </div>
             </div>
         </div>
@@ -59,6 +60,7 @@
     <!-- product section -->
 <div class="container container_pro">
     <div class="row justify-content-center">
+        @if(isset($childCategory->products ))
         @foreach ($childCategory->products as $product)
         <div class="col-lg-3 mt-2">
             <div class="card" data-aos="zoom-in-up" data-aos-duration="1000">
@@ -102,6 +104,7 @@
             </div>
         </div>
         @endforeach
+        @endif
     </div>
 </div>
 <!-- end product section -->
