@@ -7,7 +7,8 @@
     href="https://cdn.jsdelivr.net/npm/@accessible360/accessible-slick@1.0.1/slick/accessible-slick-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 <link rel="stylesheet" href="{{asset('assets/front end/css/index.css')}}">
-
+<style>@import url('https://fonts.googleapis.com/css?family=Poppins|Ubuntu&display=swap');
+    .box{position: relative;width: 100%;padding-right: 15px;padding-left: 15px}.our-services{margin-top: 75px;padding-bottom: 30px;padding: 0 60px;min-height: 198px;text-align: center;border-radius: 10px;background-color: #fff;transition: all .4s ease-in-out;box-shadow: 0 0 25px 0 rgba(20,27,202,.17)}.our-services .icon{margin-bottom: -21px;transform: translateY(-50%);text-align: center}.our-services:hover h4, .our-services:hover p{color: #fff}.speedup:hover{box-shadow: 0 0 25px 0 rgba(20,27,201,.05);cursor: pointer;background-image: linear-gradient(-45deg, #fb0054 0%, #f55b2a 100%)}.settings:hover{box-shadow: 0 0 25px 0 rgba(20,27,201,.05);cursor: pointer;background-image: linear-gradient(-45deg, #34b5bf 0%, #210c59 100%)}.privacy:hover{box-shadow: 0 0 25px 0 rgba(20,27,201,.05);cursor: pointer;background-image: linear-gradient(-45deg, #3615e7 0%, #44a2f6 100%)}.backups:hover{box-shadow: 0 0 25px 0 rgba(20,27,201,.05);cursor: pointer;background-image: linear-gradient(-45deg, #fc6a0e 0%, #fdb642 100%)}.ssl:hover{box-shadow: 0 0 25px 0 rgba(20,27,201,.05);cursor: pointer;background-image: linear-gradient(-45deg, #8d40fb 0%, #5a57fb 100%)}.database:hover{box-shadow: 0 0 25px 0 rgba(20,27,201,.05);cursor: pointer;background-image: linear-gradient(-45deg, #27b88d 0%, #22dd73 100%)}</style>
 <link rel="stylesheet" href="{{asset('assets/front end/css/category.css')}}">
 @endsection
 @section('content')
@@ -71,12 +72,12 @@
     <div class = "title pt-3">
         <h2 class = "position-relative ms-4">Latest Products</h2>
     </div>
-  <div class="owl-carousel container container_pro">
+  <div class="owl-carousel container container_pro mx-0 custom-card-container">
 
     @forelse ($products as $product)
     <div class="item">
         <!-- card -->
-        <div class="card">
+        <div class=" custom-card card h-100 shadow-custom">
             <div class="imgBx">
                 <img  class="corsor" onclick="window.location.href='{{ route('web.prod.detail', $product->id) }}'" src="{{$product->getFirstMediaUrl('product.image')}}" alt="">
                 <ul class="action">
@@ -147,40 +148,69 @@
 </section>
 {{-- Best --}}
 
-<!-- statics Card Section -->
-@php
-    // Array to store image paths
-    $imagePaths = [
-        'assets/media/stock/ecommerce/2.gif',
-        'assets/media/stock/ecommerce/2.gif',
-        'assets/media/stock/ecommerce/3.gif',
-        'assets/media/stock/ecommerce/24.gif'
-    ];
-@endphp
-
-<section class="d-flex justify-content-around mb-2 mt-2">
-    <div class="container-fluid mt-3 pl-2 row custom-card-container">
-        @foreach($imagePaths as $imagePath)
-            <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
-                <div class="custom-card card h-100 shadow-custom">
-                    <div class="card-body d-flex flex-column justify-content-between">
-                        <div class="text-center mb-3">
-                            <img src="{{ asset($imagePath) }}" class="custom-card-img card-img-top img-fluid" alt="Product">
-                        </div>
-                        <div class="text-center">
-                            <h5 class="custom-card-title card-title mb-2">Product Name</h5>
-                            <p class="custom-card-text card-text text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                        <div class="text-center mt-3">
-                            <a href="#" class="custom-card-btn btn btn-primary">View Details</a>
-                        </div>
-                    </div>
+<div class="container-fluid mb-5">
+    <div class="text-center mt-5">
+        <h1>Our Services</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services settings">
+                    <div class="icon"> <img src="https://i.imgur.com/6NKPrhO.png"> </div>
+                    <h4>Settings</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                 </div>
             </div>
-        @endforeach
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services speedup">
+                    <div class="icon"> <img src="https://i.imgur.com/KMbnpFF.png"> </div>
+                    <h4>Speedup</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services privacy">
+                    <div class="icon"> <img src="https://i.imgur.com/AgyneKA.png"> </div>
+                    <h4>Privacy</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                </div>
+            </div>
+        </div>
     </div>
-</section>
-
+    <div class="row">
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services backups">
+                    <div class="icon"> <img src="https://i.imgur.com/vdH9LKi.png"> </div>
+                    <h4>Backups</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services ssl">
+                    <div class="icon"> <img src="https://i.imgur.com/v6OnUqu.png"> </div>
+                    <h4>SSL secured</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box">
+                <div class="our-services database">
+                    <div class="icon"> <img src="https://i.imgur.com/VzjZw9M.png"> </div>
+                    <h4>Database</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
