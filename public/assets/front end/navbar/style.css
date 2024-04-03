@@ -1087,7 +1087,7 @@ textarea:-ms-input-placeholder {
 .header-left-1 {
     left: 50px;
     position: absolute;
-    top: 0;
+    top: 1.5rem;
 }
 
 /* Logo */
@@ -1290,7 +1290,7 @@ textarea:-ms-input-placeholder {
 .header-right-1 {
     position: absolute;
     right: 50px;
-    top: 0;
+    top: 1.5rem;
 }
 
 /* Language Currency */
@@ -1412,7 +1412,8 @@ textarea:-ms-input-placeholder {
 
 .mini-cart-btn i {
     display: block;
-    font-size: 25px;
+    font-size: 40px;
+    color:white;
     line-height: 0;
 }
 
@@ -1571,7 +1572,8 @@ textarea:-ms-input-placeholder {
 
 .search-toggle i {
     display: block;
-    font-size: 24px;
+    font-size: 40px;
+    color:white;
     line-height: 0;
 }
 
@@ -1659,7 +1661,7 @@ textarea:-ms-input-placeholder {
 .acc-menu-toggle i {
     color: #fff;
     display: block;
-    font-size: 24px;
+    font-size: 40px;
     line-height: 0;
 }
 
@@ -1742,7 +1744,7 @@ textarea:-ms-input-placeholder {
 
 .sidebar-menu-toggle i {
     display: block;
-    font-size: 30px;
+    font-size: 40px;
     line-height: 0px;
 }
 
@@ -1767,7 +1769,7 @@ textarea:-ms-input-placeholder {
     background-color: #ff9900;
 }
 .sidebar-menu-wrapper {
-    background-color:#4e55ce;
+    background-color:var(--theme-background);
     color: white;
     bottom: 0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
