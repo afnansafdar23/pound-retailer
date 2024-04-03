@@ -34,6 +34,7 @@
     </div>
 
     <!-- product section -->
+    <h3 class="fw-bold fs-4">Products</h3>
     <div class="container container_pro">
         <div class="row justify-content-center">
             @foreach ($products as $product)

@@ -1042,7 +1042,7 @@ textarea:-ms-input-placeholder {
 /*----------------------------------------*/
 /* Header Style 1 */
 .header-area {
-    background-color: #293158;
+    background-color: var(--theme-background);
     left: 0;
     right: 0;
     top: 0;
@@ -1767,7 +1767,7 @@ textarea:-ms-input-placeholder {
     background-color: #ff9900;
 }
 .sidebar-menu-wrapper {
-    background-color:#0f0f0c;
+    background-color:#4e55ce;
     color: white;
     bottom: 0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -4622,7 +4622,7 @@ textarea:-ms-input-placeholder {
 /*  12.  Footer Top Area
 /*----------------------------------------*/
 .footer-top-area {
-    background-color: #292929;
+    background-color:var(--theme-background);
 }
 
 /* Footer Contact */
@@ -4963,7 +4963,7 @@ textarea:-ms-input-placeholder {
 
 /*Newsletter Form */
 .footer-newsletter .mc-form input[type="email"] {
-    background-color: #909090;
+
     border: none;
     border-radius: 3px;
     color: #fff;
@@ -4995,7 +4995,7 @@ textarea:-ms-input-placeholder {
 /*  13.  Footer Bottom Area
 /*----------------------------------------*/
 .footer-bottom-area {
-    background-color: #1a1a1a;
+    background-color:var(--theme-background);
 }
 
 /* Footer Bottom Social */

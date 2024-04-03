@@ -56,7 +56,7 @@
     @endphp
     @foreach ($allSettings as $setting)
         <!-- Display other columns as needed -->
-    @endforeach
+
     <title>{{ $setting['application_name'] ? $setting['application_name'] : 'Pound Kingdom' }}</title>
     <!--
         we can not move this css style to already made css file because
@@ -64,10 +64,9 @@
     -->
     <style>
         :root {
-            --nav-background: linear-gradient(
-            {{ app('GlobalHelper')->hexToRgb($setting['color_one']) }},
-            {{ app('GlobalHelper')->hexToRgb($setting['color_two']) }}
-        );
+            --theme-background: {{ $setting['color_one'] }};
+
+
             --black: black;
         }
 
@@ -95,6 +94,7 @@
 
         }
     </style>
+    @endforeach
     @yield('customCss')
 </head>
 
@@ -106,8 +106,7 @@
         </div>
         <!-- Header Center 3 -->
         <div class="header-center header-center-3 text-center">
-            <a href="{{ Route('web.index') }}" class="logo"><img src="{{ asset('assets/media/logos/site_logo.png') }}"
-                    alt="logo"></a>
+            <a href="{{ Route('web.index') }}" class="logo"><img src="{{ asset('assets/media/logos/logo.png') }}" width="100px" height="100px"     alt="logo"></a>
         </div>
         <!-- Header Right 1 -->
         <div class="header-right header-right-1 ">
@@ -138,7 +137,7 @@
         </div>
         <!-- Sidebar Menu Wrapper -->
         <div class="sidebar-menu-wrapper z-index-3 " style="">
-            <button class="menu-close"><i class="zmdi zmdi-close-circle"></i></button>
+            <button class="menu-close"><i class="zmdi zmdi-close-circle-o text-light"></i></button>
             <div class="headsidebar">
                 <div class="circularlogo">
 

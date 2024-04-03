@@ -35,8 +35,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row justify-content-center">
-                    @if(isset($childCategories))
-                    @foreach ($childByParentCat as $childCategory)
+                    @if(isset($childCategory))
+                    @foreach ($childCategory as $childCategory)
                     <div class="col-md-2 col-sm-6 col-6">
                         <div class="card border-0" data-aos="zoom-in" data-aos-duration="1000">
                             <img src="{{$childCategory->getFirstMediaUrl('childCategory.image')}}"
