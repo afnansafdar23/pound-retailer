@@ -106,7 +106,8 @@
         </div>
         <!-- Header Center 3 -->
         <div class="header-center header-center-3 text-center">
-            <a href="{{ Route('web.index') }}" class="logo"><img src="{{ asset('assets/media/logos/logo.png') }}" width="100px" height="100px"     alt="logo"></a>
+            <a href="{{ Route('web.index') }}" class="logo" style="width: 25rem"><img src="{{ asset('assets/media/logos/site_logo.png') }}" style="    width: 27rem;
+    height: 7rem;"     alt="logo"></a>
         </div>
         <!-- Header Right 1 -->
         <div class="header-right header-right-1 ">
