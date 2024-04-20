@@ -56,8 +56,8 @@
     @endphp
     @foreach ($allSettings as $setting)
         <!-- Display other columns as needed -->
-    @endforeach
-    <title>{{ $setting['application_name'] ? $setting['application_name'] : 'Pound Kingdom' }}</title>
+        <title>{{ $setting['application_name'] ? $setting['application_name'] : 'Pound Kingdom' }}</title>
+   
     <!--
         we can not move this css style to already made css file because
         it can effect the other files with seperate css
@@ -95,6 +95,7 @@
 
         }
     </style>
+     @endforeach
     @yield('customCss')
 </head>
 
