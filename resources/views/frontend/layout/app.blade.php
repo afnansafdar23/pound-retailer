@@ -56,18 +56,17 @@
     @endphp
     @foreach ($allSettings as $setting)
         <!-- Display other columns as needed -->
-        <title>{{ $setting['application_name'] ? $setting['application_name'] : 'Pound Kingdom' }}</title>
-   
+
+    <title>{{ $setting['application_name'] ? $setting['application_name'] : 'Pound Kingdom' }}</title>
     <!--
         we can not move this css style to already made css file because
         it can effect the other files with seperate css
     -->
     <style>
         :root {
-            --nav-background: linear-gradient(
-            {{ app('GlobalHelper')->hexToRgb($setting['color_one']) }},
-            {{ app('GlobalHelper')->hexToRgb($setting['color_two']) }}
-        );
+            --theme-background: {{ $setting['color_one'] }};
+
+
             --black: black;
         }
 
@@ -95,7 +94,7 @@
 
         }
     </style>
-     @endforeach
+    @endforeach
     @yield('customCss')
 </head>
 
@@ -107,8 +106,8 @@
         </div>
         <!-- Header Center 3 -->
         <div class="header-center header-center-3 text-center">
-            <a href="{{ Route('web.index') }}" class="logo"><img src="{{ asset('assets/media/logos/site_logo.png') }}"
-                    alt="logo"></a>
+            <a href="{{ Route('web.index') }}" class="logo" style="width: 25rem"><img src="{{ asset('assets/media/logos/site_logo.png') }}" style="    width: 27rem;
+    height: 7rem;"     alt="logo"></a>
         </div>
         <!-- Header Right 1 -->
         <div class="header-right header-right-1 ">
@@ -139,7 +138,7 @@
         </div>
         <!-- Sidebar Menu Wrapper -->
         <div class="sidebar-menu-wrapper z-index-3 " style="">
-            <button class="menu-close"><i class="zmdi zmdi-close-circle"></i></button>
+            <button class="menu-close"><i class="zmdi zmdi-close-circle-o text-light"></i></button>
             <div class="headsidebar">
                 <div class="circularlogo">
 

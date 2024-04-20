@@ -55,12 +55,12 @@
 </div>
 
 <div class="pound-parent-category px-3 row mt-2">
-    @foreach ($parentCategories as $parentCategory)
+    @foreach ($parentCategory as $parentCategory)
     <div class="pound-pc-imageContainer p-0">
         <img src="{{$parentCategory->getFirstMediaUrl('parentCategory.image')}}"
             alt="{{$parentCategory['name']}}">
         <h3 class="parent-center-text">{{ Illuminate\Support\Str::limit(strip_tags($parentCategory['name']), 25, '...') }}</h3>
-        <div class="overlay">
+        <div class="overlay" onclick="window.location.href='{{ route('web.prodByCat',$parentCategory['id']) }}'" >
             <a href="{{ route('web.prodByCat',$parentCategory['id']) }}"><h3>{{ Illuminate\Support\Str::limit(strip_tags($parentCategory['name']), 25, '...') }}</h3></a>
         </div>
     </div>

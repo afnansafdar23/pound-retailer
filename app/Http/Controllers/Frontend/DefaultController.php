@@ -30,12 +30,14 @@ class DefaultController extends Controller
         $parentCategories = ParentCategory::all();
         $childCategories = ChildCategory::all();
         $subCategories = SubCategory::all();
+        $card = ParentCategory::take(12)->get();
         $blogs = Blog::all();
         $brands = Brand::all();
         $products = Product::all();
 
         return view('frontend.index')
             ->with([
+                'parentCategory' => $card,
                 'parentCategories' => $parentCategories,
                 'childCategories' => $childCategories,
                 'blogs' => $blogs,
@@ -88,9 +90,13 @@ class DefaultController extends Controller
     {
 
         $parentCategories = ParentCategory::all();
+
         $childByParentCat = ChildCategory::all();
 
-        return view('frontend.prodbycat')->with(['parentCategories' => $parentCategories, 'childByParentCat' => $childByParentCat, 'parentCategory' => $parentCategory,]);
+
+        $childCategory = ChildCategory::where('parent_category_id', $parentCategory->id)->get();
+
+        return view('frontend.prodbycat')->with(['parentCategories' => $parentCategories, 'childByParentCat' => $childByParentCat, 'childCategory'=>$childCategory, 'parentCategory' => $parentCategory, ]);
     }
 
     public function prductbychild(Request $request){

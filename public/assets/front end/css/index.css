@@ -60,7 +60,7 @@
     .wide-image {
         grid-column: auto;
     }
-    
+
     .carousel-item img{
         height: 110vh !important;
     }
@@ -119,13 +119,14 @@
 .overlay {
     position: absolute;
     top: 100%;
+    cursor: pointer;
     /* Initially position the overlay at the bottom */
     left: 0;
     width: 100%;
     height: 100%;
     transition: top 0.5s;
     /* Transition the top property for animation */
-    background: rgba(255, 255, 0);
+    background: rgba(0 50 255 / 44%);
     /* Yellow color with 0.7 opacity */
     color: #fff;
     /* Black text color */
@@ -411,7 +412,7 @@
     }
 }
 
-    
+
     @media(min-width: 991px) {
         .card-main {
             margin-left: -14px;

@@ -52,7 +52,9 @@
         </div>
     </div>
     <!-- product section -->
+    <h3 class="text-center">Products</h3>
     <div class="container container_pro">
+
         <div class="row justify-content-center">
             @foreach ($products as $product)
             <div class="col-lg-3 mt-2">

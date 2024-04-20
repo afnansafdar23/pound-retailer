@@ -9,8 +9,9 @@
     @endphp
     @foreach ($allSettings as $setting)
         <!-- Display other columns as needed -->
-    @endforeach
+
     <title>{{ $setting['application_name'] ? $setting['application_name'] : 'Pound Kingdom' }}</title>
+    @endforeach
     <meta charset="utf-8" />
     <meta name="description"
         content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Flask & Laravel versions. Grab your copy now and get life-time updates for free." />
