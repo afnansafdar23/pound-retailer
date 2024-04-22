@@ -38,8 +38,12 @@
     grid-column: span 2 / auto;
 } */
 
+.grid-img{
+    height: 40vh;
+}
+
 .carousel-item img{
-    height: auto !important;
+    height: 82vh !important;
 }
 
 .grid-block-images{
@@ -84,6 +88,13 @@
     .gb-img{
         width: 49%;
         height: 75vh;
+        border-radius: 6px;
+    }
+}
+
+@media(max-width: 768px){
+    .gb-img{
+        height: 55vh;
         border-radius: 6px;
     }
 }
