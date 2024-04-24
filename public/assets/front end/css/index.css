@@ -108,11 +108,34 @@
 
     .gb-img{
         width: 100%;
-        height: 45vh !important;
+        height: 50vh !important;
      }
 
      .carousel-item img{
-        height: 45vh !important;
+        height: 50vh !important;
+    }
+
+    .parent-center-text{
+        font-size: smaller;
+    }
+
+    .pound-pc-imageContainer{
+        height: 30vh !important;
+    }
+}
+
+@media (max-width: 390px){
+
+    .gb-img{
+        width: 100%;
+        height: 37vh !important;
+     }
+
+     .carousel-item img{
+        height: 37vh !important;
+    }
+    .pound-pc-imageContainer, .pound-pc-imageContainer img{
+        height: 30vh !important;
     }
 }
 
@@ -712,7 +735,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .pound-parent-category {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* To evenly space the items */
+    justify-content: space-between;
 }
 
 .pound-pc-imageContainer {
